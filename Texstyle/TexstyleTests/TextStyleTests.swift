@@ -35,7 +35,7 @@ final class TextStyleTests: XCTestCase {
         XCTAssertTrue(copy.link == style.link, "Copy has wrong link")
     }
 
-    func testEqual() {
+    func testEquality() {
         //Given
         let style = TextStyle.random
         //When

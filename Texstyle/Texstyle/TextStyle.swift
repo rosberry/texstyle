@@ -16,8 +16,8 @@ typealias TextStyleAttributes = [AttributedStringKey: Any]
 open class TextStyle {
 
     /// Use this attribute to change the font for a range of text.
-    /// If you do not specify this attribute, the string uses a 12-point Helvetica(Neue) font by default.
-    public var font: UIFont = .systemFont(ofSize: 14) {
+    /// If you do not specify this attribute, the string uses a 12-point system font by default.
+    public var font: UIFont = .systemFont(ofSize: 12) {
         didSet {
             cachedAttributes = nil
         }
