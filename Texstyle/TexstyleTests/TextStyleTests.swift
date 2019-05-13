@@ -7,34 +7,6 @@ import XCTest
 
 final class TextStyleTests: XCTestCase {
 
-    func testCopy() {
-        //Given
-        let style = TextStyle.random
-        //When
-        let copy = style.copy()
-        //Then
-        XCTAssertTrue(copy.font == style.font, "Copy has wrong font")
-        XCTAssertTrue(copy.color == style.color, "Copy has wrong color")
-        XCTAssertTrue(copy.backgroundColor == style.backgroundColor, "Copy has wrong backgroundColor")
-        XCTAssertTrue(copy.kerning == style.kerning, "Copy has wrong kerning")
-        XCTAssertTrue(copy.strokeWidth == style.strokeWidth, "Copy has wrong strokeWidth")
-        XCTAssertTrue(copy.baselineOffset == style.baselineOffset, "Copy has wrong baselineOffset")
-        XCTAssertTrue(copy.obliqueness == style.obliqueness, "Copy has wrong obliqueness")
-        XCTAssertTrue(copy.expansion == style.expansion, "Copy has wrong expansion")
-        XCTAssertTrue(copy.strikeThroughLine == style.strikeThroughLine, "Copy has wrong strikeThroughLine")
-        XCTAssertTrue(copy.underlineLine == style.underlineLine, "Copy has wrong underlineLine")
-        XCTAssertTrue(copy.effectStyle == style.effectStyle, "Copy has wrong effectStyle")
-        XCTAssertTrue(copy.attachment == style.attachment, "Copy has wrong attachment")
-        XCTAssertTrue(copy.alignment == style.alignment, "Copy has wrong alignment")
-        XCTAssertTrue(copy.lineBreakMode == style.lineBreakMode, "Copy has wrong lineBreakMode")
-        XCTAssertTrue(copy.lineSpacing == style.lineSpacing, "Copy has wrong lineSpacing")
-        XCTAssertTrue(copy.paragraphSpacing == style.paragraphSpacing, "Copy has wrong paragraphSpacing")
-        XCTAssertTrue(copy.paragraphSpacingBefore == style.paragraphSpacingBefore, "Copy has wrong paragraphSpacingBefore")
-        XCTAssertTrue(copy.lineHeight == style.lineHeight, "Copy has wrong lineHeight")
-        XCTAssertTrue(copy.paragraphStyle == style.paragraphStyle, "Copy has wrong paragraphStyle")
-        XCTAssertTrue(copy.link == style.link, "Copy has wrong link")
-    }
-
     func testEquality() {
         //Given
         let style = TextStyle.random
@@ -42,6 +14,16 @@ final class TextStyleTests: XCTestCase {
 
         //Then
         XCTAssertTrue(style == style, "Style is not equal to itself")
+    }
+
+    func testCopy() {
+        //Given
+        let style = TextStyle.random
+        //When
+        let copy = style.copy()
+        //Then
+        XCTAssertEqual(copy, style, "Copy is not equal to style")
+
     }
 
     func testParagraphStyle() {
