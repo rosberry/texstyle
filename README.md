@@ -1,6 +1,6 @@
 # Texstyle
 
-[![Build Status](https://travis-ci.org/rosberry/texstyle.svg?branch=master)](https://extensions.zeplin.io/rosberry/texstyle)
+[![Build Status](https://travis-ci.org/rosberry/texstyle.svg?branch=master)](https://travis-ci.org/rosberry/texstyle)
 [![Swift Version](https://img.shields.io/badge/swift-5.0-orange.svg)](https://swift.org/)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-green.svg)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/rosberry/texstyle/branch/master/graph/badge.svg)](https://codecov.io/gh/rosberry/texstyle)
