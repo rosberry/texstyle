@@ -8,16 +8,16 @@ extension TextStyle {
 
     static let title1: TextStyle = {
         let style = TextStyle()
-        style.font = .systemFont(ofSize: 15, weight: .bold)
+        style.font = .systemFont(ofSize: 32, weight: .regular)
         style.lineHeight = 16
         return style
     }()
         
     static let heading1: TextStyle = {
         let style = TextStyle()
-        style.font = .systemFont(ofSize: 16, weight: .regular)
+        style.font = .systemFont(ofSize: 28, weight: .semibold)
+        style.color = .purple
         style.lineHeight = 16
-        style.kerning = 1
         return style
     }()
         
