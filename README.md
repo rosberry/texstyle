@@ -31,7 +31,7 @@ text.attributed
 
 The result:
 
-![Example](.github/example.png)
+![Example1](.github/example1.png)
 
 Let's start with text styles. There is a `TextStyle` class for configuring different style parameters like font, color, kerning etc. We prefer to use `TextStyle` extension for app specific styles:
 
@@ -41,7 +41,6 @@ extension TextStyle {
     static let title1: TextStyle = {
         let style = TextStyle()
         style.font = .systemFont(ofSize: 32, weight: .regular)
-        style.lineHeight = 16
         return style
     }()
         
@@ -49,7 +48,6 @@ extension TextStyle {
         let style = TextStyle()
         style.font = .systemFont(ofSize: 28, weight: .semibold)
         style.color = .purple
-        style.lineHeight = 16
         return style
     }()
 }
@@ -80,7 +78,7 @@ text.attributed
 text.attributed(for: .highlighted)
 ```
 
-All attributed strings are cached by default 
+All attributed strings are cached by default. It's useful in reusing elements like `UICollectionViewCell` or `UITableViewCell`.
 
 There are convenience APIs for text creating and applying:
 
@@ -90,12 +88,11 @@ There are convenience APIs for text creating and applying:
 
 //UIButton
 button.setText(text)
-
-//UILabel
-label.setText(text)
 ```
 
 Check TexstyleExample project for more examples.
+
+![Example2](.github/example2.png)
 
 ## Installation
 
