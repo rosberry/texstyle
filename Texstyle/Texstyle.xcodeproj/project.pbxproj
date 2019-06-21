@@ -16,6 +16,8 @@
 		063FCBF52271FA02001C8962 /* TextStyle+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBF42271FA02001C8962 /* TextStyle+Sugar.swift */; };
 		063FCBF82271FA3B001C8962 /* String+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBF72271FA3B001C8962 /* String+Text.swift */; };
 		063FCBFF2272094E001C8962 /* UIButton+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBFE2272094E001C8962 /* UIButton+Text.swift */; };
+		067A645D22BCD0C300AF2E5E /* Text+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A645C22BCD0C300AF2E5E /* Text+Operators.swift */; };
+		067A646222BCDF5200AF2E5E /* Array+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A646122BCDF5200AF2E5E /* Array+Text.swift */; };
 		06AE69022272DE8F00DD5D8F /* Texstyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FCBA12271E51C001C8962 /* Texstyle.framework */; };
 		06AE690A2272DE9C00DD5D8F /* TextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AE69082272DE9C00DD5D8F /* TextTests.swift */; };
 		06AE690B2272DE9C00DD5D8F /* TextStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AE69092272DE9C00DD5D8F /* TextStyleTests.swift */; };
@@ -49,6 +51,8 @@
 		063FCBF42271FA02001C8962 /* TextStyle+Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Sugar.swift"; sourceTree = "<group>"; };
 		063FCBF72271FA3B001C8962 /* String+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Text.swift"; sourceTree = "<group>"; };
 		063FCBFE2272094E001C8962 /* UIButton+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Text.swift"; sourceTree = "<group>"; };
+		067A645C22BCD0C300AF2E5E /* Text+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Operators.swift"; sourceTree = "<group>"; };
+		067A646122BCDF5200AF2E5E /* Array+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Text.swift"; sourceTree = "<group>"; };
 		06AE68FD2272DE8F00DD5D8F /* TexstyleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TexstyleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06AE69012272DE8F00DD5D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06AE69082272DE9C00DD5D8F /* TextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTests.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				063FCBF42271FA02001C8962 /* TextStyle+Sugar.swift */,
 				063FCBF72271FA3B001C8962 /* String+Text.swift */,
 				063FCBFE2272094E001C8962 /* UIButton+Text.swift */,
+				067A645C22BCD0C300AF2E5E /* Text+Operators.swift */,
+				067A646122BCDF5200AF2E5E /* Array+Text.swift */,
 			);
 			path = Texstyle;
 			sourceTree = "<group>";
@@ -265,9 +271,11 @@
 			files = (
 				063FCBFF2272094E001C8962 /* UIButton+Text.swift in Sources */,
 				063FCBEA2271E907001C8962 /* TextSubstyle.swift in Sources */,
+				067A646222BCDF5200AF2E5E /* Array+Text.swift in Sources */,
 				063FCBE42271E635001C8962 /* TextStyle.swift in Sources */,
 				063FCBF02271ED9E001C8962 /* LineAttributes.swift in Sources */,
 				063FCBE22271E635001C8962 /* Text.swift in Sources */,
+				067A645D22BCD0C300AF2E5E /* Text+Operators.swift in Sources */,
 				063FCBED2271EC90001C8962 /* ControlState.swift in Sources */,
 				063FCBF82271FA3B001C8962 /* String+Text.swift in Sources */,
 				063FCBF52271FA02001C8962 /* TextStyle+Sugar.swift in Sources */,

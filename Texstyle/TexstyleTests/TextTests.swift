@@ -20,6 +20,14 @@ final class TextTests: XCTestCase {
     private let style2: TextStyle = .random
     private let style3: TextStyle = .random
 
+    private var styles: [ControlState: TextStyle] {
+        var styles = [ControlState: TextStyle]()
+        for state in ControlState.allCases {
+            styles[state] = .random
+        }
+        return styles
+    }
+
     // MARK: - Initialization
 
     func testInitWithValueAndStyle() {
@@ -248,6 +256,87 @@ final class TextTests: XCTestCase {
             let nsRange = NSRange(range2, in: value1)
             test(style2.attributes, in: text, for: state, in: nsRange)
         }
+    }
+
+    // MARK: - Operators
+
+    func testTextAndStringConcatenation() {
+        //Given
+        let styles = self.styles
+        let text = Text(value: substring1, styles: styles)
+        //When
+        let newText = text + substring2
+        //Then
+        XCTAssertEqual(newText.styles, styles, "Styles should be equal")
+        XCTAssertEqual(newText.value, substring1 + substring2, "Strings should concatenated")
+    }
+
+    func testStringAndTextConcatenation() {
+        //Given
+        let styles = self.styles
+        let text = Text(value: substring1, styles: styles)
+        //When
+        let newText = substring2 + text
+        //Then
+        XCTAssertEqual(newText.styles, styles, "Styles should be equal")
+        XCTAssertEqual(newText.value, substring2 + substring1, "Strings should be concatenated")
+    }
+
+    func testTextAndTextConcatenation() {
+        //Given
+        let styles1 = self.styles
+        let styles2 = self.styles
+        let text1 = Text(value: substring1, styles: styles1)
+        let text2 = Text(value: substring2, styles: styles2)
+        //When
+        let newText = text1 + text2
+        //Then
+        test(style1.attributes, in: newText, for: .normal, withSubstring: substring1)
+        test(style2.attributes, in: newText, for: .normal, withSubstring: substring2)
+    }
+
+    func testTextAndTextConcatenation2() {
+        //Given
+        let styles1 = self.styles
+        let styles2 = self.styles
+        var text1 = Text(value: substring1, styles: styles1)
+        let text2 = Text(value: substring2, styles: styles2)
+        //When
+        text1 += text2
+        //Then
+        XCTAssertEqual(text1.value, substring1 + substring2, "Strings should be concatenated")
+        test(style1.attributes, in: text1, for: .normal, withSubstring: substring1)
+        test(style2.attributes, in: text1, for: .normal, withSubstring: substring2)
+    }
+
+    func testTextArrayJoiningWithDefaultSeparator() {
+        //Given
+        let styles1 = self.styles
+        let styles2 = self.styles
+        let text1 = Text(value: substring1, styles: styles1)
+        let text2 = Text(value: substring2, styles: styles2)
+        let texts = [text1, text2]
+        //When
+        let text = texts.joined()
+        //Then
+        XCTAssertEqual(text.value, substring1 + substring2, "Strings should be concatenated")
+        test(style1.attributes, in: text, for: .normal, withSubstring: substring1)
+        test(style2.attributes, in: text, for: .normal, withSubstring: substring2)
+    }
+
+    func testTextArrayJoiningWithCustomSeparator() {
+        //Given
+        let styles1 = self.styles
+        let styles2 = self.styles
+        let text1 = Text(value: substring1, styles: styles1)
+        let text2 = Text(value: substring2, styles: styles2)
+        let texts = [text1, text2]
+        //When
+        let text = texts.joined(separator: " ")
+        //Then
+        XCTAssertEqual(text.value, substring1 + " " + substring2, "Strings should be concatenated")
+        test(style1.attributes, in: text, for: .normal, withSubstring: substring1)
+        test(style2.attributes, in: text, for: .normal, withSubstring: substring2)
     }
 
     // MARK: - Private
