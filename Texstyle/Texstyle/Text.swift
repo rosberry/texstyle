@@ -133,4 +133,37 @@ public final class Text {
         cachedAttributedStrings[state] = attributedString
         return attributedString
     }
+
+    public static func + (lhs: Text, rhs: Text) -> Text {
+        let text = Text(value: lhs.value + rhs.value, styles: lhs.styles)
+        rhs.styles.forEach { state, style in
+            text.add(style, for: rhs.value, for: state)
+        }
+        return text
+    }
+
+    public static func + (lhs: Text, rhs: String) -> Text {
+        return Text(value: lhs.value + rhs, styles: lhs.styles)
+    }
+
+    public static func + (lhs: String, rhs: Text) -> Text {
+        return Text(value: lhs + rhs.value, styles: rhs.styles)
+    }
+
+    public static func += (lhs: inout Text, rhs: Text) {
+        rhs.styles.forEach { state, style in
+            lhs.add(style, for: rhs.value, for: state)
+        }
+    }
+}
+
+public extension Array where Element: Text {
+
+    func joined(separator: String = "") -> Text {
+        var mainText = Text(value: "", style: .init())
+        self.forEach { text in
+            mainText += text
+        }
+        return mainText
+    }
 }
