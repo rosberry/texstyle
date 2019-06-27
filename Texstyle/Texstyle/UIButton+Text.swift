@@ -8,7 +8,7 @@ extension UIButton {
 
     /// Applies the text for all states.
     public func setText(_ text: Text) {
-        for (state, _) in text.styles {
+        for state in text.styles.keys {
             setAttributedTitle(text.attributed(for: state), for: state)
         }
     }
