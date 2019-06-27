@@ -51,12 +51,12 @@ final class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
         let inset: CGFloat = 16
-        let contrainedSize = CGSize(width: view.bounds.width - inset * 2, height: .greatestFiniteMagnitude)
+        let constrainedSize = CGSize(width: view.bounds.width - inset * 2, height: .greatestFiniteMagnitude)
 
         var yPosition = view.safeAreaInsets.top
         for label in labels {
             label.frame.origin = CGPoint(x: inset, y: yPosition)
-            label.frame.size = label.sizeThatFits(contrainedSize)
+            label.frame.size = label.sizeThatFits(constrainedSize)
             yPosition += label.frame.size.height + 16
         }
 

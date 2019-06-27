@@ -26,7 +26,7 @@ Here is a basic example of Texstyle using:
 ```swift
 let text = Text(value: "Hello, World 🌍", style: .title1)
 text.add(.heading1, for: "World")
-text.attributed
+titleLabel.attributedText = text.attributed
 ```
 
 The result:
@@ -61,7 +61,7 @@ Next, create a `Text` instance. It contains string value and style:
 let text = Text(value: "Hello, World 🌍", style: .title1)
 ```
 
-Text supports `UIControl.State` using. For example, if you want to use a different style for button highlight state, you should initialize text like:
+Text also supports independent styles for each `UIControl.State`. For example, if you want to use a different style for button highlight state, you should initialize text like:
 
 ```swift
 let text = Text(value: " Sign in with Apple", styles: [.normal: .heading1,
@@ -78,9 +78,9 @@ text.attributed
 text.attributed(for: .highlighted)
 ```
 
-All attributed strings are cached by default. It's useful in reusing elements like `UICollectionViewCell` or `UITableViewCell`.
+All attributed strings are cached by default. It's useful in reusable elements like `UICollectionViewCell` or `UITableViewCell`.
 
-There are convenience APIs for text creating and applying:
+There are convenience APIs for text creation and applying:
 
 ```swift
 //String to text
