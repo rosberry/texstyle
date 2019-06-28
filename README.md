@@ -1,9 +1,21 @@
-# Texstyle
+<p align="center">
+    <img src=".github/texstyle_logo.png" width="528" max-width="90%" alt="Stylin" />
+</p>
 
-[![Build Status](https://travis-ci.org/rosberry/texstyle.svg?branch=master)](https://travis-ci.org/rosberry/texstyle)
-[![Swift Version](https://img.shields.io/badge/swift-5.0-orange.svg)](https://swift.org/)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-green.svg)](https://github.com/Carthage/Carthage)
-[![codecov](https://codecov.io/gh/rosberry/texstyle/branch/master/graph/badge.svg)](https://codecov.io/gh/rosberry/texstyle)
+<p align="center">
+    <a href="https://travis-ci.org/rosberry/texstyle">
+        <img src="https://travis-ci.org/rosberry/texstyle.svg?branch=master" alt="Build Status" />
+    </a>
+    <a href="https://swift.org/">
+        <img src="https://img.shields.io/badge/swift-5.0-orange.svg" alt="Swift Version" />
+    </a>
+    <a href="https://github.com/Carthage/Carthage">
+        <img src="https://img.shields.io/badge/Carthage-compatible-green.svg" alt="Carthage Compatible" />
+    </a>
+    <a href="https://codecov.io/gh/rosberry/texstyle">
+        <img src="https://codecov.io/gh/rosberry/texstyle/branch/master/graph/badge.svg" alt="codecov" />
+    </a>
+</p>
 
 Texstyle allows you to format attributed strings easily.
 
