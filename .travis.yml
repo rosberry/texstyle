@@ -6,5 +6,5 @@ env:
    - DESTINATION="platform=iOS,OS=12.0,name=iPhone X"
    - DESTINATION="platform=tvOS,OS=12.0,name=Apple TV"
    
-script:ject Texstyle.xcodeproj -scheme Texstyle -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-    - xcodebuild clean test -pro
+script:
+   - xcodebuild clean test -project Texstyle.xcodeproj -scheme Texstyle -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
