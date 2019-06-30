@@ -65,7 +65,7 @@ extension TextStyle {
 }
 ```
 
-It allows you to reuse the styles accross the app.
+It allows you to reuse the styles across the app.
 
 Next, create a `Text` instance. It contains string value and style:
 
