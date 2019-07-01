@@ -12,6 +12,7 @@ final class TextTests: XCTestCase {
     private let value: String = .random(length: 6)
     private let substring1: String = .random(length: 6)
     private let substring2: String = .random(length: 6)
+    private let substring3: String = .random(length: 6)
 
     // MARK: - Styles
 
@@ -323,22 +324,12 @@ final class TextTests: XCTestCase {
         //When
         let newText = text1 + text2
         //Then
-        test(style1.attributes, in: newText, for: .normal, withSubstring: substring1)
-        test(style2.attributes, in: newText, for: .normal, withSubstring: substring2)
-    }
-
-    func testTextAndTextConcatenation2() {
-        //Given
-        let styles1 = self.styles
-        let styles2 = self.styles
-        var text1 = Text(value: substring1, styles: styles1)
-        let text2 = Text(value: substring2, styles: styles2)
-        //When
-        text1 += text2
-        //Then
-        XCTAssertEqual(text1.value, substring1 + substring2, "Strings should be concatenated")
-        test(style1.attributes, in: text1, for: .normal, withSubstring: substring1)
-        test(style2.attributes, in: text1, for: .normal, withSubstring: substring2)
+        for style in styles1.values {
+            test(style.attributes, in: newText, for: .normal, withSubstring: substring1)
+        }
+        for style in styles2.values {
+            test(style.attributes, in: newText, for: .normal, withSubstring: substring2)
+        }
     }
 
     func testTextArrayJoiningWithDefaultSeparator() {
@@ -352,23 +343,36 @@ final class TextTests: XCTestCase {
         let text = texts.joined()
         //Then
         XCTAssertEqual(text.value, substring1 + substring2, "Strings should be concatenated")
-        test(style1.attributes, in: text, for: .normal, withSubstring: substring1)
-        test(style2.attributes, in: text, for: .normal, withSubstring: substring2)
+        for style in styles1.values {
+            test(style.attributes, in: text, for: .normal, withSubstring: substring1)
+        }
+        for style in styles2.values {
+            test(style.attributes, in: text, for: .normal, withSubstring: substring2)
+        }
     }
 
     func testTextArrayJoiningWithCustomSeparator() {
         //Given
         let styles1 = self.styles
         let styles2 = self.styles
+        let styles3 = self.styles
         let text1 = Text(value: substring1, styles: styles1)
         let text2 = Text(value: substring2, styles: styles2)
+        let separatorText = Text(value: substring3, styles: styles3)
         let texts = [text1, text2]
         //When
-        let text = texts.joined(separator: " ")
+        let text = texts.joined(separatorText: separatorText)
         //Then
-        XCTAssertEqual(text.value, substring1 + " " + substring2, "Strings should be concatenated")
-        test(style1.attributes, in: text, for: .normal, withSubstring: substring1)
-        test(style2.attributes, in: text, for: .normal, withSubstring: substring2)
+        XCTAssertEqual(text.value, substring1 + substring3 + substring2, "Strings should be concatenated")
+        for style in styles1.values {
+            test(style.attributes, in: text, for: .normal, withSubstring: substring1)
+        }
+        for style in styles2.values {
+            test(style.attributes, in: text, for: .normal, withSubstring: substring2)
+        }
+        for style in styles3.values {
+            test(style.attributes, in: text, for: .normal, withSubstring: substring3)
+        }
     }
 
     // MARK: - Private
@@ -391,10 +395,10 @@ final class TextTests: XCTestCase {
     }
 
     private func test(_ attributes: TextStyleAttributes, in text: Text, for state: ControlState, withSubstring substring: String) {
-        var searchStartIndex = value.startIndex
-        let endIndex = value.endIndex
+        var searchStartIndex = text.value.startIndex
+        let endIndex = text.value.endIndex
 
-        while searchStartIndex < endIndex, let range = value.range(of: substring, range: searchStartIndex..<endIndex),
+        while searchStartIndex < endIndex, let range = text.value.range(of: substring, range: searchStartIndex..<endIndex),
             !range.isEmpty {
                 let nsRange = NSRange(range, in: value)
                 test(attributes, in: text, for: state, in: nsRange)

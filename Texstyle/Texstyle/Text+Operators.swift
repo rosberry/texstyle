@@ -19,10 +19,4 @@ public extension Text {
         }
         return text
     }
-
-    static func += (lhs: inout Text, rhs: Text) {
-        rhs.styles.forEach { state, style in
-            lhs.add(style, for: rhs.value, for: state)
-        }
-    }
 }

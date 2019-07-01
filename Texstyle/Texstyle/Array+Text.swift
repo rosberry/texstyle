@@ -4,15 +4,13 @@
 
 public extension Array where Element: Text {
 
-    func joined(separator: String = "") -> Text {
-        let value = self.map { text in
-            return text.value
+    func joined(separatorText: Text = Text(value: "", style: .init())) -> Text {
+        let initialText = Text(value: "", style: .init())
+        return self.reduce(initialText) { result, element in
+            if result == initialText {
+                return result + element
+            }
+            return result + separatorText + element
         }
-        .joined(separator: separator)
-        var mainText = Text(value: value, style: .init())
-        self.forEach { text in
-            mainText += text
-        }
-        return mainText
     }
 }
