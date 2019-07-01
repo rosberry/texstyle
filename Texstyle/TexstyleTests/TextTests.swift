@@ -9,16 +9,20 @@ final class TextTests: XCTestCase {
 
     // MARK: - Values
 
-    private let value: String = .random(length: 6)
-    private let substring1: String = .random(length: 6)
-    private let substring2: String = .random(length: 6)
+    private lazy var value: String = .random(length: 6)
+    private lazy var substring1: String = .random(length: 6)
+    private lazy var substring2: String = .random(length: 6)
 
     // MARK: - Styles
 
-    private let style: TextStyle = .random
-    private let style1: TextStyle = .random
-    private let style2: TextStyle = .random
-    private let style3: TextStyle = .random
+    private lazy var style: TextStyle = .random
+    private lazy var style1: TextStyle = .random
+    private lazy var style2: TextStyle = .random
+    private lazy var style3: TextStyle = .random
+
+    // MARK: - Text
+
+    private lazy var text = Text(value: value, style: style1)
 
     // MARK: - Initialization
 
@@ -129,7 +133,6 @@ final class TextTests: XCTestCase {
     func testAddSubstyleForNormalState() {
         //Given
         let range = NSRange(location: 0, length: 2)
-        let text = Text(value: value, style: style1)
         //When
         text.add(style2, at: range)
         //Then
@@ -153,7 +156,6 @@ final class TextTests: XCTestCase {
         //Given
         let range2 = NSRange(location: 0, length: 2)
         let range3 = NSRange(location: 2, length: 2)
-        let text = Text(value: value, style: style1)
         //When
         text.add(style2, at: range2)
         text.add(style3, at: range3)
@@ -250,6 +252,65 @@ final class TextTests: XCTestCase {
         }
     }
 
+    // MARK: - Bounding rect
+
+    func testBoundingRectWithMaxSizeAndDefaultParameters() {
+        //Given
+        let options = BoundingRectOptions()
+        //When
+        let calculatedRect = text.boundingRect(with: options.size)
+        //Then
+        test(rect: calculatedRect, string: text.attributed, for: options)
+    }
+
+    func testBoundingRectWithConstrainedWidthAndDefaultParameters() {
+        //Given
+        let options = BoundingRectOptions(size: CGSize(width: 100, height: CGFloat.greatestFiniteMagnitude))
+        //When
+        let calculatedRect = text.boundingRect(with: options.size)
+        //Then
+        test(rect: calculatedRect, string: text.attributed, for: options)
+    }
+
+    func testBoundingRectWithConstrainedHeightAndDefaultParameters() {
+        //Given
+        let options = BoundingRectOptions(size: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 5))
+        //When
+        let calculatedRect = text.boundingRect(with: options.size)
+        //Then
+        test(rect: calculatedRect, string: text.attributed, for: options)
+    }
+
+    func testBoundingRectWithCustomOptions() {
+        //Given
+        let options = BoundingRectOptions(options: [.usesFontLeading])
+        //When
+        let calculatedRect = text.boundingRect(with: options.size, options: options.options)
+        //Then
+        test(rect: calculatedRect, string: text.attributed, for: options)
+    }
+
+    func testBoundingRectWithCustomContext() {
+        //Given
+        let context = NSStringDrawingContext()
+        context.minimumScaleFactor = 0.5
+        let options = BoundingRectOptions(context: context)
+        //When
+        let calculatedRect = text.boundingRect(with: options.size, context: options.context)
+        //Then
+        test(rect: calculatedRect, string: text.attributed, for: options)
+    }
+
+    func testBoundingRectWithUnspecifiedState() {
+        //Given
+        let text = Text(value: value, styles: [.normal: style1])
+        let size = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
+        //When
+        let calculatedRect1 = text.boundingRect(with: size, for: .disabled)
+        //Then
+        XCTAssertEqual(calculatedRect1, .zero, "Text returns wrong bounding rect for unspecified state")
+    }
+
     // MARK: - Private
 
     private func test(_ text: Text?, withValue value: String?, for state: ControlState, with style: TextStyle) {
@@ -341,6 +402,17 @@ final class TextTests: XCTestCase {
             return TexstyleTests.isEqual(type: NSNumber.self, a: a, b: b)
         }
         return false
+    }
+
+    private func test(rect: CGRect, string: NSAttributedString?, for options: BoundingRectOptions) {
+        //Given
+
+        //When
+        let calculatedRect = string?.boundingRect(with: options.size,
+                                                  options: options.options,
+                                                  context: options.context)
+        //Then
+        XCTAssertEqual(rect, calculatedRect, "Text returns wrong bounding rect for options: \(options)")
     }
 }
 
