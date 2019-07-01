@@ -250,6 +250,8 @@ final class TextTests: XCTestCase {
         }
     }
 
+    // MARK: - Equality
+
     func testEquality() {
         //Given
         let text1 = Text(value: value, style: style1)
@@ -260,7 +262,7 @@ final class TextTests: XCTestCase {
         XCTAssertEqual(text1, text2, "Texts with the same values and styles should be equal")
     }
 
-    func testEqutableWithDifferentValues() {
+    func testEqualityWithDifferentValues() {
         //Given
         let text1 = Text(value: substring1, style: style1)
         let text2 = Text(value: substring2, style: style1.copy())
@@ -270,7 +272,7 @@ final class TextTests: XCTestCase {
         XCTAssertNotEqual(text1, text2, "Texts with different values should not be equal")
     }
 
-    func testEqutableWithDifferentStyles() {
+    func testEqualityWithDifferentStyles() {
         //Given
         let text1 = Text(value: value, style: style1)
         let text2 = Text(value: value, style: style2)
