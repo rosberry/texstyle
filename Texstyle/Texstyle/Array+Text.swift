@@ -11,11 +11,11 @@ public extension Array where Element: Text {
         if count == 1 {
             return self[0]
         }
-        var firstText: Text = self[0]
-        for index in 1...(count - 1) {
+        var text: Text = self[0]
+        for index in 1..<count {
             //swiftlint:disable:next shorthand_operator
-            firstText = firstText + separatorText + self[index]
+            text = text + separatorText + self[index]
         }
-        return firstText
+        return text
     }
 }

@@ -342,7 +342,7 @@ final class TextTests: XCTestCase {
         //When
         let text = texts.joined()
         //Then
-        XCTAssertEqual(text.value, substring1 + substring2, "Strings should be concatenated")
+        XCTAssertEqual(text.value, substring1 + substring2, "Strings should be joined")
         for state in ControlState.allCases {
             test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
             test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
@@ -361,11 +361,11 @@ final class TextTests: XCTestCase {
         //When
         let text = texts.joined(separatorText: separatorText)
         //Then
-        XCTAssertEqual(text.value, substring1 + substring3 + substring2, "Strings should be concatenated")
+        XCTAssertEqual(text.value, substring1 + substring3 + substring2, "Strings should be joined with \(substring3) separator")
         for state in ControlState.allCases {
             test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
             test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
-//            test(styles3[state]!.attributes, in: text, for: state, withSubstring: substring3)
+            test(styles3[state]!.attributes, in: text, for: state, withSubstring: substring3)
         }
     }
 
@@ -394,7 +394,7 @@ final class TextTests: XCTestCase {
 
         while searchStartIndex < endIndex, let range = text.value.range(of: substring, range: searchStartIndex..<endIndex),
             !range.isEmpty {
-                let nsRange = NSRange(range, in: value)
+                let nsRange = NSRange(range, in: text.value)
                 test(attributes, in: text, for: state, in: nsRange)
                 searchStartIndex = range.upperBound
         }
