@@ -1,9 +1,21 @@
-# Texstyle
+<p align="center">
+    <img src=".github/texstyle_logo.png" width="528" max-width="90%" alt="Stylin" />
+</p>
 
-[![Build Status](https://travis-ci.org/rosberry/texstyle.svg?branch=master)](https://travis-ci.org/rosberry/texstyle)
-[![Swift Version](https://img.shields.io/badge/swift-5.0-orange.svg)](https://swift.org/)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-green.svg)](https://github.com/Carthage/Carthage)
-[![codecov](https://codecov.io/gh/rosberry/texstyle/branch/master/graph/badge.svg)](https://codecov.io/gh/rosberry/texstyle)
+<p align="center">
+    <a href="https://travis-ci.org/rosberry/texstyle">
+        <img src="https://travis-ci.org/rosberry/texstyle.svg?branch=master" alt="Build Status" />
+    </a>
+    <a href="https://swift.org/">
+        <img src="https://img.shields.io/badge/swift-5.0-orange.svg" alt="Swift Version" />
+    </a>
+    <a href="https://github.com/Carthage/Carthage">
+        <img src="https://img.shields.io/badge/Carthage-compatible-green.svg" alt="Carthage Compatible" />
+    </a>
+    <a href="https://codecov.io/gh/rosberry/texstyle">
+        <img src="https://codecov.io/gh/rosberry/texstyle/branch/master/graph/badge.svg" alt="codecov" />
+    </a>
+</p>
 
 Texstyle allows you to format attributed strings easily.
 
@@ -16,21 +28,83 @@ Texstyle allows you to format attributed strings easily.
 
 ## Requirements
 
-- iOS 9.0+ / tsOS 9.0+
+- iOS 9.0+ / tvOS 9.0+
 - Xcode 10.0+
 
 ## Usage
 
-```swift
-let titleStyle = TextStyle()
-titleStyle.font = .systemFont(ofSize: 15, weight: .bold)
-titleStyle.lineHeight = 16
+Here is a basic example of Texstyle using:
 
-let text = Text(value: "Texstyle is awesome", style: titleStyle)
+```swift
+let text = Text(value: "Hello, World 🌍", style: .title1)
+text.add(.heading1, for: "World")
 titleLabel.attributedText = text.attributed
 ```
 
+The result:
+
+![Example1](.github/example1.png)
+
+Let's start with text styles. There is a `TextStyle` class for configuring different style parameters like font, color, kerning etc. We prefer to use `TextStyle` extension for app specific styles:
+
+```swift
+extension TextStyle {
+
+    static let title1: TextStyle = {
+        let style = TextStyle()
+        style.font = .systemFont(ofSize: 32, weight: .regular)
+        return style
+    }()
+        
+    static let heading1: TextStyle = {
+        let style = TextStyle()
+        style.font = .systemFont(ofSize: 28, weight: .semibold)
+        style.color = .purple
+        return style
+    }()
+}
+```
+
+It allows you to reuse the styles across the app.
+
+Next, create a `Text` instance. It contains string value and style:
+
+```swift
+let text = Text(value: "Hello, World 🌍", style: .title1)
+```
+
+Text also supports independent styles for each `UIControl.State`. For example, if you want to use a different style for button highlight state, you should initialize text like:
+
+```swift
+let text = Text(value: " Sign in with Apple", styles: [.normal: .heading1,
+                                                         .highlighted: .heading2])
+```
+
+To create an attributed string, just use:
+
+```swift
+//By default for normal state
+text.attributed
+
+//For needed state
+text.attributed(for: .highlighted)
+```
+
+All attributed strings are cached by default. It's useful in reusable elements like `UICollectionViewCell` or `UITableViewCell`.
+
+There are convenience APIs for text creation and applying:
+
+```swift
+//String to text
+"Settings".text(with: .heading1)
+
+//UIButton
+button.setText(text)
+```
+
 Check TexstyleExample project for more examples.
+
+![Example2](.github/example2.png)
 
 ## Installation
 

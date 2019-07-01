@@ -134,3 +134,12 @@ public final class Text {
         return attributedString
     }
 }
+
+// MARK: - Equatable
+
+extension Text: Equatable {
+
+    public static func == (lhs: Text, rhs: Text) -> Bool {
+        return lhs.value == rhs.value && lhs.styles == rhs.styles
+    }
+}
