@@ -13,7 +13,7 @@ final class TextStyleTests: XCTestCase {
         //When
 
         //Then
-        XCTAssertTrue(style == style, "Style is not equal to itself")
+        XCTAssertEqual(style, style, "Style is not equal to itself")
     }
 
     func testCopy() {
