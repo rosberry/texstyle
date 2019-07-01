@@ -324,11 +324,11 @@ final class TextTests: XCTestCase {
         //When
         let newText = text1 + text2
         //Then
-        for style in styles1.values {
-            test(style.attributes, in: newText, for: .normal, withSubstring: substring1)
+        for (state, style) in styles1 {
+            test(style.attributes, in: newText, for: state, withSubstring: substring1)
         }
-        for style in styles2.values {
-            test(style.attributes, in: newText, for: .normal, withSubstring: substring2)
+        for (state, style) in styles2 {
+            test(style.attributes, in: newText, for: state, withSubstring: substring2)
         }
     }
 
@@ -343,11 +343,9 @@ final class TextTests: XCTestCase {
         let text = texts.joined()
         //Then
         XCTAssertEqual(text.value, substring1 + substring2, "Strings should be concatenated")
-        for style in styles1.values {
-            test(style.attributes, in: text, for: .normal, withSubstring: substring1)
-        }
-        for style in styles2.values {
-            test(style.attributes, in: text, for: .normal, withSubstring: substring2)
+        for state in ControlState.allCases {
+            test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
+            test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
         }
     }
 
@@ -364,14 +362,10 @@ final class TextTests: XCTestCase {
         let text = texts.joined(separatorText: separatorText)
         //Then
         XCTAssertEqual(text.value, substring1 + substring3 + substring2, "Strings should be concatenated")
-        for style in styles1.values {
-            test(style.attributes, in: text, for: .normal, withSubstring: substring1)
-        }
-        for style in styles2.values {
-            test(style.attributes, in: text, for: .normal, withSubstring: substring2)
-        }
-        for style in styles3.values {
-            test(style.attributes, in: text, for: .normal, withSubstring: substring3)
+        for state in ControlState.allCases {
+            test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
+            test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
+//            test(styles3[state]!.attributes, in: text, for: state, withSubstring: substring3)
         }
     }
 
