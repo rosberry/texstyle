@@ -13,6 +13,7 @@ final class TextTests: XCTestCase {
     private let substring1: String = .random(length: 6)
     private let substring2: String = .random(length: 6)
     private let substring3: String = .random(length: 6)
+    private let substring4: String = .random(length: 6)
 
     // MARK: - Styles
 
@@ -332,6 +333,27 @@ final class TextTests: XCTestCase {
         }
     }
 
+    func testTextAndTextWithSubstylesConcatenation() {
+        //Given
+        let styles1 = self.styles
+        let styles2 = self.styles
+        let text1 = Text(value: substring1 + substring2, styles: styles1)
+        text1.add(style1, for: substring2)
+        let text2 = Text(value: substring3 + substring4, styles: styles2)
+        text2.add(style2, for: substring4)
+        //When
+        let newText = text1 + text2
+        //Then
+        for (state, style) in styles1 {
+            test(style.attributes, in: newText, for: state, withSubstring: substring1)
+        }
+        test(style1.attributes, in: newText, for: .normal, withSubstring: substring2)
+        for (state, style) in styles2 {
+            test(style.attributes, in: newText, for: state, withSubstring: substring3)
+        }
+        test(style2.attributes, in: newText, for: .normal, withSubstring: substring4)
+    }
+
     func testTextArrayJoiningWithDefaultSeparator() {
         //Given
         let styles1 = self.styles
@@ -347,6 +369,26 @@ final class TextTests: XCTestCase {
             test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
             test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
         }
+    }
+
+    func testTextArrayJoiningWithoutElements() {
+        //Given
+        let texts = [Text]()
+        //When
+        let text = texts.joined()
+        //Then
+        XCTAssertEqual(text.value, "", "Text should have empty value")
+        XCTAssertEqual(text.styles.count, 1, "Text should have only one style")
+        XCTAssertEqual(text.styles[.normal], TextStyle(), "Text should have default normal style")
+    }
+
+    func testTextArrayJoiningWithOneElement() {
+        //Given
+        let text1 = Text(value: substring1, styles: styles)
+        //When
+        let text = [text1].joined()
+        //Then
+        XCTAssertEqual(text, text1, "Strings should be joined")
     }
 
     func testTextArrayJoiningWithCustomSeparator() {

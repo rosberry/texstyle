@@ -16,7 +16,7 @@ public final class Text {
     }
 
     /// Clears cached attributed string.
-    private var substyles: [TextSubstyle] = [] {
+    var substyles: [TextSubstyle] = [] {
         didSet {
             cachedAttributedStrings.removeAll()
         }
