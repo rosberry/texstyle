@@ -92,6 +92,16 @@ text.attributed(for: .highlighted)
 
 All attributed strings are cached by default. It's useful in reusable elements like `UICollectionViewCell` or `UITableViewCell`.
 
+There are custom operators for texts and strings:
+
+```swift
+let text1 = Text(value: "Ros", style: .title1)
+let text2 = text1 + "ber"
+let text3 = Text(value: "ry", style: .title1)
+let text4 = text2 + text3
+text4.value // "Rosberry"
+```
+
 There are convenience APIs for text creation and applying:
 
 ```swift
@@ -102,7 +112,7 @@ There are convenience APIs for text creation and applying:
 button.setText(text)
 ```
 
-Check TexstyleExample project for more examples.
+Check [TexstyleExample](xcode://clone?repo=https%3A%2F%2Fgithub.com%2Frosberry%2Ftexstyle) project for more examples.
 
 ![Example2](.github/example2.png)
 
