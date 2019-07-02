@@ -517,8 +517,5 @@ final class TextTests: XCTestCase {
 }
 
 private func isEqual<T: Equatable>(type: T.Type, a: Any?, b: Any?) -> Bool {
-    guard let a = a as? T, let b = b as? T else {
-        return false
-    }
-    return a == b
+    return a as? T == b as? T
 }
