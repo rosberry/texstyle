@@ -11,14 +11,22 @@ extension TextStyle {
         style.font = .systemFont(ofSize: .random(in: 13...16))
         style.color = .random
         style.backgroundColor = .random
+        style.ligature = .random(in: 0...1)
         style.kerning = .random(in: 0...10)
         style.strokeWidth = .random(in: 0...10)
+        let shadow = NSShadow()
+        shadow.shadowOffset = CGSize(width: CGFloat.random(in: 0...10),
+                                     height: CGFloat.random(in: 0...10))
+        shadow.shadowBlurRadius = .random(in: 0...10)
+        shadow.shadowColor = UIColor.random
+        style.shadow = shadow
         style.baselineOffset = .random(in: 0...10)
         style.obliqueness = .random(in: 0...10)
         style.expansion = .random(in: 0...10)
         style.strikeThroughLine = .random
         style.underlineLine = .random
-        style.effectStyle = NSAttributedString.TextEffectStyle.letterpressStyle
+        style.strokeColor = .random
+        style.effectStyle = .letterpressStyle
         let attachment = NSTextAttachment()
         attachment.image = UIImage()
         style.attachment = attachment
