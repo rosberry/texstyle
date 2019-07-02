@@ -143,7 +143,7 @@ public final class Text {
     /// On return, the specified object contains information about the actual values used to render the string.
     /// This parameter is nil by default.
     ///   - state: The control state for attributes.
-    /// - Returns: A rectangle whose size component indicates the width and height required to draw the entire contents of the string.
+    /// - Returns: A rectangle which size component indicates the width and height required to draw the entire contents of the string.
     public func boundingRect(with size: CGSize,
                              options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading],
                              context: NSStringDrawingContext? = nil,
