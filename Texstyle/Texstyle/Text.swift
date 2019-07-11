@@ -65,8 +65,7 @@ public final class Text {
     public convenience init?(value: String?, styles: [ControlState: TextStyle]) {
         if let value = value {
             self.init(value: value, styles: styles)
-        }
-        else {
+        } else {
             return nil
         }
     }
