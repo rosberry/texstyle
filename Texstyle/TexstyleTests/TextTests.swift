@@ -87,8 +87,8 @@ final class TextTests: XCTestCase {
         let text = Text(value: value1, styles: styles)
         //Then
         XCTAssertNotNil(text, "Text must not be nil with nil value")
-        XCTAssertTrue(text?.value == value, "Text has wrong value after initialization")
-        XCTAssertTrue(text?.styles == styles, "Text has wrong styles after initialization")
+        XCTAssertEqual(text?.value, value, "Text has wrong value after initialization")
+        XCTAssertEqual(text?.styles, styles, "Text has wrong styles after initialization")
     }
 
     func testInitWithEmptyStyles() {
@@ -425,8 +425,8 @@ final class TextTests: XCTestCase {
     // MARK: - Private
 
     private func test(_ text: Text?, withValue value: String?, for state: ControlState, with style: TextStyle) {
-        XCTAssertTrue(text?.value == value, "Text has wrong value after initialization")
-        XCTAssertTrue(text?.styles.count == 1, "Text has wrong style after initialization")
+        XCTAssertEqual(text?.value, value, "Text has wrong value after initialization")
+        XCTAssertEqual(text?.styles.count, 1, "Text has wrong style after initialization")
         XCTAssertTrue(text?.styles[state] === style, "Text has wrong style for \(state) state after initialization")
     }
 
