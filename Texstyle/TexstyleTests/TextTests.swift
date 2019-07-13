@@ -458,6 +458,63 @@ final class TextTests: XCTestCase {
         }
     }
 
+    func testTextArrayJoiningWithDefaultStrategyForSeparator() {
+        //Given
+        let styles1 = styles
+        let styles2 = styles
+        let text1 = Text(value: substring1, styles: styles1)
+        let text2 = Text(value: substring2, styles: styles2)
+        let separator = " "
+        let texts = [text1, text2]
+        //When
+        let text = texts.joined(separator: separator)
+        //Then
+        XCTAssertEqual(text.value, substring1 + separator + substring2, "Strings should be joined with separator")
+        for state in ControlState.allCases {
+            test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
+            test(styles1[state]!.attributes, in: text, for: state, withSubstring: separator)
+            test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
+        }
+    }
+
+    func testTextArrayJoiningWithLeftStrategyForSeparator() {
+        //Given
+        let styles1 = styles
+        let styles2 = styles
+        let text1 = Text(value: substring1, styles: styles1)
+        let text2 = Text(value: substring2, styles: styles2)
+        let separator = " "
+        let texts = [text1, text2]
+        //When
+        let text = texts.joined(separator: separator, strategy: .left)
+        //Then
+        XCTAssertEqual(text.value, substring1 + separator + substring2, "Strings should be joined with separator")
+        for state in ControlState.allCases {
+            test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
+            test(styles1[state]!.attributes, in: text, for: state, withSubstring: separator)
+            test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
+        }
+    }
+
+    func testTextArrayJoiningWithRightStrategyForSeparator() {
+        //Given
+        let styles1 = styles
+        let styles2 = styles
+        let text1 = Text(value: substring1, styles: styles1)
+        let text2 = Text(value: substring2, styles: styles2)
+        let separator = " "
+        let texts = [text1, text2]
+        //When
+        let text = texts.joined(separator: separator, strategy: .right)
+        //Then
+        XCTAssertEqual(text.value, substring1 + separator + substring2, "Strings should be joined with separator")
+        for state in ControlState.allCases {
+            test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
+            test(styles2[state]!.attributes, in: text, for: state, withSubstring: separator)
+            test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
+        }
+    }
+
     // MARK: - Interpolation
 
     func testStringInterpolation() {
