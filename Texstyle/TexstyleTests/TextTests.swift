@@ -318,8 +318,8 @@ final class TextTests: XCTestCase {
 
     func testTextAndTextConcatenation() {
         //Given
-        let styles1 = self.styles
-        let styles2 = self.styles
+        let styles1 = styles
+        let styles2 = styles
         let text1 = Text(value: substring1, styles: styles1)
         let text2 = Text(value: substring2, styles: styles2)
         //When
@@ -335,8 +335,55 @@ final class TextTests: XCTestCase {
 
     func testTextAndTextWithSubstylesConcatenation() {
         //Given
-        let styles1 = self.styles
-        let styles2 = self.styles
+        let styles1 = styles
+        let styles2 = styles
+        let text1 = Text(value: substring1 + substring2, styles: styles1)
+        text1.add(style1, for: substring2)
+        let text2 = Text(value: substring3 + substring4, styles: styles2)
+        text2.add(style2, for: substring4)
+        //When
+        let newText = text1 + text2
+        //Then
+        for (state, style) in styles1 {
+            test(style.attributes, in: newText, for: state, withSubstring: substring1)
+            test(style.attributes, in: newText, for: state, withSubstring: substring2)
+        }
+        test(style1.attributes, in: newText, for: .normal, withSubstring: substring2)
+        for (state, style) in styles2 {
+            test(style.attributes, in: newText, for: state, withSubstring: substring3)
+        }
+        test(style2.attributes, in: newText, for: .normal, withSubstring: substring4)
+    }
+
+    func testTextsWithIntersectValuesConcatenation() {
+        //Given
+        let styles1 = styles
+        let styles2 = styles
+        let text1 = Text(value: substring1 + substring2, styles: styles1)
+        let text2 = Text(value: substring2 + substring3, styles: styles2)
+        //When
+        let newText = text1 + text2
+        //Then
+        for (state, style) in styles1 {
+            test(style.attributes, in: newText, for: state, withSubstring: substring1)
+        }
+        let firstRange = NSRange(location: substring1.count, length: substring2.count)
+        for (state, style) in styles1 {
+            test(style.attributes, in: newText, for: state, in: firstRange)
+        }
+        for (state, style) in styles2 {
+            test(style.attributes, in: newText, for: state, withSubstring: substring3)
+        }
+        let secondRange = NSRange(location: text1.value.count, length: substring2.count)
+        for (state, style) in styles2 {
+            test(style.attributes, in: newText, for: state, in: secondRange)
+        }
+    }
+
+    func testTextAndTextWithConcatenation() {
+        //Given
+        let styles1 = styles
+        let styles2 = styles
         let text1 = Text(value: substring1 + substring2, styles: styles1)
         text1.add(style1, for: substring2)
         let text2 = Text(value: substring3 + substring4, styles: styles2)
@@ -356,8 +403,8 @@ final class TextTests: XCTestCase {
 
     func testTextArrayJoiningWithDefaultSeparator() {
         //Given
-        let styles1 = self.styles
-        let styles2 = self.styles
+        let styles1 = styles
+        let styles2 = styles
         let text1 = Text(value: substring1, styles: styles1)
         let text2 = Text(value: substring2, styles: styles2)
         let texts = [text1, text2]
@@ -393,9 +440,9 @@ final class TextTests: XCTestCase {
 
     func testTextArrayJoiningWithCustomSeparator() {
         //Given
-        let styles1 = self.styles
-        let styles2 = self.styles
-        let styles3 = self.styles
+        let styles1 = styles
+        let styles2 = styles
+        let styles3 = styles
         let text1 = Text(value: substring1, styles: styles1)
         let text2 = Text(value: substring2, styles: styles2)
         let separatorText = Text(value: substring3, styles: styles3)

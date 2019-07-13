@@ -4,7 +4,7 @@
 
 public extension Array where Element: Text {
 
-    func joined(separatorText: Text = Text(value: "", style: .init())) -> Text {
+    func joined(separatorText: Text? = nil) -> Text {
         if isEmpty {
             return Text(value: "", style: .init())
         }
@@ -13,8 +13,14 @@ public extension Array where Element: Text {
         }
         var text: Text = self[0]
         for index in 1..<count {
-            //swiftlint:disable:next shorthand_operator
-            text = text + separatorText + self[index]
+            //swiftlint:disable shorthand_operator
+            if let separatorText = separatorText {
+                text = text + separatorText + self[index]
+            }
+            else {
+                text = text + self[index]
+            }
+            //swiftlint:enable shorthand_operator
         }
         return text
     }

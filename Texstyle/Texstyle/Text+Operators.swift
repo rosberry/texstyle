@@ -14,12 +14,14 @@ public extension Text {
 
     static func + (lhs: Text, rhs: Text) -> Text {
         let text = Text(value: lhs.value + rhs.value, styles: lhs.styles)
-        rhs.styles.forEach { state, style in
-            text.add(style, for: rhs.value, for: state)
-        }
         text.substyles.append(contentsOf: lhs.substyles)
+        let styleSubstyles = rhs.styles.map { state, style -> TextSubstyle in
+            let range = NSRange(location: lhs.value.count, length: rhs.value.count)
+            return TextSubstyle(style: style, range: range, state: state)
+        }
+        text.substyles.append(contentsOf: styleSubstyles)
         let rhsSubstyles = rhs.substyles.map { substyle -> TextSubstyle in
-            let range = NSRange(location: substyle.range.location + lhs.value.count, length: substyle.range.length)
+            let range = NSRange(location: lhs.value.count + substyle.range.location, length: substyle.range.length)
             return TextSubstyle(style: substyle.style, range: range, state: substyle.state)
         }
         text.substyles.append(contentsOf: rhsSubstyles)
