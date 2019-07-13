@@ -66,8 +66,8 @@ open class TextStyle {
         }
     }
 
-    /// Use this attribute to specify the shadow.
-    public var shadow: NSShadow? {
+    /// Use this style to specify the shadow.
+    public var shadowStyle: ShadowStyle? {
         didSet {
             cachedAttributes = nil
         }
@@ -218,8 +218,8 @@ open class TextStyle {
         if let strokeWidth = strokeWidth {
             attributes[.strokeWidth] = strokeWidth
         }
-        if let shadow = shadow {
-            attributes[.shadow] = shadow
+        if let shadowStyle = shadowStyle {
+            attributes[.shadow] = shadowStyle.shadow
         }
         if let effectStyle = effectStyle {
             attributes[.textEffect] = effectStyle
@@ -293,7 +293,7 @@ open class TextStyle {
         copy.ligature = ligature
         copy.kerning = kerning
         copy.strokeWidth = strokeWidth
-        copy.shadow = shadow
+        copy.shadowStyle = shadowStyle
         copy.baselineOffset = baselineOffset
         copy.obliqueness = obliqueness
         copy.expansion = expansion
@@ -325,7 +325,7 @@ extension TextStyle: Equatable {
             lhs.ligature == rhs.ligature &&
             lhs.kerning == rhs.kerning &&
             lhs.strokeWidth == rhs.strokeWidth &&
-            lhs.shadow == rhs.shadow &&
+            lhs.shadowStyle == rhs.shadowStyle &&
             lhs.baselineOffset == rhs.baselineOffset &&
             lhs.obliqueness == rhs.obliqueness &&
             lhs.expansion == rhs.expansion &&

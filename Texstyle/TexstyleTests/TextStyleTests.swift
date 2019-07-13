@@ -23,7 +23,6 @@ final class TextStyleTests: XCTestCase {
         let copy = style.copy()
         //Then
         XCTAssertEqual(copy, style, "Copy is not equal to style")
-
     }
 
     func testParagraphStyle() {

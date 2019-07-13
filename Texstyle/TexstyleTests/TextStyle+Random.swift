@@ -14,12 +14,7 @@ extension TextStyle {
         style.ligature = .random(in: 0...1)
         style.kerning = .random(in: 0...10)
         style.strokeWidth = .random(in: 0...10)
-        let shadow = NSShadow()
-        shadow.shadowOffset = CGSize(width: CGFloat.random(in: 0...10),
-                                     height: CGFloat.random(in: 0...10))
-        shadow.shadowBlurRadius = .random(in: 0...10)
-        shadow.shadowColor = UIColor.random
-        style.shadow = shadow
+        style.shadowStyle = .random
         style.baselineOffset = .random(in: 0...10)
         style.obliqueness = .random(in: 0...10)
         style.expansion = .random(in: 0...10)
@@ -41,7 +36,7 @@ extension TextStyle {
     }
 }
 
-private extension UIColor {
+extension UIColor {
 
     static var random: UIColor {
         return .init(red: .random(in: 0...1),
