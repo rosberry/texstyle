@@ -346,7 +346,6 @@ final class TextTests: XCTestCase {
         //Then
         for (state, style) in styles1 {
             test(style.attributes, in: newText, for: state, withSubstring: substring1)
-            test(style.attributes, in: newText, for: state, withSubstring: substring2)
         }
         test(style1.attributes, in: newText, for: .normal, withSubstring: substring2)
         for (state, style) in styles2 {
