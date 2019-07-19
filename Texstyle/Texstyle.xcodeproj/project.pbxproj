@@ -16,6 +16,7 @@
 		063FCBF52271FA02001C8962 /* TextStyle+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBF42271FA02001C8962 /* TextStyle+Sugar.swift */; };
 		063FCBF82271FA3B001C8962 /* String+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBF72271FA3B001C8962 /* String+Text.swift */; };
 		063FCBFF2272094E001C8962 /* UIButton+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBFE2272094E001C8962 /* UIButton+Text.swift */; };
+		06603ACC22CA11F9001F7644 /* BoundingRectOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06603ACB22CA11F9001F7644 /* BoundingRectOptions.swift */; };
 		06603ACE22CB1118001F7644 /* StringInterpolation+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06603ACD22CB1118001F7644 /* StringInterpolation+Text.swift */; };
 		067A645D22BCD0C300AF2E5E /* Text+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A645C22BCD0C300AF2E5E /* Text+Operators.swift */; };
 		067A646222BCDF5200AF2E5E /* Array+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A646122BCDF5200AF2E5E /* Array+Text.swift */; };
@@ -55,6 +56,7 @@
 		063FCBF42271FA02001C8962 /* TextStyle+Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Sugar.swift"; sourceTree = "<group>"; };
 		063FCBF72271FA3B001C8962 /* String+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Text.swift"; sourceTree = "<group>"; };
 		063FCBFE2272094E001C8962 /* UIButton+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Text.swift"; sourceTree = "<group>"; };
+		06603ACB22CA11F9001F7644 /* BoundingRectOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingRectOptions.swift; sourceTree = "<group>"; };
 		06603ACD22CB1118001F7644 /* StringInterpolation+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringInterpolation+Text.swift"; sourceTree = "<group>"; };
 		067A645C22BCD0C300AF2E5E /* Text+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Operators.swift"; sourceTree = "<group>"; };
 		067A646122BCDF5200AF2E5E /* Array+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Text.swift"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				06C24D382273844600EDA46F /* ControlState+Random.swift */,
 				06C24D3422737B7700EDA46F /* TextStyle+Random.swift */,
 				06C24D3E227393F300EDA46F /* String+Random.swift */,
+				06603ACB22CA11F9001F7644 /* BoundingRectOptions.swift */,
 				06948D2A22D9F4E6000FCC2C /* ShadowStyle+Random.swift */,
 			);
 			path = TexstyleTests;
@@ -302,6 +305,7 @@
 			files = (
 				06AE690A2272DE9C00DD5D8F /* TextTests.swift in Sources */,
 				06C24D3F227393F300EDA46F /* String+Random.swift in Sources */,
+				06603ACC22CA11F9001F7644 /* BoundingRectOptions.swift in Sources */,
 				06C24D3B227384A800EDA46F /* UIButtonTests.swift in Sources */,
 				06948D2B22D9F4E6000FCC2C /* ShadowStyle+Random.swift in Sources */,
 				06C24D3522737B7700EDA46F /* TextStyle+Random.swift in Sources */,
@@ -470,7 +474,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rosberry.Texstyle;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = "";
@@ -501,7 +505,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rosberry.Texstyle;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = "";

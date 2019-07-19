@@ -133,6 +133,26 @@ public final class Text {
         cachedAttributedStrings[state] = attributedString
         return attributedString
     }
+
+    ///Returns the bounding rectangle required to draw the string.
+    ///
+    /// - Parameters:
+    ///   - size: The width and height constraints to apply when computing the string’s bounding rectangle.
+    ///   - options: Additional drawing options to apply to the string during rendering.
+    ///   - context: A context object with information about how to adjust the font tracking and scaling information.
+    /// On return, the specified object contains information about the actual values used to render the string.
+    /// This parameter is nil by default.
+    ///   - state: The control state for attributes.
+    /// - Returns: A rectangle which size component indicates the width and height required to draw the entire contents of the string.
+    public func boundingRect(with size: CGSize,
+                             options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading],
+                             context: NSStringDrawingContext? = nil,
+                             for state: ControlState = .normal) -> CGRect {
+        guard let attributedString = attributed(for: state) else {
+            return .zero
+        }
+        return attributedString.boundingRect(with: size, options: options, context: context)
+    }
 }
 
 // MARK: - Equatable
