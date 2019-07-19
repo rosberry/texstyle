@@ -17,6 +17,12 @@
 		063FCBF82271FA3B001C8962 /* String+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBF72271FA3B001C8962 /* String+Text.swift */; };
 		063FCBFF2272094E001C8962 /* UIButton+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBFE2272094E001C8962 /* UIButton+Text.swift */; };
 		06603ACC22CA11F9001F7644 /* BoundingRectOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06603ACB22CA11F9001F7644 /* BoundingRectOptions.swift */; };
+		06603ACE22CB1118001F7644 /* StringInterpolation+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06603ACD22CB1118001F7644 /* StringInterpolation+Text.swift */; };
+		067A645D22BCD0C300AF2E5E /* Text+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A645C22BCD0C300AF2E5E /* Text+Operators.swift */; };
+		067A646222BCDF5200AF2E5E /* Array+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A646122BCDF5200AF2E5E /* Array+Text.swift */; };
+		06948D2922D9F35F000FCC2C /* ShadowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06948D2822D9F35F000FCC2C /* ShadowStyle.swift */; };
+		06948D2B22D9F4E6000FCC2C /* ShadowStyle+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06948D2A22D9F4E6000FCC2C /* ShadowStyle+Random.swift */; };
+		06948D2D22D9F686000FCC2C /* ShadowStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06948D2C22D9F686000FCC2C /* ShadowStyleTests.swift */; };
 		06AE69022272DE8F00DD5D8F /* Texstyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FCBA12271E51C001C8962 /* Texstyle.framework */; };
 		06AE690A2272DE9C00DD5D8F /* TextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AE69082272DE9C00DD5D8F /* TextTests.swift */; };
 		06AE690B2272DE9C00DD5D8F /* TextStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AE69092272DE9C00DD5D8F /* TextStyleTests.swift */; };
@@ -51,6 +57,12 @@
 		063FCBF72271FA3B001C8962 /* String+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Text.swift"; sourceTree = "<group>"; };
 		063FCBFE2272094E001C8962 /* UIButton+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Text.swift"; sourceTree = "<group>"; };
 		06603ACB22CA11F9001F7644 /* BoundingRectOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingRectOptions.swift; sourceTree = "<group>"; };
+		06603ACD22CB1118001F7644 /* StringInterpolation+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringInterpolation+Text.swift"; sourceTree = "<group>"; };
+		067A645C22BCD0C300AF2E5E /* Text+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Operators.swift"; sourceTree = "<group>"; };
+		067A646122BCDF5200AF2E5E /* Array+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Text.swift"; sourceTree = "<group>"; };
+		06948D2822D9F35F000FCC2C /* ShadowStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowStyle.swift; sourceTree = "<group>"; };
+		06948D2A22D9F4E6000FCC2C /* ShadowStyle+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShadowStyle+Random.swift"; sourceTree = "<group>"; };
+		06948D2C22D9F686000FCC2C /* ShadowStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowStyleTests.swift; sourceTree = "<group>"; };
 		06AE68FD2272DE8F00DD5D8F /* TexstyleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TexstyleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06AE69012272DE8F00DD5D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06AE69082272DE9C00DD5D8F /* TextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTests.swift; sourceTree = "<group>"; };
@@ -107,12 +119,16 @@
 				063FCBA52271E51C001C8962 /* Info.plist */,
 				063FCBDF2271E635001C8962 /* Text.swift */,
 				063FCBE02271E635001C8962 /* TextStyle.swift */,
+				06948D2822D9F35F000FCC2C /* ShadowStyle.swift */,
 				063FCBE92271E907001C8962 /* TextSubstyle.swift */,
 				063FCBEC2271EC90001C8962 /* ControlState.swift */,
 				063FCBEF2271ED9E001C8962 /* LineAttributes.swift */,
 				063FCBF42271FA02001C8962 /* TextStyle+Sugar.swift */,
 				063FCBF72271FA3B001C8962 /* String+Text.swift */,
 				063FCBFE2272094E001C8962 /* UIButton+Text.swift */,
+				067A645C22BCD0C300AF2E5E /* Text+Operators.swift */,
+				067A646122BCDF5200AF2E5E /* Array+Text.swift */,
+				06603ACD22CB1118001F7644 /* StringInterpolation+Text.swift */,
 			);
 			path = Texstyle;
 			sourceTree = "<group>";
@@ -123,6 +139,7 @@
 				06AE69012272DE8F00DD5D8F /* Info.plist */,
 				06AE69082272DE9C00DD5D8F /* TextTests.swift */,
 				06AE69092272DE9C00DD5D8F /* TextStyleTests.swift */,
+				06948D2C22D9F686000FCC2C /* ShadowStyleTests.swift */,
 				06C24D36227382F200EDA46F /* StringTests.swift */,
 				06C24D3A227384A800EDA46F /* UIButtonTests.swift */,
 				06C24D3C22738F5200EDA46F /* ControlStateTests.swift */,
@@ -130,6 +147,7 @@
 				06C24D3422737B7700EDA46F /* TextStyle+Random.swift */,
 				06C24D3E227393F300EDA46F /* String+Random.swift */,
 				06603ACB22CA11F9001F7644 /* BoundingRectOptions.swift */,
+				06948D2A22D9F4E6000FCC2C /* ShadowStyle+Random.swift */,
 			);
 			path = TexstyleTests;
 			sourceTree = "<group>";
@@ -268,10 +286,14 @@
 			files = (
 				063FCBFF2272094E001C8962 /* UIButton+Text.swift in Sources */,
 				063FCBEA2271E907001C8962 /* TextSubstyle.swift in Sources */,
+				067A646222BCDF5200AF2E5E /* Array+Text.swift in Sources */,
+				06948D2922D9F35F000FCC2C /* ShadowStyle.swift in Sources */,
 				063FCBE42271E635001C8962 /* TextStyle.swift in Sources */,
 				063FCBF02271ED9E001C8962 /* LineAttributes.swift in Sources */,
 				063FCBE22271E635001C8962 /* Text.swift in Sources */,
+				067A645D22BCD0C300AF2E5E /* Text+Operators.swift in Sources */,
 				063FCBED2271EC90001C8962 /* ControlState.swift in Sources */,
+				06603ACE22CB1118001F7644 /* StringInterpolation+Text.swift in Sources */,
 				063FCBF82271FA3B001C8962 /* String+Text.swift in Sources */,
 				063FCBF52271FA02001C8962 /* TextStyle+Sugar.swift in Sources */,
 			);
@@ -285,11 +307,13 @@
 				06C24D3F227393F300EDA46F /* String+Random.swift in Sources */,
 				06603ACC22CA11F9001F7644 /* BoundingRectOptions.swift in Sources */,
 				06C24D3B227384A800EDA46F /* UIButtonTests.swift in Sources */,
+				06948D2B22D9F4E6000FCC2C /* ShadowStyle+Random.swift in Sources */,
 				06C24D3522737B7700EDA46F /* TextStyle+Random.swift in Sources */,
 				06C24D392273844600EDA46F /* ControlState+Random.swift in Sources */,
 				06C24D3D22738F5200EDA46F /* ControlStateTests.swift in Sources */,
 				06C24D37227382F200EDA46F /* StringTests.swift in Sources */,
 				06AE690B2272DE9C00DD5D8F /* TextStyleTests.swift in Sources */,
+				06948D2D22D9F686000FCC2C /* ShadowStyleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

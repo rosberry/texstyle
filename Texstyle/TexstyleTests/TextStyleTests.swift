@@ -23,7 +23,6 @@ final class TextStyleTests: XCTestCase {
         let copy = style.copy()
         //Then
         XCTAssertEqual(copy, style, "Copy is not equal to style")
-
     }
 
     func testParagraphStyle() {
@@ -33,7 +32,7 @@ final class TextStyleTests: XCTestCase {
         //When
         let attributes = style.attributes
         //Then
-        XCTAssertTrue((attributes[.paragraphStyle] as? NSParagraphStyle) == style.paragraphStyle, "Attributes have wrong paragraph style")
+        XCTAssertEqual((attributes[.paragraphStyle] as? NSParagraphStyle), style.paragraphStyle, "Attributes have wrong paragraph style")
     }
 
     // MARK: - Sugar

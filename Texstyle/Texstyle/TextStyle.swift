@@ -39,6 +39,15 @@ open class TextStyle {
         }
     }
 
+    /// Ligatures cause specific character combinations to be rendered using a single custom glyph
+    /// that corresponds to those characters. The value 0 indicates no ligatures. The value 1 indicates
+    /// the use of the default ligatures.
+    public var ligature: Int? {
+        didSet {
+            cachedAttributes = nil
+        }
+    }
+
     /// This value specifies the number of points by which to adjust kern-pair characters.
     /// Kerning prevents unwanted space from occurring between specific characters and depends on the font.
     /// The value 0 means kerning is disabled. If you do not specify this attribute, the string uses zero kerning.
@@ -52,6 +61,13 @@ open class TextStyle {
     /// Specify 0 (the default) for no additional changes. Specify positive values to change the stroke width alone.
     /// Specify negative values to stroke and fill the text. For example, a typical value for outlined text would be 3.0.
     public var strokeWidth: Float? {
+        didSet {
+            cachedAttributes = nil
+        }
+    }
+
+    /// Use this style to specify the shadow.
+    public var shadowStyle: ShadowStyle? {
         didSet {
             cachedAttributes = nil
         }
@@ -100,6 +116,14 @@ open class TextStyle {
     /// This value indicates whether the text is underlined.
     // The default values for this attributes are styleNone for the style and nil for the color, indicating same as foreground color.
     public var underlineLine: LineAttributes? {
+        didSet {
+            cachedAttributes = nil
+        }
+    }
+
+    // If it is not defined (which is the case by default), it is assumed to be the same as the value of foregroundColor;
+    /// otherwise, it describes the outline color.
+    public var strokeColor: UIColor? {
         didSet {
             cachedAttributes = nil
         }
@@ -185,11 +209,17 @@ open class TextStyle {
         attributes[.font] = font
         attributes[.foregroundColor] = color
         attributes[.backgroundColor] = backgroundColor
+        if let ligature = ligature {
+            attributes[.ligature] = ligature
+        }
         if let kerning = kerning {
             attributes[.kern] = kerning
         }
         if let strokeWidth = strokeWidth {
             attributes[.strokeWidth] = strokeWidth
+        }
+        if let shadowStyle = shadowStyle {
+            attributes[.shadow] = shadowStyle.shadow
         }
         if let effectStyle = effectStyle {
             attributes[.textEffect] = effectStyle
@@ -210,6 +240,9 @@ open class TextStyle {
         if let underlineLine = underlineLine {
             attributes[.underlineStyle] = underlineLine.style.rawValue
             attributes[.underlineColor] = underlineLine.color
+        }
+        if let strokeColor = strokeColor {
+            attributes[.strokeColor] = strokeColor
         }
         if let attachment = attachment {
             attributes[.attachment] = attachment
@@ -257,13 +290,16 @@ open class TextStyle {
         copy.font = font
         copy.color = color
         copy.backgroundColor = backgroundColor
+        copy.ligature = ligature
         copy.kerning = kerning
         copy.strokeWidth = strokeWidth
+        copy.shadowStyle = shadowStyle
         copy.baselineOffset = baselineOffset
         copy.obliqueness = obliqueness
         copy.expansion = expansion
         copy.strikeThroughLine = strikeThroughLine
         copy.underlineLine = underlineLine
+        copy.strokeColor = strokeColor
         copy.effectStyle = effectStyle
         copy.attachment = attachment
         copy.alignment = alignment
@@ -286,13 +322,16 @@ extension TextStyle: Equatable {
         return lhs.font == rhs.font &&
             lhs.color == rhs.color &&
             lhs.backgroundColor == rhs.backgroundColor &&
+            lhs.ligature == rhs.ligature &&
             lhs.kerning == rhs.kerning &&
             lhs.strokeWidth == rhs.strokeWidth &&
+            lhs.shadowStyle == rhs.shadowStyle &&
             lhs.baselineOffset == rhs.baselineOffset &&
             lhs.obliqueness == rhs.obliqueness &&
             lhs.expansion == rhs.expansion &&
             lhs.strikeThroughLine == rhs.strikeThroughLine &&
             lhs.underlineLine == rhs.underlineLine &&
+            lhs.strokeColor == rhs.strokeColor &&
             lhs.effectStyle == rhs.effectStyle &&
             lhs.attachment == rhs.attachment &&
             lhs.alignment == rhs.alignment &&

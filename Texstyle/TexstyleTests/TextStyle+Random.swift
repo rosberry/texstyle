@@ -11,14 +11,17 @@ extension TextStyle {
         style.font = .systemFont(ofSize: .random(in: 13...16))
         style.color = .random
         style.backgroundColor = .random
+        style.ligature = .random(in: 0...1)
         style.kerning = .random(in: 0...10)
         style.strokeWidth = .random(in: 0...10)
+        style.shadowStyle = .random
         style.baselineOffset = .random(in: 0...10)
         style.obliqueness = .random(in: 0...10)
         style.expansion = .random(in: 0...10)
         style.strikeThroughLine = .random
         style.underlineLine = .random
-        style.effectStyle = NSAttributedString.TextEffectStyle.letterpressStyle
+        style.strokeColor = .random
+        style.effectStyle = .letterpressStyle
         let attachment = NSTextAttachment()
         attachment.image = UIImage()
         style.attachment = attachment
@@ -33,7 +36,7 @@ extension TextStyle {
     }
 }
 
-private extension UIColor {
+extension UIColor {
 
     static var random: UIColor {
         return .init(red: .random(in: 0...1),
