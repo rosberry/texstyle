@@ -1,0 +1,11 @@
+on: pull_request
+name: Test
+jobs:
+  lint:
+    name: Lint
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: norio-nomura/action-swiftlint@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
