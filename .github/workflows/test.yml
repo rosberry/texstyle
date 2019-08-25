@@ -5,7 +5,9 @@ jobs:
     name: Test
     runs-on: macOS-latest
     steps:
-      - uses: actions/checkout@master
-      - run: |
-        cd Texstyle
-        xcodebuild test
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Build and test
+        run: |
+          cd Texstyle
+          xcodebuild test
