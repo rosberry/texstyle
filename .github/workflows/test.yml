@@ -6,7 +6,7 @@ jobs:
     runs-on: macOS-latest
     strategy:
         matrix:
-          destination: ["platform=iOS Simulator,OS=12.0,name=iPhone X", "platform=tvOS Simulator,OS=12.0,name=Apple TV 4K"]
+          destination: ['platform=iOS Simulator,OS=12.0,name=iPhone X', 'platform=tvOS Simulator,OS=12.0,name=Apple TV 4K']
     steps:
     - uses: actions/checkout@master
     - run: cd Texstyle
