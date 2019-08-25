@@ -8,4 +8,4 @@ jobs:
       - uses: actions/checkout@master
       - run: |
         cd Texstyle
-        xcodebuild clean test -project Texstyle.xcodeproj -scheme Texstyle
+        xcodebuild test
