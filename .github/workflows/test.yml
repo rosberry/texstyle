@@ -9,5 +9,5 @@ jobs:
     - run: cd Texstyle
     - run: xcodebuild clean test -project Texstyle.xcodeproj -scheme Texstyle -destination ${DESTINATION} CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
       env: 
-        DESTINATION: "platform=iOS Simulator,OS=12.0,name=iPhone X"
+        DESTINATION: "platform=iOS_Simulator,OS=12.0,name=iPhone_X"
     - run: bash <(curl -s https://codecov.io/bash)
