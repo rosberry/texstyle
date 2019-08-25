@@ -1,15 +1,15 @@
 on: pull_request
 name: Test
 jobs:
-  lint:
+  test:
     name: Test
     runs-on: macOS-latest
     strategy:
         matrix:
           destination: ['platform=iOS Simulator,OS=12.0,name=iPhone X', 'platform=tvOS Simulator,OS=12.0,name=Apple TV 4K']
     steps:
-    - uses: actions/checkout@master
-    - run: |
-      cd Texstyle
-      xcodebuild clean test -project Texstyle.xcodeproj -scheme Texstyle -destination "platform=iOS Simulator,OS=12.0,name=iPhone X" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-      bash <(curl -s https://codecov.io/bash)
+      - uses: actions/checkout@master
+      - run: |
+        cd Texstyle
+        xcodebuild clean test -project Texstyle.xcodeproj -scheme Texstyle -destination "platform=iOS Simulator,OS=12.0,name=iPhone X" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+        bash <(curl -s https://codecov.io/bash)
