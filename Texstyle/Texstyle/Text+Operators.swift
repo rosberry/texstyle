@@ -4,6 +4,8 @@
 
 #if canImport(UIKit)
 
+import Foundation
+
 public extension Text {
 
     static func + (lhs: Text, rhs: String) -> Text {

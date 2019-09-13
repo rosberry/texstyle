@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import XCTest
 @testable import Texstyle
 
@@ -47,3 +49,5 @@ final class ShadowStyleTests: XCTestCase {
         XCTAssertEqual(shadow.shadowColor as? UIColor, style.color, "Shadow color is not equal to style color")
     }
 }
+
+#endif

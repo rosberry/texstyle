@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import XCTest
 @testable import Texstyle
 
@@ -24,3 +26,5 @@ final class ControlStateTests: XCTestCase {
         XCTAssertNotEqual(hasher1.finalize(), hasher3.finalize(), "Hash for different states must not be equal")
     }
 }
+
+#endif

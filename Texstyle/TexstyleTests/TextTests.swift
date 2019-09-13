@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import XCTest
 @testable import Texstyle
 
@@ -694,3 +696,5 @@ final class TextTests: XCTestCase {
 private func isEqual<T: Equatable>(type: T.Type, a: Any?, b: Any?) -> Bool {
     return a as? T == b as? T
 }
+
+#endif

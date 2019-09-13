@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 @testable import Texstyle
 
 extension ControlState {
@@ -12,3 +14,5 @@ extension ControlState {
         return allCases.randomElement()!
     }
 }
+
+#endif

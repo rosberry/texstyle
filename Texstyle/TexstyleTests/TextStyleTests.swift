@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import XCTest
 @testable import Texstyle
 
@@ -91,3 +93,5 @@ final class TextStyleTests: XCTestCase {
         XCTAssertEqual(centerAlignedStyle.lineHeight, 0, "Style's line height must be equal to 0")
     }
 }
+
+#endif

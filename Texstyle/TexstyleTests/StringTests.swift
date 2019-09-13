@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import XCTest
 @testable import Texstyle
 
@@ -30,3 +32,5 @@ final class StringTests: XCTestCase {
         XCTAssertEqual(text.styles, styles, "Text has wrong styles")
     }
 }
+
+#endif

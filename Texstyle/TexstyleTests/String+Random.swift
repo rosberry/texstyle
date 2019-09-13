@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 extension String {
 
     static func random(length: Int) -> String {
@@ -9,3 +11,5 @@ extension String {
         return String((0..<length).compactMap { _ in symbols.randomElement() })
     }
 }
+
+#endif
