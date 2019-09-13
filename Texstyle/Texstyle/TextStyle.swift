@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import UIKit
 
 #if swift(>=4.2)
@@ -344,3 +346,5 @@ extension TextStyle: Equatable {
             lhs.link == rhs.link
     }
 }
+
+#endif

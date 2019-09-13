@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 public extension Text {
 
     static func + (lhs: Text, rhs: String) -> Text {
@@ -28,3 +30,5 @@ public extension Text {
         return text
     }
 }
+
+#endif

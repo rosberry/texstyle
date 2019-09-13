@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 extension TextStyle {
 
     /// Applies center to alignment attribute.
@@ -59,3 +61,5 @@ extension TextStyle {
         return copy
     }
 }
+
+#endif

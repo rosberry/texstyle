@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 extension String {
 
     public func text(with style: TextStyle) -> Text {
@@ -12,3 +14,5 @@ extension String {
         return Text(value: self, styles: styles)
     }
 }
+
+#endif

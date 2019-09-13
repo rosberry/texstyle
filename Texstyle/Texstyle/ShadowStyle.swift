@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import UIKit
 
 open class ShadowStyle {
@@ -40,3 +42,5 @@ extension ShadowStyle: Equatable {
             lhs.color == rhs.color
     }
 }
+
+#endif

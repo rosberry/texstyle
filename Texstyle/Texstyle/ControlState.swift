@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import UIKit
 
 #if swift(>=4.2)
@@ -18,3 +20,5 @@ extension ControlState: Hashable {
         hasher.combine(rawValue)
     }
 }
+
+#endif

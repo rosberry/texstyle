@@ -2,6 +2,8 @@
 // Copyright (c) 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import UIKit
 
 /// Stores string, styles and substyles for attributed string.
@@ -163,3 +165,5 @@ extension Text: Equatable {
         return lhs.value == rhs.value && lhs.styles == rhs.styles
     }
 }
+
+#endif

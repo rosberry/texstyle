@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import Foundation
 
 /// Stores range for style applying.
@@ -17,3 +19,5 @@ final class TextSubstyle {
         self.state = state
     }
 }
+
+#endif

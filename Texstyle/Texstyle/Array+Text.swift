@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 /// Strategy of separator styling for joining texts in array.
 ///
 /// - left: Uses styles of left text.
@@ -74,3 +76,5 @@ public extension Array where Element: Text {
         return text
     }
 }
+
+#endif

@@ -2,6 +2,8 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import UIKit
 
 public class LineAttributes {
@@ -36,3 +38,5 @@ extension LineAttributes: Equatable {
             lhs.style == rhs.style
     }
 }
+
+#endif
