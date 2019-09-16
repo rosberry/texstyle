@@ -14,6 +14,7 @@
 		063FCBF32271F9AB001C8962 /* TextStyle+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBF22271F9AB001C8962 /* TextStyle+App.swift */; };
 		063FCBFB2271FAB3001C8962 /* Texstyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FCBFA2271FAB3001C8962 /* Texstyle.framework */; };
 		063FCBFC2271FAB3001C8962 /* Texstyle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 063FCBFA2271FAB3001C8962 /* Texstyle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		06D9387F232FDD2700C4AE6A /* SampleCode.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 06D9387E232FDD2700C4AE6A /* SampleCode.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		063FCBD32271E575001C8962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		063FCBF22271F9AB001C8962 /* TextStyle+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextStyle+App.swift"; sourceTree = "<group>"; };
 		063FCBFA2271FAB3001C8962 /* Texstyle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Texstyle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		06D9387E232FDD2700C4AE6A /* SampleCode.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SampleCode.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				063FCBFA2271FAB3001C8962 /* Texstyle.framework */,
+				06D9387D232FDD2700C4AE6A /* Configuration */,
 				063FCBC62271E574001C8962 /* TexstyleExample */,
 				063FCBC52271E574001C8962 /* Products */,
 			);
@@ -81,6 +84,14 @@
 				063FCBD32271E575001C8962 /* Info.plist */,
 			);
 			path = TexstyleExample;
+			sourceTree = "<group>";
+		};
+		06D9387D232FDD2700C4AE6A /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				06D9387E232FDD2700C4AE6A /* SampleCode.xcconfig */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				063FCBD22271E575001C8962 /* LaunchScreen.storyboard in Resources */,
+				06D9387F232FDD2700C4AE6A /* SampleCode.xcconfig in Resources */,
 				063FCBCF2271E575001C8962 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +188,7 @@
 /* Begin XCBuildConfiguration section */
 		063FCBD42271E575001C8962 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06D9387E232FDD2700C4AE6A /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -225,7 +238,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -235,63 +248,9 @@
 			};
 			name = Debug;
 		};
-		063FCBD52271E575001C8962 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		063FCBD72271E575001C8962 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06D9387E232FDD2700C4AE6A /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -308,24 +267,6 @@
 			};
 			name = Debug;
 		};
-		063FCBD82271E575001C8962 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = TexstyleExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rosberry.TexstyleExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -333,19 +274,17 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				063FCBD42271E575001C8962 /* Debug */,
-				063FCBD52271E575001C8962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		063FCBD62271E575001C8962 /* Build configuration list for PBXNativeTarget "TexstyleExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				063FCBD72271E575001C8962 /* Debug */,
-				063FCBD82271E575001C8962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
