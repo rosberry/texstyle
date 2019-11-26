@@ -145,8 +145,8 @@ open class TextStyle {
 
     /// Natural text alignment is realized as left or right alignment depending on the line sweep direction
     /// of the first script contained in the paragraph. For a list of alignment constants,
-    /// see the “Constants” section of NSString UIKit Additions Reference.
-    public var alignment: NSTextAlignment? {
+    /// see the “Constants” section of NSString UIKit Additions Reference. Default value is `.natural`.
+    public var alignment: NSTextAlignment = .natural {
         didSet {
             cachedAttributes = nil
         }
@@ -154,7 +154,8 @@ open class TextStyle {
 
     /// This property contains the line break mode to be used laying out the paragraph’s text.
     /// For a list of line break constants, see the “Constants” section of NSParagraphStyle.
-    public var lineBreakMode: NSLineBreakMode? {
+    /// Default value is `.byTruncatingTail`.
+    public var lineBreakMode: NSLineBreakMode = .byTruncatingTail {
         didSet {
             cachedAttributes = nil
         }
@@ -253,12 +254,8 @@ open class TextStyle {
 
         if paragraphStyle == nil {
             let paragraphStyle = NSMutableParagraphStyle()
-            if let alignment = alignment {
-                paragraphStyle.alignment = alignment
-            }
-            if let lineBreakMode = lineBreakMode {
-                paragraphStyle.lineBreakMode = lineBreakMode
-            }
+            paragraphStyle.alignment = alignment
+            paragraphStyle.lineBreakMode = lineBreakMode
             if let lineSpacing = lineSpacing {
                 paragraphStyle.lineSpacing = CGFloat(lineSpacing)
             }
