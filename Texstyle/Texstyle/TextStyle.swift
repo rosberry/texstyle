@@ -293,12 +293,12 @@ open class TextStyle {
         copy.ligature = ligature
         copy.kerning = kerning
         copy.strokeWidth = strokeWidth
-        copy.shadowStyle = shadowStyle
+        copy.shadowStyle = shadowStyle?.copy()
         copy.baselineOffset = baselineOffset
         copy.obliqueness = obliqueness
         copy.expansion = expansion
-        copy.strikeThroughLine = strikeThroughLine
-        copy.underlineLine = underlineLine
+        copy.strikeThroughLine = strikeThroughLine?.copy()
+        copy.underlineLine = underlineLine?.copy()
         copy.strokeColor = strokeColor
         copy.effectStyle = effectStyle
         copy.attachment = attachment

@@ -23,6 +23,9 @@ final class TextStyleTests: XCTestCase {
         let copy = style.copy()
         //Then
         XCTAssertEqual(copy, style, "Copy is not equal to style")
+        XCTAssertFalse(copy.shadowStyle === style.shadowStyle, "Shadow style must be a copy")
+        XCTAssertFalse(copy.strikeThroughLine === style.strikeThroughLine, "StrikeThroughLine must be a copy")
+        XCTAssertFalse(copy.underlineLine === style.underlineLine, "UnderlineLine must be a copy")
     }
 
     func testParagraphStyle() {
