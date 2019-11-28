@@ -115,7 +115,7 @@ final class TextTests: XCTestCase {
         //When
         let text = Text(value: value, style: style)
         //Then
-        XCTAssertEqual(text.attributed, text.attributed(for: .normal), "Attributed is not equal to normal attributed string")
+        XCTAssertEqual(text.attributed, text.attributed(for: .normal), "Attributed must be equal to normal attributed string")
     }
 
     // MARK: - Attributes
@@ -586,6 +586,18 @@ final class TextTests: XCTestCase {
         XCTAssertEqual(string, value, "Text should be interpolated to its value")
     }
 
+    // MARK: - Copying
+
+    func testCopy() {
+        //Given
+        let text = Text(value: .random(length: 6), styles: styles)
+        //When
+        let copy = text.copy()
+        //Then
+        XCTAssertFalse(copy === text, "Copy must be a different object instance.")
+        XCTAssertEqual(copy, text, "Copy must be equal to text")
+    }
+
     // MARK: - Private
 
     private func test(_ text: Text?, withValue value: String?, for state: ControlState, with style: TextStyle) {
@@ -599,7 +611,7 @@ final class TextTests: XCTestCase {
         XCTAssertNotNil(string, "String must not be nil")
         string?.enumerateAttributes(in: range, options: .longestEffectiveRangeNotRequired) { enumeratedAttributes, _, _ in
             for (key, attribute) in enumeratedAttributes {
-                let message = "\(attribute) value is not equal to \(String(describing: attributes[key])) value for \(key.rawValue) key"
+                let message = "\(attribute) value must be equal to \(String(describing: attributes[key])) value for \(key.rawValue) key"
                 XCTAssertTrue(isEqial(a: attribute, b: attributes[key], key: key), message)
             }
         }

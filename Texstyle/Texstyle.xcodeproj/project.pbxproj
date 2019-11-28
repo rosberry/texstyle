@@ -33,6 +33,7 @@
 		06C24D3B227384A800EDA46F /* UIButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C24D3A227384A800EDA46F /* UIButtonTests.swift */; };
 		06C24D3D22738F5200EDA46F /* ControlStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C24D3C22738F5200EDA46F /* ControlStateTests.swift */; };
 		06C24D3F227393F300EDA46F /* String+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C24D3E227393F300EDA46F /* String+Random.swift */; };
+		06FA185A238F7A2800850748 /* LineAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FA1859238F7A2800850748 /* LineAttributesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		06C24D3A227384A800EDA46F /* UIButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonTests.swift; sourceTree = "<group>"; };
 		06C24D3C22738F5200EDA46F /* ControlStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlStateTests.swift; sourceTree = "<group>"; };
 		06C24D3E227393F300EDA46F /* String+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Random.swift"; sourceTree = "<group>"; };
+		06FA1859238F7A2800850748 /* LineAttributesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineAttributesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +144,7 @@
 				06AE69082272DE9C00DD5D8F /* TextTests.swift */,
 				06AE69092272DE9C00DD5D8F /* TextStyleTests.swift */,
 				06948D2C22D9F686000FCC2C /* ShadowStyleTests.swift */,
-				06B50828238E3F5400917A4A /* LineAttributesTests.swift */,
+				06FA1859238F7A2800850748 /* LineAttributesTests.swift */,
 				06C24D36227382F200EDA46F /* StringTests.swift */,
 				06C24D3A227384A800EDA46F /* UIButtonTests.swift */,
 				06C24D3C22738F5200EDA46F /* ControlStateTests.swift */,
@@ -308,7 +310,7 @@
 			files = (
 				06AE690A2272DE9C00DD5D8F /* TextTests.swift in Sources */,
 				06C24D3F227393F300EDA46F /* String+Random.swift in Sources */,
-				06B50829238E3F5400917A4A /* LineAttributesTests.swift in Sources */,
+				06FA185A238F7A2800850748 /* LineAttributesTests.swift in Sources */,
 				06603ACC22CA11F9001F7644 /* BoundingRectOptions.swift in Sources */,
 				06C24D3B227384A800EDA46F /* UIButtonTests.swift in Sources */,
 				06948D2B22D9F4E6000FCC2C /* ShadowStyle+Random.swift in Sources */,

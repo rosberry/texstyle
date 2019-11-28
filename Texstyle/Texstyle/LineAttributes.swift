@@ -33,7 +33,6 @@ public class LineAttributes {
         copy.color = color
         return copy
     }
-
 }
 
 // MARK: - Equatable

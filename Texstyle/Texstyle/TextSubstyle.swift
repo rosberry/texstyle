@@ -16,4 +16,8 @@ final class TextSubstyle {
         self.range = range
         self.state = state
     }
+
+    public func copy() -> TextSubstyle {
+        TextSubstyle(style: style.copy(), range: range, state: state)
+    }
 }
