@@ -13,6 +13,6 @@ final class LineAttributesTests: XCTestCase {
         //When
         let copy = attributes.copy()
         //Then
-        XCTAssertEqual(copy, attributes, "Copy is not equal to line attributes")
+        XCTAssertEqual(copy, attributes, "Copy must be equal to line attributes")
     }
 }
