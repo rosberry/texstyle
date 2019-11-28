@@ -153,6 +153,12 @@ public final class Text {
         }
         return attributedString.boundingRect(with: size, options: options, context: context)
     }
+
+    public func copy() -> Text {
+        let copy = Text(value: value, styles: styles)
+        copy.substyles = substyles
+        return copy
+    }
 }
 
 // MARK: - Equatable

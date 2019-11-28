@@ -142,6 +142,7 @@
 				06AE69082272DE9C00DD5D8F /* TextTests.swift */,
 				06AE69092272DE9C00DD5D8F /* TextStyleTests.swift */,
 				06948D2C22D9F686000FCC2C /* ShadowStyleTests.swift */,
+				06B50828238E3F5400917A4A /* LineAttributesTests.swift */,
 				06C24D36227382F200EDA46F /* StringTests.swift */,
 				06C24D3A227384A800EDA46F /* UIButtonTests.swift */,
 				06C24D3C22738F5200EDA46F /* ControlStateTests.swift */,
@@ -150,7 +151,6 @@
 				06C24D3E227393F300EDA46F /* String+Random.swift */,
 				06603ACB22CA11F9001F7644 /* BoundingRectOptions.swift */,
 				06948D2A22D9F4E6000FCC2C /* ShadowStyle+Random.swift */,
-				06B50828238E3F5400917A4A /* LineAttributesTests.swift */,
 			);
 			path = TexstyleTests;
 			sourceTree = "<group>";
