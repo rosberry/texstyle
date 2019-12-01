@@ -16,6 +16,8 @@
 		063FCBF52271FA02001C8962 /* TextStyle+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBF42271FA02001C8962 /* TextStyle+Sugar.swift */; };
 		063FCBF82271FA3B001C8962 /* String+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBF72271FA3B001C8962 /* String+Text.swift */; };
 		063FCBFF2272094E001C8962 /* UIButton+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBFE2272094E001C8962 /* UIButton+Text.swift */; };
+		0645DE0D2393E4F800039489 /* TextSubstyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645DE0C2393E4F800039489 /* TextSubstyleTests.swift */; };
+		0645DE0F2393E53600039489 /* TextSubstyle+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0645DE0E2393E53600039489 /* TextSubstyle+Random.swift */; };
 		06603ACC22CA11F9001F7644 /* BoundingRectOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06603ACB22CA11F9001F7644 /* BoundingRectOptions.swift */; };
 		06603ACE22CB1118001F7644 /* StringInterpolation+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06603ACD22CB1118001F7644 /* StringInterpolation+Text.swift */; };
 		067A645D22BCD0C300AF2E5E /* Text+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A645C22BCD0C300AF2E5E /* Text+Operators.swift */; };
@@ -26,7 +28,6 @@
 		06AE69022272DE8F00DD5D8F /* Texstyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FCBA12271E51C001C8962 /* Texstyle.framework */; };
 		06AE690A2272DE9C00DD5D8F /* TextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AE69082272DE9C00DD5D8F /* TextTests.swift */; };
 		06AE690B2272DE9C00DD5D8F /* TextStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AE69092272DE9C00DD5D8F /* TextStyleTests.swift */; };
-		06B50829238E3F5400917A4A /* LineAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B50828238E3F5400917A4A /* LineAttributesTests.swift */; };
 		06C24D3522737B7700EDA46F /* TextStyle+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C24D3422737B7700EDA46F /* TextStyle+Random.swift */; };
 		06C24D37227382F200EDA46F /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C24D36227382F200EDA46F /* StringTests.swift */; };
 		06C24D392273844600EDA46F /* ControlState+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C24D382273844600EDA46F /* ControlState+Random.swift */; };
@@ -58,6 +59,8 @@
 		063FCBF42271FA02001C8962 /* TextStyle+Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Sugar.swift"; sourceTree = "<group>"; };
 		063FCBF72271FA3B001C8962 /* String+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Text.swift"; sourceTree = "<group>"; };
 		063FCBFE2272094E001C8962 /* UIButton+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Text.swift"; sourceTree = "<group>"; };
+		0645DE0C2393E4F800039489 /* TextSubstyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSubstyleTests.swift; sourceTree = "<group>"; };
+		0645DE0E2393E53600039489 /* TextSubstyle+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextSubstyle+Random.swift"; sourceTree = "<group>"; };
 		06603ACB22CA11F9001F7644 /* BoundingRectOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingRectOptions.swift; sourceTree = "<group>"; };
 		06603ACD22CB1118001F7644 /* StringInterpolation+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringInterpolation+Text.swift"; sourceTree = "<group>"; };
 		067A645C22BCD0C300AF2E5E /* Text+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Operators.swift"; sourceTree = "<group>"; };
@@ -69,7 +72,6 @@
 		06AE69012272DE8F00DD5D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06AE69082272DE9C00DD5D8F /* TextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTests.swift; sourceTree = "<group>"; };
 		06AE69092272DE9C00DD5D8F /* TextStyleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyleTests.swift; sourceTree = "<group>"; };
-		06B50828238E3F5400917A4A /* LineAttributesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineAttributesTests.swift; sourceTree = "<group>"; };
 		06C24D3422737B7700EDA46F /* TextStyle+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+Random.swift"; sourceTree = "<group>"; };
 		06C24D36227382F200EDA46F /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		06C24D382273844600EDA46F /* ControlState+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControlState+Random.swift"; sourceTree = "<group>"; };
@@ -145,11 +147,13 @@
 				06AE69092272DE9C00DD5D8F /* TextStyleTests.swift */,
 				06948D2C22D9F686000FCC2C /* ShadowStyleTests.swift */,
 				06FA1859238F7A2800850748 /* LineAttributesTests.swift */,
+				0645DE0C2393E4F800039489 /* TextSubstyleTests.swift */,
 				06C24D36227382F200EDA46F /* StringTests.swift */,
 				06C24D3A227384A800EDA46F /* UIButtonTests.swift */,
 				06C24D3C22738F5200EDA46F /* ControlStateTests.swift */,
 				06C24D382273844600EDA46F /* ControlState+Random.swift */,
 				06C24D3422737B7700EDA46F /* TextStyle+Random.swift */,
+				0645DE0E2393E53600039489 /* TextSubstyle+Random.swift */,
 				06C24D3E227393F300EDA46F /* String+Random.swift */,
 				06603ACB22CA11F9001F7644 /* BoundingRectOptions.swift */,
 				06948D2A22D9F4E6000FCC2C /* ShadowStyle+Random.swift */,
@@ -316,7 +320,9 @@
 				06948D2B22D9F4E6000FCC2C /* ShadowStyle+Random.swift in Sources */,
 				06C24D3522737B7700EDA46F /* TextStyle+Random.swift in Sources */,
 				06C24D392273844600EDA46F /* ControlState+Random.swift in Sources */,
+				0645DE0F2393E53600039489 /* TextSubstyle+Random.swift in Sources */,
 				06C24D3D22738F5200EDA46F /* ControlStateTests.swift in Sources */,
+				0645DE0D2393E4F800039489 /* TextSubstyleTests.swift in Sources */,
 				06C24D37227382F200EDA46F /* StringTests.swift in Sources */,
 				06AE690B2272DE9C00DD5D8F /* TextStyleTests.swift in Sources */,
 				06948D2D22D9F686000FCC2C /* ShadowStyleTests.swift in Sources */,

@@ -591,6 +591,7 @@ final class TextTests: XCTestCase {
     func testCopy() {
         //Given
         let text = Text(value: .random(length: 6), styles: styles)
+        text.substyles = [TextSubstyle.random, TextSubstyle.random]
         //When
         let copy = text.copy()
         //Then

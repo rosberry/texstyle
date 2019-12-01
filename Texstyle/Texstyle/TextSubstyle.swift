@@ -21,3 +21,10 @@ final class TextSubstyle {
         TextSubstyle(style: style.copy(), range: range, state: state)
     }
 }
+
+extension TextSubstyle: Equatable {
+
+    public static func == (lhs: TextSubstyle, rhs: TextSubstyle) -> Bool {
+        lhs.style == rhs.style && lhs.range == rhs.range && lhs.state == rhs.state
+    }
+}
