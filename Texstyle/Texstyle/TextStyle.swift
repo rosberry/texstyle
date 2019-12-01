@@ -5,9 +5,9 @@
 import UIKit
 
 #if swift(>=4.2)
-    typealias AttributedStringKey = NSAttributedString.Key
+typealias AttributedStringKey = NSAttributedString.Key
 #else
-    typealias AttributedStringKey = NSAttributedStringKey
+typealias AttributedStringKey = NSAttributedStringKey
 #endif
 
 typealias TextStyleAttributes = [AttributedStringKey: Any]
@@ -316,7 +316,7 @@ open class TextStyle {
 extension TextStyle: Equatable {
 
     public static func == (lhs: TextStyle, rhs: TextStyle) -> Bool {
-        return lhs.font == rhs.font &&
+        lhs.font == rhs.font &&
             lhs.color == rhs.color &&
             lhs.backgroundColor == rhs.backgroundColor &&
             lhs.ligature == rhs.ligature &&

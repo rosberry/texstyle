@@ -12,7 +12,7 @@ public final class Text {
 
     /// Returns attributed string for normal state.
     public var attributed: NSAttributedString? {
-        return attributed()
+        attributed()
     }
 
     /// Clears cached attributed string.
@@ -171,6 +171,6 @@ public final class Text {
 extension Text: Equatable {
 
     public static func == (lhs: Text, rhs: Text) -> Bool {
-        return lhs.value == rhs.value && lhs.styles == rhs.styles
+        lhs.value == rhs.value && lhs.styles == rhs.styles
     }
 }

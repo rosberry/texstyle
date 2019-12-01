@@ -727,5 +727,5 @@ final class TextTests: XCTestCase {
 }
 
 private func isEqual<T: Equatable>(type: T.Type, a: Any?, b: Any?) -> Bool {
-    return a as? T == b as? T
+    a as? T == b as? T
 }

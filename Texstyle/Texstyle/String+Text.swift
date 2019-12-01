@@ -5,10 +5,10 @@
 extension String {
 
     public func text(with style: TextStyle) -> Text {
-        return Text(value: self, style: style)
+        Text(value: self, style: style)
     }
 
     public func text(with styles: [ControlState: TextStyle]) -> Text {
-        return Text(value: self, styles: styles)
+        Text(value: self, styles: styles)
     }
 }
