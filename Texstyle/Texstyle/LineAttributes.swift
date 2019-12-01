@@ -26,6 +26,13 @@ public class LineAttributes {
         self.color = color
     }
     #endif
+
+    public func copy() -> LineAttributes {
+        let copy = LineAttributes()
+        copy.style = style
+        copy.color = color
+        return copy
+    }
 }
 
 // MARK: - Equatable

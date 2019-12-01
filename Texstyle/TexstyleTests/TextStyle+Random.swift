@@ -69,7 +69,7 @@ private extension NSLineBreakMode {
     }
 }
 
-private extension LineAttributes {
+extension LineAttributes {
 
     static var random: LineAttributes {
         return .init(style: .random, color: .random)
