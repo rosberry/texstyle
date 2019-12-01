@@ -461,6 +461,17 @@ final class TextTests: XCTestCase {
         test(style2.attributes, in: newText, for: .normal, withSubstring: substring4)
     }
 
+    func testTextArrayJoiningWithOneText() {
+        //Given
+        let styles1 = styles
+        let text1 = Text(value: substring1, styles: styles1)
+        let texts = [text1]
+        //When
+        let text = texts.joined()
+        //Then
+        XCTAssertTrue(text === text1, "Joining of array with on text must return the same text")
+    }
+
     func testTextArrayJoiningWithDefaultSeparator() {
         //Given
         let styles1 = styles
@@ -516,6 +527,17 @@ final class TextTests: XCTestCase {
             test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
             test(styles3[state]!.attributes, in: text, for: state, withSubstring: substring3)
         }
+    }
+
+    func testOneTextArrayJoiningWithLeftStrategy() {
+        //Given
+        let styles1 = styles
+        let text1 = Text(value: substring1, styles: styles1)
+        let texts = [text1]
+        //When
+        let text = texts.joined(separator: "", strategy: .left)
+        //Then
+        XCTAssertTrue(text === text1, "Joining of array with on text must return the same text")
     }
 
     func testTextArrayJoiningWithDefaultStrategyForSeparator() {
