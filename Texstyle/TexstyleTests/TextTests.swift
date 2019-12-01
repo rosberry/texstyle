@@ -469,7 +469,7 @@ final class TextTests: XCTestCase {
         //When
         let text = texts.joined()
         //Then
-        XCTAssertTrue(text === text1, "Joining of array with on text must return the same text")
+        XCTAssertTrue(text === text1, "Joining of array with one text must return the same text")
     }
 
     func testTextArrayJoiningWithDefaultSeparator() {
@@ -537,7 +537,7 @@ final class TextTests: XCTestCase {
         //When
         let text = texts.joined(separator: "", strategy: .left)
         //Then
-        XCTAssertTrue(text === text1, "Joining of array with on text must return the same text")
+        XCTAssertTrue(text === text1, "Joining of array with one text must return the same text")
     }
 
     func testTextArrayJoiningWithDefaultStrategyForSeparator() {
