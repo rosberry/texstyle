@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060F826423B616D1004D56E9 /* Sequence+TextSubstyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F826323B616D1004D56E9 /* Sequence+TextSubstyle.swift */; };
+		060F826623B6172C004D56E9 /* Dictionary+TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F826523B6172C004D56E9 /* Dictionary+TextStyle.swift */; };
 		063FCBB22271E51C001C8962 /* Texstyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FCBA42271E51C001C8962 /* Texstyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		063FCBE22271E635001C8962 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBDF2271E635001C8962 /* Text.swift */; };
 		063FCBE42271E635001C8962 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBE02271E635001C8962 /* TextStyle.swift */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060F826323B616D1004D56E9 /* Sequence+TextSubstyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+TextSubstyle.swift"; sourceTree = "<group>"; };
+		060F826523B6172C004D56E9 /* Dictionary+TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+TextStyle.swift"; sourceTree = "<group>"; };
 		063FCBA12271E51C001C8962 /* Texstyle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Texstyle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		063FCBA42271E51C001C8962 /* Texstyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Texstyle.h; sourceTree = "<group>"; };
 		063FCBA52271E51C001C8962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 				067A645C22BCD0C300AF2E5E /* Text+Operators.swift */,
 				067A646122BCDF5200AF2E5E /* Array+Text.swift */,
 				06603ACD22CB1118001F7644 /* StringInterpolation+Text.swift */,
+				060F826323B616D1004D56E9 /* Sequence+TextSubstyle.swift */,
+				060F826523B6172C004D56E9 /* Dictionary+TextStyle.swift */,
 			);
 			path = Texstyle;
 			sourceTree = "<group>";
@@ -299,10 +305,12 @@
 				06948D2922D9F35F000FCC2C /* ShadowStyle.swift in Sources */,
 				063FCBE42271E635001C8962 /* TextStyle.swift in Sources */,
 				063FCBF02271ED9E001C8962 /* LineAttributes.swift in Sources */,
+				060F826623B6172C004D56E9 /* Dictionary+TextStyle.swift in Sources */,
 				063FCBE22271E635001C8962 /* Text.swift in Sources */,
 				067A645D22BCD0C300AF2E5E /* Text+Operators.swift in Sources */,
 				063FCBED2271EC90001C8962 /* ControlState.swift in Sources */,
 				06603ACE22CB1118001F7644 /* StringInterpolation+Text.swift in Sources */,
+				060F826423B616D1004D56E9 /* Sequence+TextSubstyle.swift in Sources */,
 				063FCBF82271FA3B001C8962 /* String+Text.swift in Sources */,
 				063FCBF52271FA02001C8962 /* TextStyle+Sugar.swift in Sources */,
 			);

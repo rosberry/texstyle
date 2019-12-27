@@ -621,6 +621,18 @@ final class TextTests: XCTestCase {
         XCTAssertEqual(copy, text, "Copy must be equal to text")
     }
 
+    func testDictionaryCopy() {
+        //Given
+        let styles = self.styles
+        //When
+        let copy = styles.copy()
+        //Then
+        for (copy, style) in zip(copy.values, styles.values) {
+            XCTAssertFalse(copy === style, "Copy must be a different object instance.")
+            XCTAssertEqual(copy, style, "Copy must be equal to text")
+        }
+    }
+
     // MARK: - Private
 
     private func test(_ text: Text?, withValue value: String?, for state: ControlState, with style: TextStyle) {

@@ -155,13 +155,8 @@ public final class Text {
     }
 
     public func copy() -> Text {
-        let stylesCopy = styles.mapValues { style in
-            style.copy()
-        }
-        let copy = Text(value: value, styles: stylesCopy)
-        copy.substyles = substyles.map { substyle in
-            substyle.copy()
-        }
+        let copy = Text(value: value, styles: styles.copy())
+        copy.substyles = substyles.copy()
         return copy
     }
 }
