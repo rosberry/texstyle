@@ -5,9 +5,9 @@
 import UIKit
 
 #if swift(>=4.2)
-    typealias AttributedStringKey = NSAttributedString.Key
+typealias AttributedStringKey = NSAttributedString.Key
 #else
-    typealias AttributedStringKey = NSAttributedStringKey
+typealias AttributedStringKey = NSAttributedStringKey
 #endif
 
 typealias TextStyleAttributes = [AttributedStringKey: Any]
@@ -316,28 +316,28 @@ open class TextStyle {
 extension TextStyle: Equatable {
 
     public static func == (lhs: TextStyle, rhs: TextStyle) -> Bool {
-        return lhs.font == rhs.font &&
-            lhs.color == rhs.color &&
-            lhs.backgroundColor == rhs.backgroundColor &&
-            lhs.ligature == rhs.ligature &&
-            lhs.kerning == rhs.kerning &&
-            lhs.strokeWidth == rhs.strokeWidth &&
-            lhs.shadowStyle == rhs.shadowStyle &&
-            lhs.baselineOffset == rhs.baselineOffset &&
-            lhs.obliqueness == rhs.obliqueness &&
-            lhs.expansion == rhs.expansion &&
-            lhs.strikeThroughLine == rhs.strikeThroughLine &&
-            lhs.underlineLine == rhs.underlineLine &&
-            lhs.strokeColor == rhs.strokeColor &&
-            lhs.effectStyle == rhs.effectStyle &&
-            lhs.attachment == rhs.attachment &&
-            lhs.alignment == rhs.alignment &&
-            lhs.lineBreakMode == rhs.lineBreakMode &&
-            lhs.lineSpacing == rhs.lineSpacing &&
-            lhs.paragraphSpacing == rhs.paragraphSpacing &&
-            lhs.paragraphSpacingBefore == rhs.paragraphSpacingBefore &&
-            lhs.lineHeight == rhs.lineHeight &&
-            lhs.paragraphStyle == rhs.paragraphStyle &&
-            lhs.link == rhs.link
+        lhs.font == rhs.font &&
+        lhs.color == rhs.color &&
+        lhs.backgroundColor == rhs.backgroundColor &&
+        lhs.ligature == rhs.ligature &&
+        lhs.kerning == rhs.kerning &&
+        lhs.strokeWidth == rhs.strokeWidth &&
+        lhs.shadowStyle == rhs.shadowStyle &&
+        lhs.baselineOffset == rhs.baselineOffset &&
+        lhs.obliqueness == rhs.obliqueness &&
+        lhs.expansion == rhs.expansion &&
+        lhs.strikeThroughLine == rhs.strikeThroughLine &&
+        lhs.underlineLine == rhs.underlineLine &&
+        lhs.strokeColor == rhs.strokeColor &&
+        lhs.effectStyle == rhs.effectStyle &&
+        lhs.attachment == rhs.attachment &&
+        lhs.alignment == rhs.alignment &&
+        lhs.lineBreakMode == rhs.lineBreakMode &&
+        lhs.lineSpacing == rhs.lineSpacing &&
+        lhs.paragraphSpacing == rhs.paragraphSpacing &&
+        lhs.paragraphSpacingBefore == rhs.paragraphSpacingBefore &&
+        lhs.lineHeight == rhs.lineHeight &&
+        lhs.paragraphStyle == rhs.paragraphStyle &&
+        lhs.link == rhs.link
     }
 }

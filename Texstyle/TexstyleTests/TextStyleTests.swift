@@ -13,7 +13,7 @@ final class TextStyleTests: XCTestCase {
         //When
 
         //Then
-        XCTAssertEqual(style, style, "Style is not equal to itself")
+        XCTAssertEqual(style, style, "Style must be equal to itself")
     }
 
     func testCopy() {
@@ -22,7 +22,8 @@ final class TextStyleTests: XCTestCase {
         //When
         let copy = style.copy()
         //Then
-        XCTAssertEqual(copy, style, "Copy is not equal to style")
+        XCTAssertFalse(copy === style, "Copy must be a different object instance.")
+        XCTAssertEqual(copy, style, "Copy must be equal to style")
         XCTAssertFalse(copy.shadowStyle === style.shadowStyle, "Shadow style must be a copy")
         XCTAssertFalse(copy.strikeThroughLine === style.strikeThroughLine, "StrikeThroughLine must be a copy")
         XCTAssertFalse(copy.underlineLine === style.underlineLine, "UnderlineLine must be a copy")

@@ -24,7 +24,7 @@ final class ShadowStyleTests: XCTestCase {
         //When
 
         //Then
-        XCTAssertEqual(style, style, "Style is not equal to itself")
+        XCTAssertEqual(style, style, "Style must be equal to itself")
     }
 
     func testCopy() {
@@ -33,7 +33,8 @@ final class ShadowStyleTests: XCTestCase {
         //When
         let copy = style.copy()
         //Then
-        XCTAssertEqual(copy, style, "Copy is not equal to style")
+        XCTAssertFalse(copy === style, "Copy must be a different object instance.")
+        XCTAssertEqual(copy, style, "Copy must be equal to style")
     }
 
     func testShadow() {
@@ -42,8 +43,8 @@ final class ShadowStyleTests: XCTestCase {
         //When
         let shadow = style.shadow
         //Then
-        XCTAssertEqual(shadow.shadowOffset, style.offset, "Shadow offset is not equal to style offset")
-        XCTAssertEqual(shadow.shadowBlurRadius, style.radius, "Shadow radius is not equal to style radius")
-        XCTAssertEqual(shadow.shadowColor as? UIColor, style.color, "Shadow color is not equal to style color")
+        XCTAssertEqual(shadow.shadowOffset, style.offset, "Shadow offset must be equal to style offset")
+        XCTAssertEqual(shadow.shadowBlurRadius, style.radius, "Shadow radius must be equal to style radius")
+        XCTAssertEqual(shadow.shadowColor as? UIColor, style.color, "Shadow color must be equal to style color")
     }
 }

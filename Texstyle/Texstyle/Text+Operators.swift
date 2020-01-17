@@ -5,11 +5,11 @@
 public extension Text {
 
     static func + (lhs: Text, rhs: String) -> Text {
-        return Text(value: lhs.value + rhs, styles: lhs.styles)
+        Text(value: lhs.value + rhs, styles: lhs.styles)
     }
 
     static func + (lhs: String, rhs: Text) -> Text {
-        return Text(value: lhs + rhs.value, styles: rhs.styles)
+        Text(value: lhs + rhs.value, styles: rhs.styles)
     }
 
     static func + (lhs: Text, rhs: Text) -> Text {

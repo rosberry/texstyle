@@ -9,6 +9,6 @@ extension ControlState {
     static let allCases: [ControlState] = [.normal, .highlighted, .disabled, .selected, .focused, .application, reserved]
 
     static var random: ControlState {
-        return allCases.randomElement()!
+        allCases.randomElement()!
     }
 }

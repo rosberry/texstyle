@@ -19,7 +19,7 @@ final class UIButtonTests: XCTestCase {
         button.setText(text)
         //Then
         for state in styles.keys {
-            let message = "Button attributed title is not equal to text's attributed string for \(state) state"
+            let message = "Button attributed title must be equal to text's attributed string for \(state) state"
             XCTAssertEqual(button.attributedTitle(for: state), text.attributed(for: state), message)
         }
     }

@@ -39,7 +39,6 @@ public class LineAttributes {
 
 extension LineAttributes: Equatable {
     public static func == (lhs: LineAttributes, rhs: LineAttributes) -> Bool {
-        return lhs.color == rhs.color &&
-            lhs.style == rhs.style
+        lhs.color == rhs.color && lhs.style == rhs.style
     }
 }

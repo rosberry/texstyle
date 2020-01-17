@@ -39,10 +39,10 @@ extension TextStyle {
 extension UIColor {
 
     static var random: UIColor {
-        return .init(red: .random(in: 0...1),
-                     green: .random(in: 0...1),
-                     blue: .random(in: 0...1),
-                     alpha: .random(in: 0...1))
+        .init(red: .random(in: 0...1),
+              green: .random(in: 0...1),
+              blue: .random(in: 0...1),
+              alpha: .random(in: 0...1))
     }
 }
 
@@ -51,7 +51,7 @@ private extension NSTextAlignment {
     static let allCases: [NSTextAlignment] = [.left, .center, .right, .justified, .natural]
 
     static var random: NSTextAlignment {
-        return allCases.randomElement()!
+        allCases.randomElement()!
     }
 }
 
@@ -65,18 +65,18 @@ private extension NSLineBreakMode {
                                               .byTruncatingMiddle]
 
     static var random: NSLineBreakMode {
-        return allCases.randomElement()!
+        allCases.randomElement()!
     }
 }
 
 extension LineAttributes {
 
     static var random: LineAttributes {
-        return .init(style: .random, color: .random)
+        .init(style: .random, color: .random)
     }
 }
 
-private extension NSUnderlineStyle {
+extension NSUnderlineStyle {
 
     static let allCases: [NSUnderlineStyle] = [.single,
                                                .thick,
@@ -88,7 +88,7 @@ private extension NSUnderlineStyle {
                                                .byWord]
 
     static var random: NSUnderlineStyle {
-        return allCases.randomElement()!
+        allCases.randomElement()!
     }
 }
 
@@ -115,6 +115,6 @@ private extension NSURL {
                                          "https://medium.com"]
 
     static var random: NSURL? {
-        return NSURL(string: urls.randomElement()!)
+        NSURL(string: urls.randomElement()!)
     }
 }

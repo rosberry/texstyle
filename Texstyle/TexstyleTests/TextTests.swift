@@ -115,7 +115,7 @@ final class TextTests: XCTestCase {
         //When
         let text = Text(value: value, style: style)
         //Then
-        XCTAssertEqual(text.attributed, text.attributed(for: .normal), "Attributed is not equal to normal attributed string")
+        XCTAssertEqual(text.attributed, text.attributed(for: .normal), "Attributed must be equal to normal attributed string")
     }
 
     // MARK: - Attributes
@@ -461,6 +461,17 @@ final class TextTests: XCTestCase {
         test(style2.attributes, in: newText, for: .normal, withSubstring: substring4)
     }
 
+    func testTextArrayJoiningWithOneText() {
+        //Given
+        let styles1 = styles
+        let text1 = Text(value: substring1, styles: styles1)
+        let texts = [text1]
+        //When
+        let text = texts.joined()
+        //Then
+        XCTAssertTrue(text === text1, "Joining of array with one text must return the same text")
+    }
+
     func testTextArrayJoiningWithDefaultSeparator() {
         //Given
         let styles1 = styles
@@ -516,6 +527,17 @@ final class TextTests: XCTestCase {
             test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
             test(styles3[state]!.attributes, in: text, for: state, withSubstring: substring3)
         }
+    }
+
+    func testOneTextArrayJoiningWithLeftStrategy() {
+        //Given
+        let styles1 = styles
+        let text1 = Text(value: substring1, styles: styles1)
+        let texts = [text1]
+        //When
+        let text = texts.joined(separator: "", strategy: .left)
+        //Then
+        XCTAssertTrue(text === text1, "Joining of array with one text must return the same text")
     }
 
     func testTextArrayJoiningWithDefaultStrategyForSeparator() {
@@ -586,6 +608,31 @@ final class TextTests: XCTestCase {
         XCTAssertEqual(string, value, "Text should be interpolated to its value")
     }
 
+    // MARK: - Copying
+
+    func testCopy() {
+        //Given
+        let text = Text(value: .random(length: 6), styles: styles)
+        text.substyles = [TextSubstyle.random, TextSubstyle.random]
+        //When
+        let copy = text.copy()
+        //Then
+        XCTAssertFalse(copy === text, "Copy must be a different object instance.")
+        XCTAssertEqual(copy, text, "Copy must be equal to text")
+    }
+
+    func testDictionaryCopy() {
+        //Given
+        let styles = self.styles
+        //When
+        let copy = styles.copy()
+        //Then
+        for (copy, style) in zip(copy.values, styles.values) {
+            XCTAssertFalse(copy === style, "Copy must be a different object instance.")
+            XCTAssertEqual(copy, style, "Copy must be equal to text")
+        }
+    }
+
     // MARK: - Private
 
     private func test(_ text: Text?, withValue value: String?, for state: ControlState, with style: TextStyle) {
@@ -599,7 +646,7 @@ final class TextTests: XCTestCase {
         XCTAssertNotNil(string, "String must not be nil")
         string?.enumerateAttributes(in: range, options: .longestEffectiveRangeNotRequired) { enumeratedAttributes, _, _ in
             for (key, attribute) in enumeratedAttributes {
-                let message = "\(attribute) value is not equal to \(String(describing: attributes[key])) value for \(key.rawValue) key"
+                let message = "\(attribute) value must be equal to \(String(describing: attributes[key])) value for \(key.rawValue) key"
                 XCTAssertTrue(isEqial(a: attribute, b: attributes[key], key: key), message)
             }
         }
@@ -692,5 +739,5 @@ final class TextTests: XCTestCase {
 }
 
 private func isEqual<T: Equatable>(type: T.Type, a: Any?, b: Any?) -> Bool {
-    return a as? T == b as? T
+    a as? T == b as? T
 }
