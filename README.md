@@ -116,6 +116,10 @@ Check [TexstyleExample](xcode://clone?repo=https%3A%2F%2Fgithub.com%2Frosberry%2
 
 ![Example2](.github/example2.png)
 
+## Cache
+
+TextStyle and Text classes have internal cache to prevent extra calculation. TextStyle caches attributes and invalidates it on any attribute change. Text has cached attributed strings for states. For example, if you use texts in collection view cells and want to update some labels in it after reuse, texts return cached strings. Please note that texts won't invalidate cached strings if you update textstyle attributes.
+
 ## Installation
 
 #### Carthage
