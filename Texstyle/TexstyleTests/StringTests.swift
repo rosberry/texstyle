@@ -15,18 +15,17 @@ final class StringTests: XCTestCase {
         let text = value.text(with: style)
         //Then
         XCTAssertEqual(text.value, value, "Text value must be equal to value")
-        XCTAssertEqual(text.styles.count, 1, "Text has wrong style safter initialization")
-        XCTAssertTrue(text.styles[.normal] === style, "Text has wrong normal style after initialization")
+        XCTAssertTrue(text.style === style, "Text has wrong normal style after initialization")
     }
 
     func testTextWithStyles() {
         //Given
         let value = "value"
-        let styles: [ControlState: TextStyle] = [.random: .random]
+        let style: TextStyle = .random
         //When
-        let text = value.text(with: styles)
+        let text = value.text(with: style)
         //Then
         XCTAssertEqual(text.value, value, "Text value must be equal to value")
-        XCTAssertEqual(text.styles, styles, "Text has wrong styles")
+        XCTAssertEqual(text.style, style, "Text has wrong styles")
     }
 }

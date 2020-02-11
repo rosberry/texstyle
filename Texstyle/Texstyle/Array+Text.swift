@@ -62,10 +62,10 @@ public extension Array where Element: Text {
             let separatorText: Text
             switch strategy {
             case .left:
-                separatorText = Text(value: separator, styles: text.styles)
+                separatorText = Text(value: separator, style: text.style)
                 separatorText.substyles = text.substyles
             case .right:
-                separatorText = Text(value: separator, styles: self[index].styles)
+                separatorText = Text(value: separator, style: self[index].style)
                 separatorText.substyles = self[index].substyles
             }
             //swiftlint:disable:next shorthand_operator
