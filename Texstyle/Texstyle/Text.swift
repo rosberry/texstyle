@@ -26,12 +26,13 @@ public final class Text {
         return attributedString
     }
 
-    /// Clears cached attributed string.
+    /// Returns array of added substyles
     var substyles: [TextSubstyle] = [] {
         didSet {
             cachedAttributedString = nil
         }
     }
+
     private var cachedAttributedString: NSAttributedString?
 
     /// Initialize the text with passed string and style.

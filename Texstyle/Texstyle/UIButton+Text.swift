@@ -6,7 +6,7 @@ import UIKit
 
 extension UIButton {
 
-    /// Applies the text for passed style
+    /// Applies the text for passed state
     ///
     /// - Parameters:
     ///   - text: A text that should be applied
@@ -15,10 +15,10 @@ extension UIButton {
         setAttributedTitle(text.attributed, for: state)
     }
 
-    /// Applies the text for passed style
+    /// Applies the text for specific control states
     ///
     /// - Parameters:
-    ///   - text: A text that should be applied
+    ///   - text: A control state text that should be applied.
     public func setText(_ text: ControlStateText) {
         text.styles.keys.forEach { state in
             setAttributedTitle(text.attributed(for: state), for: state)
@@ -39,7 +39,7 @@ extension UIButton {
     /// Applies the texts for passed states.
     ///
     /// - Parameters:
-    ///   - texts: A dictionary of texts asociated by key with specific state
+    ///   - texts: A dictionary of texts associated by key with specific state
     public func setTexts(_ texts: [ControlState: Text]) {
         for state in texts.keys {
             setAttributedTitle(texts[state]?.attributed, for: state)
