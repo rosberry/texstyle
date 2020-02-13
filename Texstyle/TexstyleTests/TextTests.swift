@@ -36,6 +36,21 @@ final class TextTests: XCTestCase {
 
     // MARK: - Initialization
 
+    func testStateInitWithValueAndStyle() {
+        //Given
+
+        //When
+        let nilText1 = Text(value: value, styles: [:])
+        let nilText2 = Text(value: nil, styles: [.normal: style])
+        let text = Text(value: value, styles: [.normal: style])
+        let text2 = Text(value: value as String?, styles: [.normal: style])
+        //Then
+        XCTAssertNil(nilText1, "Text must be nil with nil value")
+        XCTAssertNil(nilText2, "Text must be nil with nil value")
+        test(text, withValue: value, with: style)
+        test(text2, withValue: value, with: style)
+    }
+
     func testInitWithValueAndStyle() {
         //Given
 
@@ -103,7 +118,7 @@ final class TextTests: XCTestCase {
         //When
         let text = Text(value: value, style: style)
         //Then
-        XCTAssertEqual(text.attributed, text.attributed, "Attributed must be equal to normal attributed string")
+        XCTAssertEqual(text.attributed(), text.attributed, "Attributed must be equal to normal attributed string")
     }
 
     // MARK: - Attributes
@@ -132,10 +147,20 @@ final class TextTests: XCTestCase {
         //Given
         let range = NSRange(location: 0, length: 2)
         //When
-        text.add(style2, at: range)
+        text.add(style2, at: range, for: .normal)
         //Then
         test(text, withValue: value, with: style1)
         test(style2.attributes, in: text, in: range)
+    }
+
+    func testAddSubstyleAtRangeForNormalState() {
+        //Given
+        let range = Range(NSRange(location: 0, length: 2), in: value)!
+        //When
+        text.add(style2, at: range, for: .normal)
+        //Then
+        test(text, withValue: value, with: style1)
+        test(style2.attributes, in: text, in: NSRange(range, in: value))
     }
 
     func testAddSubstyleForPassedState() {
@@ -143,7 +168,7 @@ final class TextTests: XCTestCase {
         let range = NSRange(location: 0, length: 2)
         let text = Text(value: value, style: style1)
         //When
-        text.add(style2, at: range)
+        text.add(style2, at: range, for: .normal)
         //Then
         test(text, withValue: value, with: style1)
         test(style2.attributes, in: text, in: range)
@@ -154,8 +179,8 @@ final class TextTests: XCTestCase {
         let range2 = NSRange(location: 0, length: 2)
         let range3 = NSRange(location: 2, length: 2)
         //When
-        text.add(style2, at: range2)
-        text.add(style3, at: range3)
+        text.add(style2, at: range2, for: .normal)
+        text.add(style3, at: range3, for: .normal)
         //Then
         test(text, withValue: value, with: style1)
         test(style2.attributes, in: text, in: range2)
@@ -168,8 +193,8 @@ final class TextTests: XCTestCase {
         let range3 = NSRange(location: 2, length: 2)
         let text = Text(value: value, style: style1)
         //When
-        text.add(style2, at: range2)
-        text.add(style3, at: range3)
+        text.add(style2, at: range2, for: .normal)
+        text.add(style3, at: range3, for: .normal)
         //Then
         test(text, withValue: value, with: style1)
         test(style2.attributes, in: text, in: range2)
@@ -183,7 +208,7 @@ final class TextTests: XCTestCase {
         let value1 = substring1 + value + substring1
         let text = Text(value: value1, style: style1)
         //When
-        text.add(style2, for: substring1)
+        text.add(style2, for: substring1, for: .normal)
         //Then
         test(text, withValue: value1, with: style1)
         test(style2.attributes, in: text, withSubstring: substring1)
@@ -194,7 +219,7 @@ final class TextTests: XCTestCase {
         let value1 = substring1 + value + substring1
         let text = Text(value: value1, style: style1)
         //When
-        text.add(style2, for: substring1)
+        text.add(style2, for: substring1, for: .normal)
         //Then
         test(text, withValue: value1, with: style1)
         test(style2.attributes, in: text, withSubstring: substring1)
@@ -205,8 +230,8 @@ final class TextTests: XCTestCase {
         let value1 = substring1 + value + substring2
         let text = Text(value: value1, style: style)
         //When
-        text.add(style1, for: substring1)
-        text.add(style2, for: substring2)
+        text.add(style1, for: substring1, for: .normal)
+        text.add(style2, for: substring2, for: .normal)
         //Then
         test(text, withValue: value1, with: style)
 
@@ -228,8 +253,8 @@ final class TextTests: XCTestCase {
         let value1 = substring1 + value + substring2
         let text = Text(value: value1, style: style)
         //When
-        text.add(style1, for: substring1)
-        text.add(style2, for: substring2)
+        text.add(style1, for: substring1, for: .normal)
+        text.add(style2, for: substring2, for: .normal)
         //Then
         test(text, withValue: value1, with: style)
 
@@ -284,7 +309,7 @@ final class TextTests: XCTestCase {
         //Given
         let options = BoundingRectOptions()
         //When
-        let calculatedRect = text.boundingRect(with: options.size)
+        let calculatedRect = text.boundingRect(with: options.size, for: .normal)
         //Then
         test(rect: calculatedRect, string: text.attributed, for: options)
     }
@@ -293,7 +318,7 @@ final class TextTests: XCTestCase {
         //Given
         let options = BoundingRectOptions(size: CGSize(width: 100, height: CGFloat.greatestFiniteMagnitude))
         //When
-        let calculatedRect = text.boundingRect(with: options.size)
+        let calculatedRect = text.boundingRect(with: options.size, for: .normal)
         //Then
         test(rect: calculatedRect, string: text.attributed, for: options)
     }
@@ -302,7 +327,7 @@ final class TextTests: XCTestCase {
         //Given
         let options = BoundingRectOptions(size: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 5))
         //When
-        let calculatedRect = text.boundingRect(with: options.size)
+        let calculatedRect = text.boundingRect(with: options.size, for: .normal)
         //Then
         test(rect: calculatedRect, string: text.attributed, for: options)
     }
@@ -311,7 +336,7 @@ final class TextTests: XCTestCase {
         //Given
         let options = BoundingRectOptions(options: [.usesFontLeading])
         //When
-        let calculatedRect = text.boundingRect(with: options.size, options: options.options)
+        let calculatedRect = text.boundingRect(with: options.size, options: options.options, for: .normal)
         //Then
         test(rect: calculatedRect, string: text.attributed, for: options)
     }
@@ -322,7 +347,7 @@ final class TextTests: XCTestCase {
         context.minimumScaleFactor = 0.5
         let options = BoundingRectOptions(context: context)
         //When
-        let calculatedRect = text.boundingRect(with: options.size, context: options.context)
+        let calculatedRect = text.boundingRect(with: options.size, context: options.context, for: .normal)
         //Then
         test(rect: calculatedRect, string: text.attributed, for: options)
     }
@@ -370,9 +395,9 @@ final class TextTests: XCTestCase {
         let style1 = style
         let style2 = style
         let text1 = Text(value: substring1 + substring2, style: style1)
-        text1.add(style1, for: substring2)
+        text1.add(style1, for: substring2, for: .normal)
         let text2 = Text(value: substring3 + substring4, style: style2)
-        text2.add(style2, for: substring4)
+        text2.add(style2, for: substring4, for: .normal)
         //When
         let newText = text1 + text2
         //Then
@@ -404,9 +429,9 @@ final class TextTests: XCTestCase {
         let style1 = style
         let style2 = style
         let text1 = Text(value: substring1 + substring2, style: style1)
-        text1.add(style1, for: substring2)
+        text1.add(style1, for: substring2, for: .normal)
         let text2 = Text(value: substring3 + substring4, style: style2)
-        text2.add(style2, for: substring4)
+        text2.add(style2, for: substring4, for: .normal)
         //When
         let newText = text1 + text2
         //Then
@@ -587,7 +612,7 @@ final class TextTests: XCTestCase {
     private func test(_ attributes: TextStyleAttributes, in text: Text, in range: NSRange) {
         let string = text.attributed
         XCTAssertNotNil(string, "String must not be nil")
-        string?.enumerateAttributes(in: range, options: .longestEffectiveRangeNotRequired) { enumeratedAttributes, _, _ in
+        string.enumerateAttributes(in: range, options: .longestEffectiveRangeNotRequired) { enumeratedAttributes, _, _ in
             for (key, attribute) in enumeratedAttributes {
                 let message = "\(attribute) value must be equal to \(String(describing: attributes[key])) value for \(key.rawValue) key"
                 XCTAssertTrue(isEqial(a: attribute, b: attributes[key], key: key), message)

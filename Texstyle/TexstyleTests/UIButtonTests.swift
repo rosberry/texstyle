@@ -20,6 +20,18 @@ final class UIButtonTests: XCTestCase {
         XCTAssertEqual(button.attributedTitle(for: state), text.attributed, message)
     }
 
+    func testControlStateText() {
+        //Given
+        let state: ControlState = .random
+        let text = ControlStateText(value: "", styles: [state: .random])
+        let button = UIButton()
+        //When
+        button.setText(text)
+        //Then
+        let message = "Button attributed title must be equal to text's attributed string for state \(state)"
+        XCTAssertEqual(button.attributedTitle(for: state), text.attributed, message)
+    }
+
     func testTextForDefaultState() {
         //Given
         let style: TextStyle = .random
