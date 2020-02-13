@@ -1,6 +1,6 @@
 on:
   push:
-    branches:    
+    branches:
       - master
 name: Build
 jobs:
@@ -9,7 +9,7 @@ jobs:
     runs-on: macOS-latest
     strategy:
         matrix:
-          destination: ['platform=iOS Simulator,OS=13.2.2,name=iPhone 11', 'platform=tvOS Simulator,OS=13.2,name=Apple TV 4K']
+          destination: ['platform=iOS Simulator,OS=13.3,name=iPhone 11', 'platform=tvOS Simulator,OS=13.3,name=Apple TV 4K']
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -17,5 +17,5 @@ jobs:
         run: |
           cd Texstyle
           xcodebuild clean build -project Texstyle.xcodeproj -scheme Texstyle -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-        env: 
+        env:
          destination: ${{ matrix.destination }}
