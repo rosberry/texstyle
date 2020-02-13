@@ -149,9 +149,9 @@ public final class ControlStateText {
     ///   - state: The control state for attributes.
     /// - Returns: A rectangle which size component indicates the width and height required to draw the entire contents of the string.
     public func boundingRect(with size: CGSize,
-                            options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading],
-                            context: NSStringDrawingContext? = nil,
-                            for state: ControlState = .normal) -> CGRect {
+                             options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading],
+                             context: NSStringDrawingContext? = nil,
+                             for state: ControlState = .normal) -> CGRect {
         guard let attributedString = attributed(for: state) else {
            return .zero
         }

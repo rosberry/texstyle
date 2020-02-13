@@ -652,7 +652,10 @@ final class ControlStateTextTests: XCTestCase {
         }
     }
 
-    private func test(_ attributes: TextStyleAttributes, in text: ControlStateText, for state: ControlState, withSubstring substring: String) {
+    private func test(_ attributes: TextStyleAttributes,
+                      in text: ControlStateText,
+                      for state: ControlState,
+                      withSubstring substring: String) {
         var searchStartIndex = text.value.startIndex
         let endIndex = text.value.endIndex
 
