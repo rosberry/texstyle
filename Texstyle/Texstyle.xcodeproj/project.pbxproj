@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0143C22123F4FF8F00592288 /* ControlStateText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0143C22023F4FF8F00592288 /* ControlStateText.swift */; };
 		060F826423B616D1004D56E9 /* Sequence+TextSubstyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F826323B616D1004D56E9 /* Sequence+TextSubstyle.swift */; };
 		060F826623B6172C004D56E9 /* Dictionary+TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F826523B6172C004D56E9 /* Dictionary+TextStyle.swift */; };
 		063FCBB22271E51C001C8962 /* Texstyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FCBA42271E51C001C8962 /* Texstyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0143C22023F4FF8F00592288 /* ControlStateText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlStateText.swift; sourceTree = "<group>"; };
 		060F826323B616D1004D56E9 /* Sequence+TextSubstyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+TextSubstyle.swift"; sourceTree = "<group>"; };
 		060F826523B6172C004D56E9 /* Dictionary+TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+TextStyle.swift"; sourceTree = "<group>"; };
 		063FCBA12271E51C001C8962 /* Texstyle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Texstyle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 				063FCBA42271E51C001C8962 /* Texstyle.h */,
 				063FCBA52271E51C001C8962 /* Info.plist */,
 				063FCBDF2271E635001C8962 /* Text.swift */,
+				0143C22023F4FF8F00592288 /* ControlStateText.swift */,
 				063FCBE02271E635001C8962 /* TextStyle.swift */,
 				06948D2822D9F35F000FCC2C /* ShadowStyle.swift */,
 				063FCBE92271E907001C8962 /* TextSubstyle.swift */,
@@ -303,6 +306,7 @@
 				063FCBEA2271E907001C8962 /* TextSubstyle.swift in Sources */,
 				067A646222BCDF5200AF2E5E /* Array+Text.swift in Sources */,
 				06948D2922D9F35F000FCC2C /* ShadowStyle.swift in Sources */,
+				0143C22123F4FF8F00592288 /* ControlStateText.swift in Sources */,
 				063FCBE42271E635001C8962 /* TextStyle.swift in Sources */,
 				063FCBF02271ED9E001C8962 /* LineAttributes.swift in Sources */,
 				060F826623B6172C004D56E9 /* Dictionary+TextStyle.swift in Sources */,

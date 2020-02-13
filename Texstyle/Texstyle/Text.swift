@@ -94,6 +94,15 @@ public final class Text {
             searchStartIndex = range.upperBound
         }
     }
+    ///
+    /// Applies all attributes from style and substyles.
+    ///
+    /// - Parameter state: The state for passed substyle. This parrameter will be ignored in current version
+    /// - Returns: If there is no attributes for the state it returns nil. If the attributed string is cached it returns cached string.
+    @available(*, deprecated, message: "`state` parameter will be ignored. Use `ControlStateText` instead.")
+    public func attributed(for state: ControlState = .normal) -> NSAttributedString? {
+        attributed
+    }
 
     ///Returns the bounding rectangle required to draw the string.
     ///
