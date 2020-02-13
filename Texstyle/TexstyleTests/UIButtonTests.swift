@@ -29,7 +29,7 @@ final class UIButtonTests: XCTestCase {
         button.setText(text)
         //Then
         let message = "Button attributed title must be equal to text's attributed string for state \(state)"
-        XCTAssertEqual(button.attributedTitle(for: state), text.attributed, message)
+        XCTAssertEqual(button.attributedTitle(for: state), text.attributed(for: state), message)
     }
 
     func testTextForDefaultState() {
