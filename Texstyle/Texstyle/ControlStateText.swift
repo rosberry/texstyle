@@ -5,7 +5,7 @@
 import UIKit
 
 /// Stores string, styles and substyles for attributed string depending on COntrolState.
-final class ControlStateText {
+public final class ControlStateText {
     public let value: String
     public let styles: [ControlState: TextStyle]
 
