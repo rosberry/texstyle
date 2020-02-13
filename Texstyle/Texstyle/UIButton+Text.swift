@@ -20,8 +20,7 @@ extension UIButton {
     /// - Parameters:
     ///   - text: A text that should be applied
     public func setText(_ text: ControlStateText) {
-        let states = Array(Set(Array(text.styles.keys) + Array(text.substyles.keys)))
-        states.forEach { state in
+        text.styles.keys.forEach { state in
             setAttributedTitle(text.attributed(for: state), for: state)
         }
     }
