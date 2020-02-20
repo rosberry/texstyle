@@ -11,7 +11,7 @@ extension UIButton {
     /// - Parameters:
     ///   - text: A text that should be applied
     ///   - state: Specific control state for this text
-    public func setText(_ text: SimpleText, for state: ControlState = .normal) {
+    public func setText(_ text: Text, for state: ControlState = .normal) {
         setAttributedTitle(text.attributed, for: state)
     }
 
@@ -30,7 +30,7 @@ extension UIButton {
     /// - Parameters:
     ///   - text: The text that should be applied
     ///   - states: An array of states for passed text
-    public func setText(_ text: SimpleText, for states: [ControlState]) {
+    public func setText(_ text: Text, for states: [ControlState]) {
         for state in states {
             setAttributedTitle(text.attributed, for: state)
         }
@@ -40,7 +40,7 @@ extension UIButton {
     ///
     /// - Parameters:
     ///   - texts: A dictionary of texts associated by key with specific state
-    public func setTexts(_ texts: [ControlState: SimpleText]) {
+    public func setTexts(_ texts: [ControlState: Text]) {
         for state in texts.keys {
             setAttributedTitle(texts[state]?.attributed, for: state)
         }

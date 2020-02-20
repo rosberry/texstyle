@@ -11,7 +11,7 @@ final class UIButtonTests: XCTestCase {
         //Given
         let style: TextStyle = .random
         let state: ControlState = .random
-        let text = SimpleText(value: "", style: style)
+        let text = Text(value: "", style: style)
         let button = UIButton()
         //When
         button.setText(text, for: state)
@@ -35,7 +35,7 @@ final class UIButtonTests: XCTestCase {
     func testTextForDefaultState() {
         //Given
         let style: TextStyle = .random
-        let text = SimpleText(value: "", style: style)
+        let text = Text(value: "", style: style)
         let button = UIButton()
         //When
         button.setText(text)
@@ -48,7 +48,7 @@ final class UIButtonTests: XCTestCase {
         //Given
         let style: TextStyle = .random
         let states: [ControlState] = [.focused, .disabled]
-        let text = SimpleText(value: "", style: style)
+        let text = Text(value: "", style: style)
         let button = UIButton()
         //When
         button.setText(text, for: states)
@@ -63,7 +63,7 @@ final class UIButtonTests: XCTestCase {
         //Given
         let style1: TextStyle = .random
         let style2: TextStyle = .random
-        let texts: [ControlState: SimpleText] = [.focused: .init(value: "", style: style1),
+        let texts: [ControlState: Text] = [.focused: .init(value: "", style: style1),
                                            .disabled: .init(value: "", style: style2)]
         let button = UIButton()
         //When

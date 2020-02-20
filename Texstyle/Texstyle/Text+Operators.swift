@@ -2,21 +2,21 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
-public extension Text {
+public extension BaseText {
 
     static func + (lhs: Self, rhs: Self) -> Self {
         lhs.concat(rhs)
     }
 }
 
-public extension SimpleText {
+public extension Text {
 
-    static func + (lhs: SimpleText, rhs: String) -> SimpleText {
-        SimpleText(value: lhs.value + rhs, style: lhs.style)
+    static func + (lhs: Text, rhs: String) -> Text {
+        Text(value: lhs.value + rhs, style: lhs.style)
     }
 
-    static func + (lhs: String, rhs: SimpleText) -> SimpleText {
-        SimpleText(value: lhs + rhs.value, style: rhs.style)
+    static func + (lhs: String, rhs: Text) -> Text {
+        Text(value: lhs + rhs.value, style: rhs.style)
     }
 }
 

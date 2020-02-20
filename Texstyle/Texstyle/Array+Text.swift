@@ -11,7 +11,7 @@ public enum SeparatorStrategy {
     case right
 }
 
-public extension Array where Element: Text {
+public extension Array where Element: BaseText {
 
     /// Returns a new text by concatenating the elements of the sequence,
     /// adding the given separator between each element.
@@ -41,7 +41,7 @@ public extension Array where Element: Text {
     }
 }
 
-public extension Array where Element: SimpleText {
+public extension Array where Element: Text {
 
     /// Returns a new text by concatenating the elements of the sequence,
     /// adding the given separator between each element.
@@ -51,24 +51,24 @@ public extension Array where Element: SimpleText {
     ///   in this sequence.
     ///   - strategy: The strategy of separator styling. Default value is left.
     /// - Returns: A single, concatenated text.
-    func joined(separator: String, strategy: SeparatorStrategy = .left) -> SimpleText {
+    func joined(separator: String, strategy: SeparatorStrategy = .left) -> Text {
         if isEmpty {
-            return SimpleText(value: "", style: .init())
+            return Text(value: "", style: .init())
         }
 
         if count == 1 {
             return self[0]
         }
 
-        var text: SimpleText = self[0]
+        var text: Text = self[0]
         for index in 1..<count {
-            let separatorText: SimpleText
+            let separatorText: Text
             switch strategy {
             case .left:
-                separatorText = SimpleText(value: separator, style: text.style)
+                separatorText = Text(value: separator, style: text.style)
                 separatorText.substyles = text.substyles
             case .right:
-                separatorText = SimpleText(value: separator, style: self[index].style)
+                separatorText = Text(value: separator, style: self[index].style)
                 separatorText.substyles = self[index].substyles
             }
             //swiftlint:disable:next shorthand_operator

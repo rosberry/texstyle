@@ -4,7 +4,7 @@
 
 import UIKit
 
-public protocol Text {
+public protocol BaseText {
 
     var value: String { get }
 
@@ -12,7 +12,7 @@ public protocol Text {
 }
 
 /// Stores string, styles and substyles for attributed string.
-public final class SimpleText: Text {
+public final class Text: BaseText {
 
     public let value: String
     public let style: TextStyle
@@ -66,8 +66,8 @@ public final class SimpleText: Text {
         }
     }
 
-    public func concat(_ text: SimpleText) -> SimpleText {
-        let newText = SimpleText(value: value + text.value, style: style)
+    public func concat(_ text: Text) -> Text {
+        let newText = Text(value: value + text.value, style: style)
         newText.substyles.append(contentsOf: substyles)
 
         let range = NSRange(location: value.count, length: text.value.count)
@@ -135,8 +135,8 @@ public final class SimpleText: Text {
         return attributed.boundingRect(with: size, options: options, context: context)
     }
 
-    public func copy() -> SimpleText {
-        let copy = SimpleText(value: value, style: style.copy())
+    public func copy() -> Text {
+        let copy = Text(value: value, style: style.copy())
         copy.substyles = substyles.copy()
         return copy
     }
@@ -144,9 +144,9 @@ public final class SimpleText: Text {
 
 // MARK: - Equatable
 
-extension SimpleText: Equatable {
+extension Text: Equatable {
 
-    public static func == (lhs: SimpleText, rhs: SimpleText) -> Bool {
+    public static func == (lhs: Text, rhs: Text) -> Bool {
         lhs.value == rhs.value && lhs.style == rhs.style
     }
 }

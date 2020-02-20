@@ -49,7 +49,7 @@ final class ControlStateTextTests: XCTestCase {
         //Given
 
         //When
-        let text = SimpleText(value: nil, style: style)
+        let text = Text(value: nil, style: style)
         //Then
         XCTAssertNil(text, "Text must be nil with nil value")
     }
@@ -266,8 +266,8 @@ final class ControlStateTextTests: XCTestCase {
 
     func testEquality() {
         //Given
-        let text1 = SimpleText(value: value, style: style1)
-        let text2 = SimpleText(value: value, style: style1.copy())
+        let text1 = Text(value: value, style: style1)
+        let text2 = Text(value: value, style: style1.copy())
         //When
 
         //Then
@@ -276,8 +276,8 @@ final class ControlStateTextTests: XCTestCase {
 
     func testEqualityWithDifferentValues() {
         //Given
-        let text1 = SimpleText(value: substring1, style: style1)
-        let text2 = SimpleText(value: substring2, style: style1.copy())
+        let text1 = Text(value: substring1, style: style1)
+        let text2 = Text(value: substring2, style: style1.copy())
         //When
 
         //Then
@@ -286,8 +286,8 @@ final class ControlStateTextTests: XCTestCase {
 
     func testEqualityWithDifferentStyles() {
         //Given
-        let text1 = SimpleText(value: value, style: style1)
-        let text2 = SimpleText(value: value, style: style2)
+        let text1 = Text(value: value, style: style1)
+        let text2 = Text(value: value, style: style2)
         //When
 
         //Then
@@ -599,7 +599,7 @@ final class ControlStateTextTests: XCTestCase {
 
     func testStringInterpolation() {
         //Given
-        let text = SimpleText(value: value, style: style)
+        let text = Text(value: value, style: style)
         //When
         let string = "\(text)"
         //Then

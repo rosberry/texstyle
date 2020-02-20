@@ -4,7 +4,7 @@
 
 public extension String.StringInterpolation {
 
-    mutating func appendInterpolation(_ text: SimpleText) {
+    mutating func appendInterpolation(_ text: Text) {
         appendLiteral(text.value)
     }
 
