@@ -13,9 +13,9 @@ final class ShadowStyleTests: XCTestCase {
         //When
 
         //Then
-        XCTAssertEqual(style.offset, .zero, "")
-        XCTAssertEqual(style.radius, 0, "")
-        XCTAssertEqual(style.color, .clear, "")
+        XCTAssertEqual(style.offset, .zero, "Style must have zero offset by default")
+        XCTAssertEqual(style.radius, 0, "Style must have zero radius by default")
+        XCTAssertEqual(style.color, .clear, "Style must have clear by default")
     }
 
     func testEquality() {
