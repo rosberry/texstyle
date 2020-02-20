@@ -623,7 +623,7 @@ final class TextTests: XCTestCase {
         string.enumerateAttributes(in: range, options: .longestEffectiveRangeNotRequired) { enumeratedAttributes, _, _ in
             for (key, attribute) in enumeratedAttributes {
                 let message = "\(attribute) value must be equal to \(String(describing: attributes[key])) value for \(key.rawValue) key"
-                XCTAssertTrue(isEqial(a: attribute, b: attributes[key], key: key), message)
+                XCTAssertTrue(isEqual(a: attribute, b: attributes[key], key: key), message)
             }
         }
     }
@@ -641,7 +641,7 @@ final class TextTests: XCTestCase {
     }
 
     //swiftlint:disable:next cyclomatic_complexity
-    private func isEqial(a: Any?, b: Any?, key: AttributedStringKey) -> Bool {
+    private func isEqual(a: Any?, b: Any?, key: AttributedStringKey) -> Bool {
         if key == .font {
             return TexstyleTests.isEqual(type: UIFont.self, a: a, b: b)
         }

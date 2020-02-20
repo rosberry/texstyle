@@ -15,7 +15,7 @@ public final class ControlStateText: BaseText {
        attributed()
     }
 
-    /// Returns array of subsyles associated with specific controlstate
+    /// Returns array of substyles associated with specific control states
     var substyles: [ControlState: [TextSubstyle]] = [:] {
        didSet {
            cachedAttributedStrings.removeAll()
