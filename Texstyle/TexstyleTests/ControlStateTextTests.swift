@@ -120,7 +120,7 @@ final class ControlStateTextTests: CommonTextTests {
 
     // MARK: - Attributes
 
-    func testAttributesForNormalState() {
+    func testAttributesForDefaultState() {
         //Given
 
         //When
@@ -131,7 +131,7 @@ final class ControlStateTextTests: CommonTextTests {
 
     func testAttributesForPassedState() {
         //Given
-        let state = ControlState.disabled
+        let state = ControlState.random
         //When
         let text = ControlStateText(value: value, styles: [state: style])
         //Then
@@ -162,7 +162,7 @@ final class ControlStateTextTests: CommonTextTests {
         test(style2.attributes, in: text, for: state, in: range)
     }
 
-    func testAddSubstylesForNormalState() {
+    func testAddSubstylesForDefaultState() {
         //Given
         let range2 = NSRange(location: 0, length: 2)
         let range3 = NSRange(location: 2, length: 2)
@@ -192,7 +192,7 @@ final class ControlStateTextTests: CommonTextTests {
 
     // MARK: - Substrings
 
-    func testAddSubstringForNormalState() {
+    func testAddSubstringForNormaDefaultState() {
         //Given
         let value1 = substring1 + value + substring1
         let text = ControlStateText(value: value1, style: style1)
@@ -206,7 +206,7 @@ final class ControlStateTextTests: CommonTextTests {
     func testAddSubstringForPassedState() {
         //Given
         let value1 = substring1 + value + substring1
-        let state = ControlState.disabled
+        let state = ControlState.random
         let text = ControlStateText(value: value1, styles: [state: style1])
         //When
         text.add(style2, for: substring1, for: state)
@@ -215,7 +215,7 @@ final class ControlStateTextTests: CommonTextTests {
         test(style2.attributes, in: text, for: state, withSubstring: substring1)
     }
 
-    func testAddSubstringsForNormalState() {
+    func testAddSubstringsForDefaultState() {
         //Given
         let value1 = substring1 + value + substring2
         let text = ControlStateText(value: value1, style: style)
