@@ -445,11 +445,15 @@ final class TextTests: XCTestCase {
         let text2 = Text(value: substring2, style: style2)
         let texts = [text1, text2]
         //When
-        let text = texts.joined()!
+        let text = texts.joined()
         //Then
-        XCTAssertEqual(text.value, substring1 + substring2, "Strings should be joined")
-        test(style1.attributes, in: text, withSubstring: substring1)
-        test(style2.attributes, in: text, withSubstring: substring2)
+        guard let joinedText = text else {
+            XCTFail("Text must not be nil")
+            return
+        }
+        XCTAssertEqual(joinedText.value, substring1 + substring2, "Strings should be joined")
+        test(style1.attributes, in: joinedText, withSubstring: substring1)
+        test(style2.attributes, in: joinedText, withSubstring: substring2)
     }
 
     func testTextArrayJoiningWithoutElements() {

@@ -480,12 +480,16 @@ final class ControlStateTextTests: XCTestCase {
         let text2 = ControlStateText(value: substring2, styles: styles2)
         let texts = [text1, text2]
         //When
-        let text = texts.joined()!
+        let text = texts.joined()
         //Then
-        XCTAssertEqual(text.value, substring1 + substring2, "Strings should be joined")
+        guard let joinedText = text else {
+            XCTFail("Text must not be nil")
+            return
+        }
+        XCTAssertEqual(joinedText.value, substring1 + substring2, "Strings should be joined")
         for state in ControlState.allCases {
-            test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
-            test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
+            test(styles1[state]!.attributes, in: joinedText, for: state, withSubstring: substring1)
+            test(styles2[state]!.attributes, in: joinedText, for: state, withSubstring: substring2)
         }
     }
 
