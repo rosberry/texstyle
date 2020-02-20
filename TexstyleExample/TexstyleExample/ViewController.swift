@@ -7,7 +7,7 @@ import Texstyle
 
 final class ViewController: UIViewController {
 
-    private var texts: [SimpleText] = [] {
+    private var texts: [Text] = [] {
         didSet {
             for text in texts {
                 let label = UILabel()
@@ -68,17 +68,17 @@ final class ViewController: UIViewController {
     // MARK: - Private
 
     private func updateLabels() {
-        let headingText = SimpleText(value: "Using Texstyle", style: .title1)
+        let headingText = Text(value: "Using Texstyle", style: .title1)
 
-        let titleText = SimpleText(value: "Add substyle", style: .title1)
+        let titleText = Text(value: "Add substyle", style: .title1)
         titleText.add(.heading1, for: "substyle")
 
         let urlString = "https://github.com/rosberry/texstyle"
         let serverURL = "URL: " + urlString
-        let linkText = SimpleText(value: serverURL, style: .paragraph1)
+        let linkText = Text(value: serverURL, style: .paragraph1)
         linkText.add(.paragraph2, for: urlString)
 
-        let richText = SimpleText(value: "Rich string formatting", style: .title1)
+        let richText = Text(value: "Rich string formatting", style: .title1)
         richText.add(.substyle1, for: "Rich")
         richText.add(.substyle2, for: "string")
         richText.add(.substyle3, for: "formatting")
