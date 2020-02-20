@@ -21,11 +21,11 @@ final class StringTests: XCTestCase {
     func testTextWithStyles() {
         //Given
         let value = "value"
-        let style: TextStyle = .random
+        let styles: [ControlState: TextStyle] = [.random: .random]
         //When
-        let text = value.text(with: style)
+        let text = value.text(with: styles)
         //Then
         XCTAssertEqual(text.value, value, "Text value must be equal to value")
-        XCTAssertEqual(text.style, style, "Text has wrong style")
+        XCTAssertEqual(text.styles, styles, "Text has wrong styles")
     }
 }
