@@ -76,11 +76,7 @@ public final class ControlStateText: BaseText {
     public func concat(_ text: ControlStateText) -> ControlStateText {
         let newText = ControlStateText(value: value + text.value, styles: styles)
 
-        substyles.forEach { state, substyles in
-            var array = newText.substyles[state] ?? []
-            array.append(contentsOf: substyles)
-            newText.substyles[state] = array
-        }
+        newText.substyles = substyles
 
         let range = NSRange(location: value.count, length: text.value.count)
 
@@ -92,13 +88,11 @@ public final class ControlStateText: BaseText {
         }
 
         text.substyles.forEach { state, substyles in
-            var array = newText.substyles[state] ?? []
-            substyles.forEach { substyle in
+            let newSubstyles = substyles.map { substyle -> TextSubstyle in
                 let range = NSRange(location: value.count + substyle.range.location, length: substyle.range.length)
-                let substyle = TextSubstyle(style: substyle.style, range: range)
-                array.append(substyle)
+                return TextSubstyle(style: substyle.style, range: range)
             }
-            newText.substyles[state] = array
+            newText.substyles[state]?.append(contentsOf: newSubstyles)
         }
 
         return newText

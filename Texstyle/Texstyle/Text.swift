@@ -63,7 +63,7 @@ public final class Text: BaseText {
     /// - Parameter text: The text for concatenation.
     public func concat(_ text: Text) -> Text {
         let newText = Text(value: value + text.value, style: style)
-        newText.substyles.append(contentsOf: substyles)
+        newText.substyles = substyles
 
         let range = NSRange(location: value.count, length: text.value.count)
         let substyle = TextSubstyle(style: text.style, range: range)
