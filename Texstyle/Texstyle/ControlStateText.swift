@@ -72,34 +72,34 @@ public final class ControlStateText: Text {
     }
 
     public func concat(_ text: ControlStateText) -> ControlStateText {
-        let text = ControlStateText(value: value + text.value, styles: styles)
+        let newText = ControlStateText(value: value + text.value, styles: styles)
 
         substyles.forEach { state, substyles in
-            var array = text.substyles[state] ?? []
+            var array = newText.substyles[state] ?? []
             array.append(contentsOf: substyles)
-            text.substyles[state] = array
+            newText.substyles[state] = array
         }
 
         let range = NSRange(location: value.count, length: text.value.count)
 
         text.styles.forEach { state, style in
             let substyle = TextSubstyle(style: style, range: range)
-            var array = text.substyles[state] ?? []
+            var array = newText.substyles[state] ?? []
             array.append(substyle)
-            text.substyles[state] = array
+            newText.substyles[state] = array
         }
 
         text.substyles.forEach { state, substyles in
-            var array = text.substyles[state] ?? []
+            var array = newText.substyles[state] ?? []
             substyles.forEach { substyle in
                 let range = NSRange(location: value.count + substyle.range.location, length: substyle.range.length)
                 let substyle = TextSubstyle(style: substyle.style, range: range)
                 array.append(substyle)
             }
-            text.substyles[state] = array
+            newText.substyles[state] = array
         }
 
-        return text
+        return newText
     }
 
     /// Adds the substyle for passed range.

@@ -67,20 +67,20 @@ public final class SimpleText: Text {
     }
 
     public func concat(_ text: SimpleText) -> SimpleText {
-        let text = SimpleText(value: value + text.value, style: style)
-        text.substyles.append(contentsOf: substyles)
+        let newText = SimpleText(value: value + text.value, style: style)
+        newText.substyles.append(contentsOf: substyles)
 
         let range = NSRange(location: value.count, length: text.value.count)
         let substyle = TextSubstyle(style: text.style, range: range)
-        text.substyles.append(substyle)
+        newText.substyles.append(substyle)
 
         let rhsSubstyles = text.substyles.map { substyle -> TextSubstyle in
             let range = NSRange(location: value.count + substyle.range.location, length: substyle.range.length)
             return TextSubstyle(style: substyle.style, range: range)
         }
-        text.substyles.append(contentsOf: rhsSubstyles)
+        newText.substyles.append(contentsOf: rhsSubstyles)
 
-        return text
+        return newText
     }
 
     /// Adds the substyle for passed range.
