@@ -552,9 +552,18 @@ final class TextTests: XCTestCase {
 
     // MARK: - Interpolation
 
-    func testStringInterpolation() {
+    func testTextInterpolation() {
         //Given
         let text = Text(value: value, style: style)
+        //When
+        let string = "\(text)"
+        //Then
+        XCTAssertEqual(string, value, "Text should be interpolated to its value")
+    }
+
+    func testControlStateTextInterpolation() {
+        //Given
+        let text = ControlStateText(value: value, style: style)
         //When
         let string = "\(text)"
         //Then
