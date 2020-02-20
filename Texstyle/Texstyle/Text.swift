@@ -4,13 +4,6 @@
 
 import UIKit
 
-public protocol BaseText {
-
-    var value: String { get }
-
-    func concat(_ text: Self) -> Self
-}
-
 /// Stores string, styles and substyles for attributed string.
 public final class Text: BaseText {
 
