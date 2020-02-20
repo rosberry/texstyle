@@ -30,6 +30,7 @@
 		06948D2B22D9F4E6000FCC2C /* ShadowStyle+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06948D2A22D9F4E6000FCC2C /* ShadowStyle+Random.swift */; };
 		06948D2D22D9F686000FCC2C /* ShadowStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06948D2C22D9F686000FCC2C /* ShadowStyleTests.swift */; };
 		069FF23B23FE38B6002EEFBA /* BaseText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069FF23A23FE38B6002EEFBA /* BaseText.swift */; };
+		069FF25523FE6981002EEFBA /* CommonTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069FF25423FE6981002EEFBA /* CommonTextTests.swift */; };
 		06AE69022272DE8F00DD5D8F /* Texstyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FCBA12271E51C001C8962 /* Texstyle.framework */; };
 		06AE690A2272DE9C00DD5D8F /* TextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AE69082272DE9C00DD5D8F /* TextTests.swift */; };
 		06AE690B2272DE9C00DD5D8F /* TextStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AE69092272DE9C00DD5D8F /* TextStyleTests.swift */; };
@@ -78,6 +79,7 @@
 		06948D2A22D9F4E6000FCC2C /* ShadowStyle+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShadowStyle+Random.swift"; sourceTree = "<group>"; };
 		06948D2C22D9F686000FCC2C /* ShadowStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowStyleTests.swift; sourceTree = "<group>"; };
 		069FF23A23FE38B6002EEFBA /* BaseText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseText.swift; sourceTree = "<group>"; };
+		069FF25423FE6981002EEFBA /* CommonTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextTests.swift; sourceTree = "<group>"; };
 		06AE68FD2272DE8F00DD5D8F /* TexstyleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TexstyleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06AE69012272DE8F00DD5D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06AE69082272DE9C00DD5D8F /* TextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTests.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				06AE69012272DE8F00DD5D8F /* Info.plist */,
+				069FF25423FE6981002EEFBA /* CommonTextTests.swift */,
 				06AE69082272DE9C00DD5D8F /* TextTests.swift */,
 				06AE69092272DE9C00DD5D8F /* TextStyleTests.swift */,
 				0143C22223F50BD300592288 /* ControlStateTextTests.swift */,
@@ -333,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06AE690A2272DE9C00DD5D8F /* TextTests.swift in Sources */,
+				069FF25523FE6981002EEFBA /* CommonTextTests.swift in Sources */,
 				06C24D3F227393F300EDA46F /* String+Random.swift in Sources */,
 				06FA185A238F7A2800850748 /* LineAttributesTests.swift in Sources */,
 				06603ACC22CA11F9001F7644 /* BoundingRectOptions.swift in Sources */,
