@@ -59,6 +59,8 @@ public final class Text: BaseText {
         }
     }
 
+    /// Returns a new text by concatenating the passed text.
+    /// - Parameter text: The text for concatenation.
     public func concat(_ text: Text) -> Text {
         let newText = Text(value: value + text.value, style: style)
         newText.substyles.append(contentsOf: substyles)

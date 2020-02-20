@@ -24,29 +24,6 @@ public final class ControlStateText: BaseText {
 
     private var cachedAttributedStrings: [ControlState: NSAttributedString] = [:]
 
-    /// Initialize the text with passed string and style for normal state.
-    ///
-    /// - Parameters:
-    ///   - value: The string for style and substyles.
-    ///   - substyle: The style for passed string.
-    public convenience init(value: String, style: TextStyle) {
-        self.init(value: value, styles: [.normal: style])
-    }
-
-    /// Initialize the text with passed string and style for normal state. Returns nil if there is no value.
-    ///
-    /// - Parameters:
-    ///   - value: The string for style and substyles.
-    ///   - substyle: The style for passed string.
-    public convenience init?(value: String?, style: TextStyle) {
-        if let value = value {
-           self.init(value: value, style: style)
-        }
-        else {
-           return nil
-        }
-    }
-
     /// Initialize the text with passed string and styles for appropriate states.
     ///
     /// - Parameters:
@@ -55,6 +32,15 @@ public final class ControlStateText: BaseText {
     public init(value: String, styles: [ControlState: TextStyle]) {
         self.value = value
         self.styles = styles
+    }
+
+    /// Initialize the text with passed string and style for normal state.
+    ///
+    /// - Parameters:
+    ///   - value: The string for style and substyles.
+    ///   - substyle: The style for passed string.
+    public convenience init(value: String, style: TextStyle) {
+        self.init(value: value, styles: [.normal: style])
     }
 
     /// Initialize the text with passed string and styles for appropriate states. Returns nil if there is no value.
@@ -71,6 +57,22 @@ public final class ControlStateText: BaseText {
         }
     }
 
+    /// Initialize the text with passed string and style for normal state. Returns nil if there is no value.
+    ///
+    /// - Parameters:
+    ///   - value: The string for style and substyles.
+    ///   - substyle: The style for passed string.
+    public convenience init?(value: String?, style: TextStyle) {
+        if let value = value {
+           self.init(value: value, style: style)
+        }
+        else {
+           return nil
+        }
+    }
+
+    /// Returns a new text by concatenating the passed text.
+    /// - Parameter text: The text for concatenation.
     public func concat(_ text: ControlStateText) -> ControlStateText {
         let newText = ControlStateText(value: value + text.value, styles: styles)
 
