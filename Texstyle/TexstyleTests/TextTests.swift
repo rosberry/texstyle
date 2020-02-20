@@ -24,7 +24,7 @@ final class TextTests: XCTestCase {
 
     // MARK: - Text
 
-    private lazy var text = Text(value: value, style: style1)
+    private lazy var text = SimpleText(value: value, style: style1)
 
     private var styles: [ControlState: TextStyle] {
         var styles = [ControlState: TextStyle]()
@@ -40,8 +40,8 @@ final class TextTests: XCTestCase {
         //Given
 
         //When
-        let text = Text(value: value, style: style)
-        let text2 = Text(value: value as String?, style: style)
+        let text = SimpleText(value: value, style: style)
+        let text2 = SimpleText(value: value as String?, style: style)
         //Then
         test(text, withValue: value, with: style)
         test(text2, withValue: value, with: style)
@@ -51,7 +51,7 @@ final class TextTests: XCTestCase {
         //Given
 
         //When
-        let text = Text(value: value, style: style)
+        let text = SimpleText(value: value, style: style)
         //Then
         test(text, withValue: value, with: style)
     }
@@ -60,7 +60,7 @@ final class TextTests: XCTestCase {
         //Given
 
         //When
-        let text = Text(value: nil, style: style)
+        let text = SimpleText(value: nil, style: style)
         //Then
         XCTAssertNil(text, "Text must be nil with nil value")
     }
@@ -69,7 +69,7 @@ final class TextTests: XCTestCase {
         //Given
         let value1: String? = value
         //When
-        let text = Text(value: value1, style: style)
+        let text = SimpleText(value: value1, style: style)
         //Then
         XCTAssertNotNil(text, "Text must not be nil with nil value")
         test(text, withValue: value, with: style)
@@ -79,7 +79,7 @@ final class TextTests: XCTestCase {
         //Given
         let style = self.style
         //When
-        let text = Text(value: value, style: style)
+        let text = SimpleText(value: value, style: style)
         //Then
         XCTAssertEqual(text.value, value, "Text has wrong value after initialization")
         XCTAssertEqual(text.style, style, "Text has wrong styles after initialization")
@@ -89,7 +89,7 @@ final class TextTests: XCTestCase {
         //Given
         let style = self.style
         //When
-        let text = Text(value: nil, style: style)
+        let text = SimpleText(value: nil, style: style)
         //Then
         XCTAssertNil(text, "Text must be nil with nil value")
     }
@@ -99,7 +99,7 @@ final class TextTests: XCTestCase {
         let value1: String? = value
         let style = self.style
         //When
-        let text = Text(value: value1, style: style)
+        let text = SimpleText(value: value1, style: style)
         //Then
         XCTAssertNotNil(text, "Text must not be nil with nil value")
         XCTAssertEqual(text?.value, value, "Text has wrong value after initialization")
@@ -112,7 +112,7 @@ final class TextTests: XCTestCase {
         //Given
 
         //When
-        let text = Text(value: value, style: style)
+        let text = SimpleText(value: value, style: style)
         //Then
         test(style.attributes, in: text, in: .init(location: 0, length: value.count))
     }
@@ -121,7 +121,7 @@ final class TextTests: XCTestCase {
         //Given
 
         //When
-        let text = Text(value: value, style: style)
+        let text = SimpleText(value: value, style: style)
         //Then
         test(style.attributes, in: text, in: .init(location: 0, length: value.count))
     }
@@ -151,7 +151,7 @@ final class TextTests: XCTestCase {
     func testAddSubstyleForPassedState() {
         //Given
         let range = NSRange(location: 0, length: 2)
-        let text = Text(value: value, style: style1)
+        let text = SimpleText(value: value, style: style1)
         //When
         text.add(style2, at: range)
         //Then
@@ -176,7 +176,7 @@ final class TextTests: XCTestCase {
         //Given
         let range2 = NSRange(location: 0, length: 2)
         let range3 = NSRange(location: 2, length: 2)
-        let text = Text(value: value, style: style1)
+        let text = SimpleText(value: value, style: style1)
         //When
         text.add(style2, at: range2)
         text.add(style3, at: range3)
@@ -191,7 +191,7 @@ final class TextTests: XCTestCase {
     func testAddSubstringForNormalState() {
         //Given
         let value1 = substring1 + value + substring1
-        let text = Text(value: value1, style: style1)
+        let text = SimpleText(value: value1, style: style1)
         //When
         text.add(style2, for: substring1)
         //Then
@@ -202,7 +202,7 @@ final class TextTests: XCTestCase {
     func testAddSubstringForPassedState() {
         //Given
         let value1 = substring1 + value + substring1
-        let text = Text(value: value1, style: style1)
+        let text = SimpleText(value: value1, style: style1)
         //When
         text.add(style2, for: substring1)
         //Then
@@ -213,7 +213,7 @@ final class TextTests: XCTestCase {
     func testAddSubstringsForNormalState() {
         //Given
         let value1 = substring1 + value + substring2
-        let text = Text(value: value1, style: style)
+        let text = SimpleText(value: value1, style: style)
         //When
         text.add(style1, for: substring1)
         text.add(style2, for: substring2)
@@ -236,7 +236,7 @@ final class TextTests: XCTestCase {
     func testAddSubstringsForPassedState() {
         //Given
         let value1 = substring1 + value + substring2
-        let text = Text(value: value1, style: style)
+        let text = SimpleText(value: value1, style: style)
         //When
         text.add(style1, for: substring1)
         text.add(style2, for: substring2)
@@ -260,8 +260,8 @@ final class TextTests: XCTestCase {
 
     func testEquality() {
         //Given
-        let text1 = Text(value: value, style: style1)
-        let text2 = Text(value: value, style: style1.copy())
+        let text1 = SimpleText(value: value, style: style1)
+        let text2 = SimpleText(value: value, style: style1.copy())
         //When
 
         //Then
@@ -270,8 +270,8 @@ final class TextTests: XCTestCase {
 
     func testEqualityWithDifferentValues() {
         //Given
-        let text1 = Text(value: substring1, style: style1)
-        let text2 = Text(value: substring2, style: style1.copy())
+        let text1 = SimpleText(value: substring1, style: style1)
+        let text2 = SimpleText(value: substring2, style: style1.copy())
         //When
 
         //Then
@@ -280,8 +280,8 @@ final class TextTests: XCTestCase {
 
     func testEqualityWithDifferentStyles() {
         //Given
-        let text1 = Text(value: value, style: style1)
-        let text2 = Text(value: value, style: style2)
+        let text1 = SimpleText(value: value, style: style1)
+        let text2 = SimpleText(value: value, style: style2)
         //When
 
         //Then
@@ -342,7 +342,7 @@ final class TextTests: XCTestCase {
     func testTextAndStringConcatenation() {
         //Given
         let style = self.style
-        let text = Text(value: substring1, style: style)
+        let text = SimpleText(value: substring1, style: style)
         //When
         let newText = text + substring2
         //Then
@@ -353,7 +353,7 @@ final class TextTests: XCTestCase {
     func testStringAndTextConcatenation() {
         //Given
         let style = self.style
-        let text = Text(value: substring1, style: style)
+        let text = SimpleText(value: substring1, style: style)
         //When
         let newText = substring2 + text
         //Then
@@ -365,23 +365,23 @@ final class TextTests: XCTestCase {
         //Given
         let style1 = style
         let style2 = style
-        let text1 = Text(value: substring1, style: style1)
-        let text2 = Text(value: substring2, style: style2)
+        let text1 = SimpleText(value: substring1, style: style1)
+        let text2 = SimpleText(value: substring2, style: style2)
         //When
         let newText = text1 + text2
         //Then
-        test(style.attributes, in: newText, withSubstring: substring1)
+        XCTAssertEqual(newText.value, substring1 + substring2, "Strings should be concatenated")
         test(style1.attributes, in: newText, withSubstring: substring1)
-        test(style2.attributes, in: newText, withSubstring: substring2)
+//        test(style2.attributes, in: newText, withSubstring: substring2)
     }
 
     func testTextAndTextWithSubstylesConcatenation() {
         //Given
         let style1 = style
         let style2 = style
-        let text1 = Text(value: substring1 + substring2, style: style1)
+        let text1 = SimpleText(value: substring1 + substring2, style: style1)
         text1.add(style1, for: substring2)
-        let text2 = Text(value: substring3 + substring4, style: style2)
+        let text2 = SimpleText(value: substring3 + substring4, style: style2)
         text2.add(style2, for: substring4)
         //When
         let newText = text1 + text2
@@ -396,8 +396,8 @@ final class TextTests: XCTestCase {
         //Given
         let style1 = style
         let style2 = style
-        let text1 = Text(value: substring1 + substring2, style: style1)
-        let text2 = Text(value: substring2 + substring3, style: style2)
+        let text1 = SimpleText(value: substring1 + substring2, style: style1)
+        let text2 = SimpleText(value: substring2 + substring3, style: style2)
         //When
         let newText = text1 + text2
         //Then
@@ -413,9 +413,9 @@ final class TextTests: XCTestCase {
         //Given
         let style1 = style
         let style2 = style
-        let text1 = Text(value: substring1 + substring2, style: style1)
+        let text1 = SimpleText(value: substring1 + substring2, style: style1)
         text1.add(style1, for: substring2)
-        let text2 = Text(value: substring3 + substring4, style: style2)
+        let text2 = SimpleText(value: substring3 + substring4, style: style2)
         text2.add(style2, for: substring4)
         //When
         let newText = text1 + text2
@@ -429,7 +429,7 @@ final class TextTests: XCTestCase {
     func testTextArrayJoiningWithOneText() {
         //Given
         let style1 = style
-        let text1 = Text(value: substring1, style: style1)
+        let text1 = SimpleText(value: substring1, style: style1)
         let texts = [text1]
         //When
         let text = texts.joined()
@@ -441,11 +441,11 @@ final class TextTests: XCTestCase {
         //Given
         let style1 = style
         let style2 = style
-        let text1 = Text(value: substring1, style: style1)
-        let text2 = Text(value: substring2, style: style2)
+        let text1 = SimpleText(value: substring1, style: style1)
+        let text2 = SimpleText(value: substring2, style: style2)
         let texts = [text1, text2]
         //When
-        let text = texts.joined()
+        let text = texts.joined()!
         //Then
         XCTAssertEqual(text.value, substring1 + substring2, "Strings should be joined")
         test(style1.attributes, in: text, withSubstring: substring1)
@@ -454,17 +454,16 @@ final class TextTests: XCTestCase {
 
     func testTextArrayJoiningWithoutElements() {
         //Given
-        let texts = [Text]()
+        let texts = [SimpleText]()
         //When
         let text = texts.joined()
         //Then
-        XCTAssertEqual(text.value, "", "Text should have empty value")
-        XCTAssertEqual(text.style, TextStyle(), "Text should have default normal style")
+        XCTAssertNil(text, "Text should be nil")
     }
 
     func testTextArrayJoiningWithOneElement() {
         //Given
-        let text1 = Text(value: substring1, style: style)
+        let text1 = SimpleText(value: substring1, style: style)
         //When
         let text = [text1].joined()
         //Then
@@ -476,12 +475,12 @@ final class TextTests: XCTestCase {
         let style1 = style
         let style2 = style
         let style3 = style
-        let text1 = Text(value: substring1, style: style1)
-        let text2 = Text(value: substring2, style: style2)
-        let separatorText = Text(value: substring3, style: style3)
+        let text1 = SimpleText(value: substring1, style: style1)
+        let text2 = SimpleText(value: substring2, style: style2)
+        let separatorText = SimpleText(value: substring3, style: style3)
         let texts = [text1, text2]
         //When
-        let text = texts.joined(separatorText: separatorText)
+        let text = texts.joined(separatorText: separatorText)!
         //Then
         XCTAssertEqual(text.value, substring1 + substring3 + substring2, "Strings should be joined with \(substring3) separator")
         test(style1.attributes, in: text, withSubstring: substring1)
@@ -492,7 +491,7 @@ final class TextTests: XCTestCase {
     func testOneTextArrayJoiningWithLeftStrategy() {
         //Given
         let style1 = style
-        let text1 = Text(value: substring1, style: style1)
+        let text1 = SimpleText(value: substring1, style: style1)
         let texts = [text1]
         //When
         let text = texts.joined(separator: "", strategy: .left)
@@ -504,8 +503,8 @@ final class TextTests: XCTestCase {
         //Given
         let style1 = style
         let style2 = style
-        let text1 = Text(value: substring1, style: style1)
-        let text2 = Text(value: substring2, style: style2)
+        let text1 = SimpleText(value: substring1, style: style1)
+        let text2 = SimpleText(value: substring2, style: style2)
         let separator = " "
         let texts = [text1, text2]
         //When
@@ -521,8 +520,8 @@ final class TextTests: XCTestCase {
         //Given
         let style1 = style
         let style2 = style
-        let text1 = Text(value: substring1, style: style1)
-        let text2 = Text(value: substring2, style: style2)
+        let text1 = SimpleText(value: substring1, style: style1)
+        let text2 = SimpleText(value: substring2, style: style2)
         let separator = " "
         let texts = [text1, text2]
         //When
@@ -538,8 +537,8 @@ final class TextTests: XCTestCase {
         //Given
         let style1 = style
         let style2 = style
-        let text1 = Text(value: substring1, style: style1)
-        let text2 = Text(value: substring2, style: style2)
+        let text1 = SimpleText(value: substring1, style: style1)
+        let text2 = SimpleText(value: substring2, style: style2)
         let separator = " "
         let texts = [text1, text2]
         //When
@@ -555,7 +554,7 @@ final class TextTests: XCTestCase {
 
     func testStringInterpolation() {
         //Given
-        let text = Text(value: value, style: style)
+        let text = SimpleText(value: value, style: style)
         //When
         let string = "\(text)"
         //Then
@@ -566,7 +565,7 @@ final class TextTests: XCTestCase {
 
     func testCopy() {
         //Given
-        let text = Text(value: .random(length: 6), style: style)
+        let text = SimpleText(value: .random(length: 6), style: style)
         text.substyles = [TextSubstyle.random, TextSubstyle.random]
         //When
         let copy = text.copy()
@@ -589,12 +588,12 @@ final class TextTests: XCTestCase {
 
     // MARK: - Private
 
-    private func test(_ text: Text?, withValue value: String?, with style: TextStyle) {
+    private func test(_ text: SimpleText?, withValue value: String?, with style: TextStyle) {
         XCTAssertEqual(text?.value, value, "Text has wrong value after initialization")
         XCTAssertTrue(text?.style === style, "Text has wrong style after initialization")
     }
 
-    private func test(_ attributes: TextStyleAttributes, in text: Text, in range: NSRange) {
+    private func test(_ attributes: TextStyleAttributes, in text: SimpleText, in range: NSRange) {
         let string = text.attributed
         XCTAssertNotNil(string, "String must not be nil")
         string.enumerateAttributes(in: range, options: .longestEffectiveRangeNotRequired) { enumeratedAttributes, _, _ in
@@ -605,7 +604,7 @@ final class TextTests: XCTestCase {
         }
     }
 
-    private func test(_ attributes: TextStyleAttributes, in text: Text, withSubstring substring: String) {
+    private func test(_ attributes: TextStyleAttributes, in text: SimpleText, withSubstring substring: String) {
         var searchStartIndex = text.value.startIndex
         let endIndex = text.value.endIndex
 

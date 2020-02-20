@@ -49,7 +49,7 @@ final class ControlStateTextTests: XCTestCase {
         //Given
 
         //When
-        let text = Text(value: nil, style: style)
+        let text = SimpleText(value: nil, style: style)
         //Then
         XCTAssertNil(text, "Text must be nil with nil value")
     }
@@ -266,8 +266,8 @@ final class ControlStateTextTests: XCTestCase {
 
     func testEquality() {
         //Given
-        let text1 = Text(value: value, style: style1)
-        let text2 = Text(value: value, style: style1.copy())
+        let text1 = SimpleText(value: value, style: style1)
+        let text2 = SimpleText(value: value, style: style1.copy())
         //When
 
         //Then
@@ -276,8 +276,8 @@ final class ControlStateTextTests: XCTestCase {
 
     func testEqualityWithDifferentValues() {
         //Given
-        let text1 = Text(value: substring1, style: style1)
-        let text2 = Text(value: substring2, style: style1.copy())
+        let text1 = SimpleText(value: substring1, style: style1)
+        let text2 = SimpleText(value: substring2, style: style1.copy())
         //When
 
         //Then
@@ -286,8 +286,8 @@ final class ControlStateTextTests: XCTestCase {
 
     func testEqualityWithDifferentStyles() {
         //Given
-        let text1 = Text(value: value, style: style1)
-        let text2 = Text(value: value, style: style2)
+        let text1 = SimpleText(value: value, style: style1)
+        let text2 = SimpleText(value: value, style: style2)
         //When
 
         //Then
@@ -480,7 +480,7 @@ final class ControlStateTextTests: XCTestCase {
         let text2 = ControlStateText(value: substring2, styles: styles2)
         let texts = [text1, text2]
         //When
-        let text = texts.joined()
+        let text = texts.joined()!
         //Then
         XCTAssertEqual(text.value, substring1 + substring2, "Strings should be joined")
         for state in ControlState.allCases {
@@ -495,9 +495,7 @@ final class ControlStateTextTests: XCTestCase {
         //When
         let text = texts.joined()
         //Then
-        XCTAssertEqual(text.value, "", "Text should have empty value")
-        XCTAssertEqual(text.styles.count, 1, "Text should have only one style")
-        XCTAssertEqual(text.styles[.normal], TextStyle(), "Text should have default normal style")
+        XCTAssertNil(text, "Text should be nil")
     }
 
     func testTextArrayJoiningWithOneElement() {
@@ -519,7 +517,7 @@ final class ControlStateTextTests: XCTestCase {
         let separatorText = ControlStateText(value: substring3, styles: styles3)
         let texts = [text1, text2]
         //When
-        let text = texts.joined(separatorText: separatorText)
+        let text = texts.joined(separatorText: separatorText)!
         //Then
         XCTAssertEqual(text.value, substring1 + substring3 + substring2, "Strings should be joined with \(substring3) separator")
         for state in ControlState.allCases {
@@ -601,7 +599,7 @@ final class ControlStateTextTests: XCTestCase {
 
     func testStringInterpolation() {
         //Given
-        let text = Text(value: value, style: style)
+        let text = SimpleText(value: value, style: style)
         //When
         let string = "\(text)"
         //Then

@@ -5,7 +5,8 @@
 import UIKit
 
 /// Stores string, styles and substyles for attributed string depending on ControlState.
-public final class ControlStateText {
+public final class ControlStateText: Text {
+
     public let value: String
     public let styles: [ControlState: TextStyle]
 
@@ -28,9 +29,8 @@ public final class ControlStateText {
     /// - Parameters:
     ///   - value: The string for style and substyles.
     ///   - substyle: The style for passed string.
-    public init(value: String, style: TextStyle) {
-        self.value = value
-        self.styles = [.normal: style]
+    public convenience init(value: String, style: TextStyle) {
+        self.init(value: value, styles: [.normal: style])
     }
 
     /// Initialize the text with passed string and style for normal state. Returns nil if there is no value.
@@ -69,6 +69,37 @@ public final class ControlStateText {
         else {
            return nil
         }
+    }
+
+    public func concat(_ text: ControlStateText) -> ControlStateText {
+        let text = ControlStateText(value: value + text.value, styles: styles)
+
+        substyles.forEach { state, substyles in
+            var array = text.substyles[state] ?? []
+            array.append(contentsOf: substyles)
+            text.substyles[state] = array
+        }
+
+        let range = NSRange(location: value.count, length: text.value.count)
+
+        text.styles.forEach { state, style in
+            let substyle = TextSubstyle(style: style, range: range)
+            var array = text.substyles[state] ?? []
+            array.append(substyle)
+            text.substyles[state] = array
+        }
+
+        text.substyles.forEach { state, substyles in
+            var array = text.substyles[state] ?? []
+            substyles.forEach { substyle in
+                let range = NSRange(location: value.count + substyle.range.location, length: substyle.range.length)
+                let substyle = TextSubstyle(style: substyle.style, range: range)
+                array.append(substyle)
+            }
+            text.substyles[state] = array
+        }
+
+        return text
     }
 
     /// Adds the substyle for passed range.

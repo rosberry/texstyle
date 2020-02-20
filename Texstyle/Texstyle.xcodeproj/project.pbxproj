@@ -12,7 +12,7 @@
 		060F826423B616D1004D56E9 /* Sequence+TextSubstyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F826323B616D1004D56E9 /* Sequence+TextSubstyle.swift */; };
 		060F826623B6172C004D56E9 /* Dictionary+TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060F826523B6172C004D56E9 /* Dictionary+TextStyle.swift */; };
 		063FCBB22271E51C001C8962 /* Texstyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FCBA42271E51C001C8962 /* Texstyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		063FCBE22271E635001C8962 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBDF2271E635001C8962 /* Text.swift */; };
+		063FCBE22271E635001C8962 /* SimpleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBDF2271E635001C8962 /* SimpleText.swift */; };
 		063FCBE42271E635001C8962 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBE02271E635001C8962 /* TextStyle.swift */; };
 		063FCBEA2271E907001C8962 /* TextSubstyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBE92271E907001C8962 /* TextSubstyle.swift */; };
 		063FCBED2271EC90001C8962 /* ControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FCBEC2271EC90001C8962 /* ControlState.swift */; };
@@ -59,7 +59,7 @@
 		063FCBA12271E51C001C8962 /* Texstyle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Texstyle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		063FCBA42271E51C001C8962 /* Texstyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Texstyle.h; sourceTree = "<group>"; };
 		063FCBA52271E51C001C8962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		063FCBDF2271E635001C8962 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		063FCBDF2271E635001C8962 /* SimpleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleText.swift; sourceTree = "<group>"; };
 		063FCBE02271E635001C8962 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		063FCBE92271E907001C8962 /* TextSubstyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSubstyle.swift; sourceTree = "<group>"; };
 		063FCBEC2271EC90001C8962 /* ControlState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlState.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 			children = (
 				063FCBA42271E51C001C8962 /* Texstyle.h */,
 				063FCBA52271E51C001C8962 /* Info.plist */,
-				063FCBDF2271E635001C8962 /* Text.swift */,
+				063FCBDF2271E635001C8962 /* SimpleText.swift */,
 				0143C22023F4FF8F00592288 /* ControlStateText.swift */,
 				063FCBE02271E635001C8962 /* TextStyle.swift */,
 				06948D2822D9F35F000FCC2C /* ShadowStyle.swift */,
@@ -313,7 +313,7 @@
 				063FCBE42271E635001C8962 /* TextStyle.swift in Sources */,
 				063FCBF02271ED9E001C8962 /* LineAttributes.swift in Sources */,
 				060F826623B6172C004D56E9 /* Dictionary+TextStyle.swift in Sources */,
-				063FCBE22271E635001C8962 /* Text.swift in Sources */,
+				063FCBE22271E635001C8962 /* SimpleText.swift in Sources */,
 				067A645D22BCD0C300AF2E5E /* Text+Operators.swift in Sources */,
 				063FCBED2271EC90001C8962 /* ControlState.swift in Sources */,
 				06603ACE22CB1118001F7644 /* StringInterpolation+Text.swift in Sources */,

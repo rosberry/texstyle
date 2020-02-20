@@ -4,7 +4,7 @@
 
 extension String {
 
-    public func text(with style: TextStyle) -> Text {
-        Text(value: self, style: style)
+    public func text(with style: TextStyle) -> SimpleText {
+        SimpleText(value: self, style: style)
     }
 }

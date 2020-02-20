@@ -4,8 +4,15 @@
 
 import UIKit
 
+public protocol Text {
+
+    var value: String { get }
+
+    func concat(_ text: Self) -> Self
+}
+
 /// Stores string, styles and substyles for attributed string.
-public final class Text {
+public final class SimpleText: Text {
 
     public let value: String
     public let style: TextStyle
@@ -57,6 +64,23 @@ public final class Text {
         else {
             return nil
         }
+    }
+
+    public func concat(_ text: SimpleText) -> SimpleText {
+        let text = SimpleText(value: value + text.value, style: style)
+        text.substyles.append(contentsOf: substyles)
+
+        let range = NSRange(location: value.count, length: text.value.count)
+        let substyle = TextSubstyle(style: text.style, range: range)
+        text.substyles.append(substyle)
+
+        let rhsSubstyles = text.substyles.map { substyle -> TextSubstyle in
+            let range = NSRange(location: value.count + substyle.range.location, length: substyle.range.length)
+            return TextSubstyle(style: substyle.style, range: range)
+        }
+        text.substyles.append(contentsOf: rhsSubstyles)
+
+        return text
     }
 
     /// Adds the substyle for passed range.
@@ -111,8 +135,8 @@ public final class Text {
         return attributed.boundingRect(with: size, options: options, context: context)
     }
 
-    public func copy() -> Text {
-        let copy = Text(value: value, style: style.copy())
+    public func copy() -> SimpleText {
+        let copy = SimpleText(value: value, style: style.copy())
         copy.substyles = substyles.copy()
         return copy
     }
@@ -120,9 +144,9 @@ public final class Text {
 
 // MARK: - Equatable
 
-extension Text: Equatable {
+extension SimpleText: Equatable {
 
-    public static func == (lhs: Text, rhs: Text) -> Bool {
+    public static func == (lhs: SimpleText, rhs: SimpleText) -> Bool {
         lhs.value == rhs.value && lhs.style == rhs.style
     }
 }
