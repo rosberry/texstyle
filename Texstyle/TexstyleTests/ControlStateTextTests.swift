@@ -49,7 +49,7 @@ final class ControlStateTextTests: XCTestCase {
         //Given
 
         //When
-        let text = Text(value: nil, style: style)
+        let text = ControlStateText(value: nil, style: style)
         //Then
         XCTAssertNil(text, "Text must be nil with nil value")
     }
@@ -525,6 +525,17 @@ final class ControlStateTextTests: XCTestCase {
             test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
             test(styles3[state]!.attributes, in: text, for: state, withSubstring: substring3)
         }
+    }
+
+    func testEmptyArrayJoiningWithLeftStrategy() {
+        //Given
+        let texts = [ControlStateText]()
+        //When
+        let text = texts.joined(separator: "", strategy: .left)
+        //Then
+        let defaultText = ControlStateText(value: "", style: .init())
+        XCTAssertEqual(text, defaultText, "Joining of array with no texts must return default text")
+        XCTAssertTrue(text.substyles.isEmpty, "Joining of array with no texts must return the text without substyles")
     }
 
     func testOneTextArrayJoiningWithLeftStrategy() {

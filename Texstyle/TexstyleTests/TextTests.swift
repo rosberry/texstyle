@@ -488,6 +488,17 @@ final class TextTests: XCTestCase {
         test(style3.attributes, in: text, withSubstring: substring3)
     }
 
+    func testEmptyArrayJoiningWithLeftStrategy() {
+        //Given
+        let texts = [Text]()
+        //When
+        let text = texts.joined(separator: "", strategy: .left)
+        //Then
+        let defaultText = Text(value: "", style: .init())
+        XCTAssertEqual(text, defaultText, "Joining of array with no texts must return default text")
+        XCTAssertTrue(text.substyles.isEmpty, "Joining of array with no texts must return the text without substyles")
+    }
+
     func testOneTextArrayJoiningWithLeftStrategy() {
         //Given
         let style1 = style
