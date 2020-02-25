@@ -22,3 +22,14 @@ jobs:
       - name: Update Code Coverage
         run: |
           bash <(curl -s https://codecov.io/bash) -J 'Texstyle'
+      - name: Update docs
+        run: |
+          gem install jazzy
+          jazzy
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Update docs" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
