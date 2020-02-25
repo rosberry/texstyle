@@ -1,5 +1,5 @@
 <p align="center">
-    <img src=".github/texstyle_logo.png" width="528" max-width="90%" alt="Stylin" />
+    <img src="https://raw.githubusercontent.com/rosberry/texstyle/master/.github/texstyle_logo.png" width="528" max-width="90%" alt="Stylin" />
 </p>
 
 <p align="center">
@@ -43,7 +43,7 @@ titleLabel.attributedText = text.attributed
 
 The result:
 
-![Example1](.github/example1.png)
+![Example1](https://raw.githubusercontent.com/rosberry/texstyle/master/.github/example1.png)
 
 Let's start with text styles. There is a `TextStyle` class for configuring different style parameters like font, color, kerning etc. We prefer to use `TextStyle` extension for app specific styles:
 
@@ -114,7 +114,7 @@ button.setText(text)
 
 Check [TexstyleExample](xcode://clone?repo=https%3A%2F%2Fgithub.com%2Frosberry%2Ftexstyle) project for more examples.
 
-![Example2](.github/example2.png)
+![Example2](https://raw.githubusercontent.com/rosberry/texstyle/master/.github/example2.png)
 
 ## Installation
 

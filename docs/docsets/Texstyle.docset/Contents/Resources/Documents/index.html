@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Texstyle  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Texstyle  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Texstyle Docs</a> (69% documented)</p>
+        <p class="header-right"><a href="https://github.com/rosberry/texstyle"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Texstyle Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Texstyle  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/LineAttributes.html">LineAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ShadowStyle.html">ShadowStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Text.html">Text</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/TextStyle.html">TextStyle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/SeparatorStrategy.html">SeparatorStrategy</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/ControlState.html">ControlState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/String/StringInterpolation.html">– StringInterpolation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIButton.html">UIButton</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/ControlState">ControlState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:8Texstyle12ControlStatea">ControlState</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <p align="center">
+    <img src="https://raw.githubusercontent.com/rosberry/texstyle/master/.github/texstyle_logo.png" width="528" max-width="90%" alt="Stylin" />
+</p>
+
+<p align="center">
+    <a href="https://github.com/rosberry/texstyle/actions">
+      <img src="https://github.com/rosberry/texstyle/workflows/Build/badge.svg" />
+    </a>
+    <a href="https://swift.org/">
+        <img src="https://img.shields.io/badge/swift-5.0-orange.svg" alt="Swift Version" />
+    </a>
+    <a href="https://github.com/Carthage/Carthage">
+        <img src="https://img.shields.io/badge/Carthage-compatible-green.svg" alt="Carthage Compatible" />
+    </a>
+    <a href="https://codecov.io/gh/rosberry/texstyle">
+        <img src="https://codecov.io/gh/rosberry/texstyle/branch/master/graph/badge.svg" alt="codecov" />
+    </a>
+</p>
+
+<p>Texstyle allows you to format attributed strings easily.</p>
+<h2 id='features' class='heading'>Features</h2>
+
+<ul>
+<li>Applying attributes with strong typing and autocompletion</li>
+<li>Cache for attributes</li>
+<li>Substyles</li>
+<li>Convenient extensions for <code>String</code> and <code>UIButton</code></li>
+</ul>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 9.0+ / tvOS 9.0+</li>
+<li>Xcode 10.0+</li>
+</ul>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<p>Here is a basic example of Texstyle using:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">text</span> <span class="o">=</span> <span class="kt">Text</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="s">"Hello, World 🌍"</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="n">title1</span><span class="p">)</span>
+<span class="n">text</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="o">.</span><span class="n">heading1</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="s">"World"</span><span class="p">)</span>
+<span class="n">titleLabel</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">attributed</span>
+</code></pre>
+
+<p>The result:</p>
+
+<p><img src="https://raw.githubusercontent.com/rosberry/texstyle/master/.github/example1.png" alt="Example1"></p>
+
+<p>Let&rsquo;s start with text styles. There is a <code><a href="Classes/TextStyle.html">TextStyle</a></code> class for configuring different style parameters like font, color, kerning etc. We prefer to use <code><a href="Classes/TextStyle.html">TextStyle</a></code> extension for app specific styles:</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">TextStyle</span> <span class="p">{</span>
+
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">title1</span><span class="p">:</span> <span class="kt">TextStyle</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">style</span> <span class="o">=</span> <span class="kt">TextStyle</span><span class="p">()</span>
+        <span class="n">style</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="o">.</span><span class="nf">systemFont</span><span class="p">(</span><span class="nv">ofSize</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="nv">weight</span><span class="p">:</span> <span class="o">.</span><span class="n">regular</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">style</span>
+    <span class="p">}()</span>
+
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">heading1</span><span class="p">:</span> <span class="kt">TextStyle</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">style</span> <span class="o">=</span> <span class="kt">TextStyle</span><span class="p">()</span>
+        <span class="n">style</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="o">.</span><span class="nf">systemFont</span><span class="p">(</span><span class="nv">ofSize</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="nv">weight</span><span class="p">:</span> <span class="o">.</span><span class="n">semibold</span><span class="p">)</span>
+        <span class="n">style</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="o">.</span><span class="n">purple</span>
+        <span class="k">return</span> <span class="n">style</span>
+    <span class="p">}()</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>It allows you to reuse the styles across the app.</p>
+
+<p>Next, create a <code><a href="Classes/Text.html">Text</a></code> instance. It contains string value and style:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">text</span> <span class="o">=</span> <span class="kt">Text</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="s">"Hello, World 🌍"</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="n">title1</span><span class="p">)</span>
+</code></pre>
+
+<p>Text also supports independent styles for each <code>UIControl.State</code>. For example, if you want to use a different style for button highlight state, you should initialize text like:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">text</span> <span class="o">=</span> <span class="kt">Text</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="s">" Sign in with Apple"</span><span class="p">,</span> <span class="nv">styles</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="nv">normal</span><span class="p">:</span> <span class="o">.</span><span class="n">heading1</span><span class="p">,</span>
+                                                         <span class="o">.</span><span class="nv">highlighted</span><span class="p">:</span> <span class="o">.</span><span class="n">heading2</span><span class="p">])</span>
+</code></pre>
+
+<p>To create an attributed string, just use:</p>
+<pre class="highlight swift"><code><span class="c1">//By default for normal state</span>
+<span class="n">text</span><span class="o">.</span><span class="n">attributed</span>
+
+<span class="c1">//For needed state</span>
+<span class="n">text</span><span class="o">.</span><span class="nf">attributed</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="o">.</span><span class="n">highlighted</span><span class="p">)</span>
+</code></pre>
+
+<p>All attributed strings are cached by default. It&rsquo;s useful in reusable elements like <code>UICollectionViewCell</code> or <code>UITableViewCell</code>.</p>
+
+<p>There are custom operators for texts and strings:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">text1</span> <span class="o">=</span> <span class="kt">Text</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="s">"Ros"</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="n">title1</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">text2</span> <span class="o">=</span> <span class="n">text1</span> <span class="o">+</span> <span class="s">"ber"</span>
+<span class="k">let</span> <span class="nv">text3</span> <span class="o">=</span> <span class="kt">Text</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="s">"ry"</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="n">title1</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">text4</span> <span class="o">=</span> <span class="n">text2</span> <span class="o">+</span> <span class="n">text3</span>
+<span class="n">text4</span><span class="o">.</span><span class="n">value</span> <span class="c1">// "Rosberry"</span>
+</code></pre>
+
+<p>There are convenience APIs for text creation and applying:</p>
+<pre class="highlight swift"><code><span class="c1">//String to text</span>
+<span class="s">"Settings"</span><span class="o">.</span><span class="nf">text</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="o">.</span><span class="n">heading1</span><span class="p">)</span>
+
+<span class="c1">//UIButton</span>
+<span class="n">button</span><span class="o">.</span><span class="nf">setText</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</code></pre>
+
+<p>Check <a href="xcode://clone?repo=https%3A%2F%2Fgithub.com%2Frosberry%2Ftexstyle">TexstyleExample</a> project for more examples.</p>
+
+<p><img src="https://raw.githubusercontent.com/rosberry/texstyle/master/.github/example2.png" alt="Example2"></p>
+<h2 id='installation' class='heading'>Installation</h2>
+<h4 id='carthage' class='heading'>Carthage</h4>
+
+<p>Create a <code>Cartfile</code> that lists the framework and run <code>carthage update</code>. Follow the <a href="https://github.com/Carthage/Carthage#adding-frameworks-to-an-application">instructions</a> to add the framework to your project.</p>
+<pre class="highlight plaintext"><code>github "rosberry/Texstyle"
+</code></pre>
+<h4 id='manually' class='heading'>Manually</h4>
+
+<p>Drag <code>Sources</code> folder from <a href="https://github.com/rosberry/Texstyle/releases">last release</a> into your project.</p>
+<h2 id='about' class='heading'>About</h2>
+
+<p><img src="https://github.com/rosberry/Foundation/blob/master/Assets/full_logo.png?raw=true" height="100" /></p>
+
+<p>This project is owned and maintained by <a href="http://rosberry.com">Rosberry</a>. We build mobile apps for users worldwide 🌏.</p>
+
+<p>Check out our <a href="https://github.com/rosberry">open source projects</a>, read <a href="https://medium.com/@Rosberry">our blog</a> or give us a high-five on 🐦 <a href="http://twitter.com/RosberryApps">@rosberryapps</a>.</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>Texstyle is available under the MIT license. See the LICENSE file for more info.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="https://rosberry.com" target="_blank" rel="external">Rosberry</a>. All rights reserved. (Last updated: 2020-02-25)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,194 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/Array+Text.swift",
+      "line": 10,
+      "symbol": "SeparatorStrategy.left",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/Array+Text.swift",
+      "line": 11,
+      "symbol": "SeparatorStrategy.right",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/ControlState.swift",
+      "line": 8,
+      "symbol": "ControlState",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/ControlState.swift",
+      "line": 15,
+      "symbol": "ControlState",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/LineAttributes.swift",
+      "line": 7,
+      "symbol": "LineAttributes",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/LineAttributes.swift",
+      "line": 30,
+      "symbol": "LineAttributes.copy()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/LineAttributes.swift",
+      "line": 40,
+      "symbol": "LineAttributes",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 7,
+      "symbol": "ShadowStyle",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 9,
+      "symbol": "ShadowStyle.offset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 10,
+      "symbol": "ShadowStyle.radius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 11,
+      "symbol": "ShadowStyle.color",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 13,
+      "symbol": "ShadowStyle.shadow",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 21,
+      "symbol": "ShadowStyle.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 24,
+      "symbol": "ShadowStyle.copy()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 35,
+      "symbol": "ShadowStyle",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/String+Text.swift",
+      "line": 7,
+      "symbol": "String.text(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/String+Text.swift",
+      "line": 11,
+      "symbol": "String.text(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/StringInterpolation+Text.swift",
+      "line": 7,
+      "symbol": "String.StringInterpolation.appendInterpolation(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/Text+Operators.swift",
+      "line": 7,
+      "symbol": "Text.+(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/Text+Operators.swift",
+      "line": 11,
+      "symbol": "Text.+(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/Text+Operators.swift",
+      "line": 15,
+      "symbol": "Text.+(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/Text.swift",
+      "line": 10,
+      "symbol": "Text.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/Text.swift",
+      "line": 11,
+      "symbol": "Text.styles",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/Text.swift",
+      "line": 157,
+      "symbol": "Text.copy()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/TextStyle.swift",
+      "line": 118,
+      "symbol": "TextStyle.underlineLine",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/TextStyle.swift",
+      "line": 282,
+      "symbol": "TextStyle.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/artemnovichkov/Documents/Projects/texstyle/Texstyle/Texstyle/TextStyle.swift",
+      "line": 285,
+      "symbol": "TextStyle.copy()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/artemnovichkov/Documents/Projects/texstyle"
+}
