@@ -9,22 +9,20 @@ final class TextSubstyle {
 
     let style: TextStyle
     let range: NSRange
-    let state: ControlState
 
-    init(style: TextStyle, range: NSRange, state: ControlState) {
+    init(style: TextStyle, range: NSRange) {
         self.style = style
         self.range = range
-        self.state = state
     }
 
     public func copy() -> TextSubstyle {
-        TextSubstyle(style: style.copy(), range: range, state: state)
+        TextSubstyle(style: style.copy(), range: range)
     }
 }
 
 extension TextSubstyle: Equatable {
 
     public static func == (lhs: TextSubstyle, rhs: TextSubstyle) -> Bool {
-        lhs.style == rhs.style && lhs.range == rhs.range && lhs.state == rhs.state
+        lhs.style == rhs.style && lhs.range == rhs.range
     }
 }

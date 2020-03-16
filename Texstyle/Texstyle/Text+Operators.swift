@@ -2,29 +2,31 @@
 //  Copyright © 2019 Rosberry. All rights reserved.
 //
 
+public extension BaseText {
+
+    static func + (lhs: Self, rhs: Self) -> Self {
+        lhs.concat(rhs)
+    }
+}
+
 public extension Text {
 
     static func + (lhs: Text, rhs: String) -> Text {
-        Text(value: lhs.value + rhs, styles: lhs.styles)
+        Text(value: lhs.value + rhs, style: lhs.style)
     }
 
     static func + (lhs: String, rhs: Text) -> Text {
-        Text(value: lhs + rhs.value, styles: rhs.styles)
+        Text(value: lhs + rhs.value, style: rhs.style)
+    }
+}
+
+public extension ControlStateText {
+
+    static func + (lhs: ControlStateText, rhs: String) -> ControlStateText {
+        ControlStateText(value: lhs.value + rhs, styles: lhs.styles)
     }
 
-    static func + (lhs: Text, rhs: Text) -> Text {
-        let text = Text(value: lhs.value + rhs.value, styles: lhs.styles)
-        text.substyles.append(contentsOf: lhs.substyles)
-        let styleSubstyles = rhs.styles.map { state, style -> TextSubstyle in
-            let range = NSRange(location: lhs.value.count, length: rhs.value.count)
-            return TextSubstyle(style: style, range: range, state: state)
-        }
-        text.substyles.append(contentsOf: styleSubstyles)
-        let rhsSubstyles = rhs.substyles.map { substyle -> TextSubstyle in
-            let range = NSRange(location: lhs.value.count + substyle.range.location, length: substyle.range.length)
-            return TextSubstyle(style: substyle.style, range: range, state: substyle.state)
-        }
-        text.substyles.append(contentsOf: rhsSubstyles)
-        return text
+    static func + (lhs: String, rhs: ControlStateText) -> ControlStateText {
+        ControlStateText(value: lhs + rhs.value, styles: rhs.styles)
     }
 }

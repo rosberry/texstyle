@@ -7,4 +7,8 @@ public extension String.StringInterpolation {
     mutating func appendInterpolation(_ text: Text) {
         appendLiteral(text.value)
     }
+
+    mutating func appendInterpolation(_ text: ControlStateText) {
+        appendLiteral(text.value)
+    }
 }

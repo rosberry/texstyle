@@ -8,7 +8,7 @@ extension String {
         Text(value: self, style: style)
     }
 
-    public func text(with styles: [ControlState: TextStyle]) -> Text {
-        Text(value: self, styles: styles)
+    public func text(with styles: [ControlState: TextStyle]) -> ControlStateText {
+        ControlStateText(value: self, styles: styles)
     }
 }

@@ -15,8 +15,7 @@ final class StringTests: XCTestCase {
         let text = value.text(with: style)
         //Then
         XCTAssertEqual(text.value, value, "Text value must be equal to value")
-        XCTAssertEqual(text.styles.count, 1, "Text has wrong style safter initialization")
-        XCTAssertTrue(text.styles[.normal] === style, "Text has wrong normal style after initialization")
+        XCTAssertTrue(text.style === style, "Text has wrong style after initialization")
     }
 
     func testTextWithStyles() {
