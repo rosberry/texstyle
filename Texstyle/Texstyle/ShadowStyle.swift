@@ -18,8 +18,7 @@ open class ShadowStyle {
         return shadow
     }
 
-    public init() {
-    }
+    public init() {}
 
     public func copy() -> ShadowStyle {
         let copy = ShadowStyle()

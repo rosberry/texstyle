@@ -29,8 +29,8 @@ final class ViewController: UIViewController {
 
         var heading2 = TextStyle.heading1.copy()
         heading2.color = .white
-        let text = Text(value: " Sign in with Apple", styles: [.normal: heading2,
-                                                                  .highlighted: .heading1])
+        let text = ControlStateText(value: " Sign in with Apple", styles: [.normal: heading2,
+                                                                            .highlighted: .heading1])
         button.setText(text)
         return button
     }()

@@ -5,39 +5,51 @@
 import UIKit
 
 /// Stores string, styles and substyles for attributed string.
-public final class Text {
+public final class Text: BaseText {
 
     public let value: String
-    public let styles: [ControlState: TextStyle]
+    public let style: TextStyle
 
-    /// Returns attributed string for normal state.
-    public var attributed: NSAttributedString? {
-        attributed()
+    /// Returns attributed string.
+    public var attributed: NSAttributedString {
+        let attributes = style.attributes
+        if let cachedAttributedString = self.cachedAttributedString {
+            return cachedAttributedString
+        }
+        let attributedString = NSMutableAttributedString(string: value, attributes: attributes)
+
+        for substyle in substyles {
+            attributedString.addAttributes(substyle.style.attributes, range: substyle.range)
+        }
+
+        cachedAttributedString = attributedString
+        return attributedString
     }
 
-    /// Clears cached attributed string.
+    /// Returns array of added substyles
     var substyles: [TextSubstyle] = [] {
         didSet {
-            cachedAttributedStrings.removeAll()
+            cachedAttributedString = nil
         }
     }
-    private var cachedAttributedStrings: [ControlState: NSAttributedString] = [:]
 
-    /// Initialize the text with passed string and style for normal state.
+    private var cachedAttributedString: NSAttributedString?
+
+    /// Initialize the text with passed string and style.
     ///
     /// - Parameters:
     ///   - value: The string for style and substyles.
-    ///   - substyle: The style for passed string.
+    ///   - style: The style for passed string.
     public init(value: String, style: TextStyle) {
         self.value = value
-        self.styles = [.normal: style]
+        self.style = style
     }
 
-    /// Initialize the text with passed string and style for normal state. Returns nil if there is no value.
+    /// Initialize the text with passed string and style. Returns nil if there is no value.
     ///
     /// - Parameters:
     ///   - value: The string for style and substyles.
-    ///   - substyle: The style for passed string.
+    ///   - style: The style for passed string.
     public convenience init?(value: String?, style: TextStyle) {
         if let value = value {
             self.init(value: value, style: style)
@@ -47,28 +59,23 @@ public final class Text {
         }
     }
 
-    /// Initialize the text with passed string and styles for appropriate states.
-    ///
-    /// - Parameters:
-    ///   - value: The string for style and substyles.
-    ///   - styles: The dictionary with states and text styles.
-    public init(value: String, styles: [ControlState: TextStyle]) {
-        self.value = value
-        self.styles = styles
-    }
+    /// Returns a new text by concatenating the passed text.
+    /// - Parameter text: The text for concatenation.
+    public func concat(_ text: Text) -> Text {
+        let newText = Text(value: value + text.value, style: style)
+        newText.substyles = substyles
 
-    /// Initialize the text with passed string and styles for appropriate states. Returns nil if there is no value.
-    ///
-    /// - Parameters:
-    ///   - value: The string for style and substyles.
-    ///   - styles: The dictionary with states and text styles.
-    public convenience init?(value: String?, styles: [ControlState: TextStyle]) {
-        if let value = value {
-            self.init(value: value, styles: styles)
+        let range = NSRange(location: value.count, length: text.value.count)
+        let substyle = TextSubstyle(style: text.style, range: range)
+        newText.substyles.append(substyle)
+
+        let rhsSubstyles = text.substyles.map { substyle -> TextSubstyle in
+            let range = NSRange(location: value.count + substyle.range.location, length: substyle.range.length)
+            return TextSubstyle(style: substyle.style, range: range)
         }
-        else {
-            return nil
-        }
+        newText.substyles.append(contentsOf: rhsSubstyles)
+
+        return newText
     }
 
     /// Adds the substyle for passed range.
@@ -76,9 +83,8 @@ public final class Text {
     /// - Parameters:
     ///   - substyle: The substyle for passed range.
     ///   - range: The range for substyle applying.
-    ///   - state: The state for passed substyle. Default is normal.
-    public func add(_ substyle: TextStyle, at range: Range<String.Index>, for state: ControlState = .normal) {
-        add(substyle, at: .init(range, in: value), for: state)
+    public func add(_ substyle: TextStyle, at range: Range<String.Index>) {
+        add(substyle, at: .init(range, in: value))
     }
 
     /// Adds the substyle for passed range.
@@ -86,9 +92,8 @@ public final class Text {
     /// - Parameters:
     ///   - substyle: The substyle for passed range.
     ///   - range: The range for substyle applying.
-    ///   - state: The state for passed substyle. Default is normal.
-    public func add(_ substyle: TextStyle, at range: NSRange, for state: ControlState = .normal) {
-        substyles.append(.init(style: substyle, range: range, state: state))
+    public func add(_ substyle: TextStyle, at range: NSRange) {
+        substyles.append(.init(style: substyle, range: range))
     }
 
     /// Convenient method for adding the substyle for substring.
@@ -98,40 +103,16 @@ public final class Text {
     /// - Parameters:
     ///   - substyle: The substyle for passed string.
     ///   - substring: The string value.
-    ///   - state: The state for passed substyle. Default is normal.
-    public func add(_ substyle: TextStyle, for substring: String, for state: ControlState = .normal) {
+    public func add(_ substyle: TextStyle, for substring: String) {
         var searchStartIndex = value.startIndex
         let endIndex = value.endIndex
 
         while searchStartIndex < endIndex,
               let range = value.range(of: substring, range: searchStartIndex..<endIndex),
               !range.isEmpty {
-            add(substyle, at: range, for: state)
+            add(substyle, at: range)
             searchStartIndex = range.upperBound
         }
-    }
-
-    /// Applies all attributes from style and substyles.
-    ///
-    /// - Parameter state: The state for passed substyle. Default is normal.
-    /// - Returns: If there is no attributes for the state it returns nil. If the attributed string is cached it returns cached string.
-    public func attributed(for state: ControlState = .normal) -> NSAttributedString? {
-        guard let attributes = styles[state]?.attributes else {
-            return nil
-        }
-
-        if let cachedAttributedString = cachedAttributedStrings[state] {
-            return cachedAttributedString
-        }
-
-        let attributedString = NSMutableAttributedString(string: value, attributes: attributes)
-
-        for substyle in substyles where substyle.state == state {
-            attributedString.addAttributes(substyle.style.attributes, range: substyle.range)
-        }
-
-        cachedAttributedStrings[state] = attributedString
-        return attributedString
     }
 
     ///Returns the bounding rectangle required to draw the string.
@@ -142,20 +123,15 @@ public final class Text {
     ///   - context: A context object with information about how to adjust the font tracking and scaling information.
     /// On return, the specified object contains information about the actual values used to render the string.
     /// This parameter is nil by default.
-    ///   - state: The control state for attributes.
     /// - Returns: A rectangle which size component indicates the width and height required to draw the entire contents of the string.
     public func boundingRect(with size: CGSize,
                              options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading],
-                             context: NSStringDrawingContext? = nil,
-                             for state: ControlState = .normal) -> CGRect {
-        guard let attributedString = attributed(for: state) else {
-            return .zero
-        }
-        return attributedString.boundingRect(with: size, options: options, context: context)
+                             context: NSStringDrawingContext? = nil) -> CGRect {
+        return attributed.boundingRect(with: size, options: options, context: context)
     }
 
     public func copy() -> Text {
-        let copy = Text(value: value, styles: styles.copy())
+        let copy = Text(value: value, style: style.copy())
         copy.substyles = substyles.copy()
         return copy
     }
@@ -166,6 +142,6 @@ public final class Text {
 extension Text: Equatable {
 
     public static func == (lhs: Text, rhs: Text) -> Bool {
-        lhs.value == rhs.value && lhs.styles == rhs.styles
+        lhs.value == rhs.value && lhs.style == rhs.style
     }
 }
