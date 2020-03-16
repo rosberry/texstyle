@@ -14,7 +14,7 @@
     <a title="Text Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Texstyle Docs</a> (69% documented)</p>
+        <p><a href="../index.html">Texstyle Docs</a> (68% documented)</p>
         <p class="header-right"><a href="https://github.com/rosberry/texstyle"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -31,6 +31,9 @@
           <li class="nav-group-name">
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ControlStateText.html">ControlStateText</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Classes/LineAttributes.html">LineAttributes</a>
               </li>
@@ -77,6 +80,14 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/BaseText.html">BaseText</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -95,7 +106,7 @@
             <h1>Text</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">Text</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">Text</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/BaseText.html">BaseText</a></span></code></pre>
 <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Text</span><span class="p">:</span> <span class="kt">Equatable</span></code></pre>
 
                 </div>
@@ -136,9 +147,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Texstyle4TextC6stylesSDySo14UIControlStateVAA0B5StyleCAFSHAAyHCg_Gvp"></a>
-                    <a name="//apple_ref/swift/Property/styles" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC6stylesSDySo14UIControlStateVAA0B5StyleCAFSHAAyHCg_Gvp">styles</a>
+                    <a name="/s:8Texstyle4TextC5styleAA0B5StyleCvp"></a>
+                    <a name="//apple_ref/swift/Property/style" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Texstyle4TextC5styleAA0B5StyleCvp">style</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -153,7 +164,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">styles</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Typealiases.html#/s:8Texstyle12ControlStatea">ControlState</a></span> <span class="p">:</span> <span class="kt"><a href="../Classes/TextStyle.html">TextStyle</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">style</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextStyle.html">TextStyle</a></span></code></pre>
 
                         </div>
                       </div>
@@ -163,9 +174,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Texstyle4TextC10attributedSo18NSAttributedStringCSgvp"></a>
+                    <a name="/s:8Texstyle4TextC10attributedSo18NSAttributedStringCvp"></a>
                     <a name="//apple_ref/swift/Property/attributed" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC10attributedSo18NSAttributedStringCSgvp">attributed</a>
+                    <a class="token" href="#/s:8Texstyle4TextC10attributedSo18NSAttributedStringCvp">attributed</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -173,14 +184,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns attributed string for normal state.</p>
+                        <p>Returns attributed string.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">attributed</span><span class="p">:</span> <span class="kt">NSAttributedString</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">attributed</span><span class="p">:</span> <span class="kt">NSAttributedString</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -200,7 +211,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize the text with passed string and style for normal state.</p>
+                        <p>Initialize the text with passed string and style.</p>
 
                       </div>
                       <div class="declaration">
@@ -230,7 +241,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>substyle</em>
+                                <em>style</em>
                                 </code>
                               </td>
                               <td>
@@ -258,14 +269,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize the text with passed string and style for normal state. Returns nil if there is no value.</p>
+                        <p>Initialize the text with passed string and style. Returns nil if there is no value.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">style</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextStyle.html">TextStyle</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">style</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextStyle.html">TextStyle</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -288,7 +299,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>substyle</em>
+                                <em>style</em>
                                 </code>
                               </td>
                               <td>
@@ -306,9 +317,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Texstyle4TextC5value6stylesACSS_SDySo14UIControlStateVAA0B5StyleCAGSHAAyHCg_Gtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(value:styles:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC5value6stylesACSS_SDySo14UIControlStateVAA0B5StyleCAGSHAAyHCg_Gtcfc">init(value:styles:)</a>
+                    <a name="/s:8Texstyle4TextC6concatyA2CF"></a>
+                    <a name="//apple_ref/swift/Method/concat(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Texstyle4TextC6concatyA2CF">concat(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -316,14 +327,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize the text with passed string and styles for appropriate states.</p>
+                        <p>Returns a new text by concatenating the passed text.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">styles</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Typealiases.html#/s:8Texstyle12ControlStatea">ControlState</a></span> <span class="p">:</span> <span class="kt"><a href="../Classes/TextStyle.html">TextStyle</a></span><span class="p">])</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">concat</span><span class="p">(</span><span class="n">_</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">Text</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Text</span></code></pre>
 
                         </div>
                       </div>
@@ -334,24 +345,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>value</em>
+                                <em>text</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The string for style and substyles.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>styles</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The dictionary with states and text styles.</p>
+                                  <p>The text for concatenation.</p>
                                 </div>
                               </td>
                             </tr>
@@ -364,67 +363,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Texstyle4TextC5value6stylesACSgSSSg_SDySo14UIControlStateVAA0B5StyleCAISHAAyHCg_Gtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(value:styles:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC5value6stylesACSgSSSg_SDySo14UIControlStateVAA0B5StyleCAISHAAyHCg_Gtcfc">init(value:styles:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Initialize the text with passed string and styles for appropriate states. Returns nil if there is no value.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">styles</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Typealiases.html#/s:8Texstyle12ControlStatea">ControlState</a></span> <span class="p">:</span> <span class="kt"><a href="../Classes/TextStyle.html">TextStyle</a></span><span class="p">])</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>value</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The string for style and substyles.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>styles</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The dictionary with states and text styles.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8Texstyle4TextC3add_2at3foryAA0B5StyleC_SnySS5IndexVGSo14UIControlStateVtF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:at:for:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC3add_2at3foryAA0B5StyleC_SnySS5IndexVGSo14UIControlStateVtF">add(_:at:for:)</a>
+                    <a name="/s:8Texstyle4TextC3add_2atyAA0B5StyleC_SnySS5IndexVGtF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Texstyle4TextC3add_2atyAA0B5StyleC_SnySS5IndexVGtF">add(_:at:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -439,7 +380,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">_</span> <span class="nv">substyle</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextStyle.html">TextStyle</a></span><span class="p">,</span> <span class="n">at</span> <span class="nv">range</span><span class="p">:</span> <span class="kt">Range</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">.</span><span class="kt">Index</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:8Texstyle12ControlStatea">ControlState</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">normal</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">_</span> <span class="nv">substyle</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextStyle.html">TextStyle</a></span><span class="p">,</span> <span class="n">at</span> <span class="nv">range</span><span class="p">:</span> <span class="kt">Range</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">.</span><span class="kt">Index</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -471,18 +412,6 @@
                                 </div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>state</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The state for passed substyle. Default is normal.</p>
-                                </div>
-                              </td>
-                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -492,9 +421,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Texstyle4TextC3add_2at3foryAA0B5StyleC_So8_NSRangeVSo14UIControlStateVtF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:at:for:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC3add_2at3foryAA0B5StyleC_So8_NSRangeVSo14UIControlStateVtF">add(_:at:for:)</a>
+                    <a name="/s:8Texstyle4TextC3add_2atyAA0B5StyleC_So8_NSRangeVtF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Texstyle4TextC3add_2atyAA0B5StyleC_So8_NSRangeVtF">add(_:at:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -509,7 +438,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">_</span> <span class="nv">substyle</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextStyle.html">TextStyle</a></span><span class="p">,</span> <span class="n">at</span> <span class="nv">range</span><span class="p">:</span> <span class="kt">NSRange</span><span class="p">,</span> <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:8Texstyle12ControlStatea">ControlState</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">normal</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">_</span> <span class="nv">substyle</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextStyle.html">TextStyle</a></span><span class="p">,</span> <span class="n">at</span> <span class="nv">range</span><span class="p">:</span> <span class="kt">NSRange</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -541,18 +470,6 @@
                                 </div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>state</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The state for passed substyle. Default is normal.</p>
-                                </div>
-                              </td>
-                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -562,9 +479,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Texstyle4TextC3add_3forAEyAA0B5StyleC_SSSo14UIControlStateVtF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:for:for:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC3add_3forAEyAA0B5StyleC_SSSo14UIControlStateVtF">add(_:for:for:)</a>
+                    <a name="/s:8Texstyle4TextC3add_3foryAA0B5StyleC_SStF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Texstyle4TextC3add_3foryAA0B5StyleC_SStF">add(_:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -581,7 +498,7 @@ and applies the substyle to it.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">_</span> <span class="nv">substyle</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextStyle.html">TextStyle</a></span><span class="p">,</span> <span class="k">for</span> <span class="nv">substring</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:8Texstyle12ControlStatea">ControlState</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">normal</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">_</span> <span class="nv">substyle</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextStyle.html">TextStyle</a></span><span class="p">,</span> <span class="k">for</span> <span class="nv">substring</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -613,18 +530,6 @@ and applies the substyle to it.</p>
                                 </div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>state</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The state for passed substyle. Default is normal.</p>
-                                </div>
-                              </td>
-                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -634,59 +539,9 @@ and applies the substyle to it.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Texstyle4TextC10attributed3forSo18NSAttributedStringCSgSo14UIControlStateV_tF"></a>
-                    <a name="//apple_ref/swift/Method/attributed(for:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC10attributed3forSo18NSAttributedStringCSgSo14UIControlStateV_tF">attributed(for:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Applies all attributes from style and substyles.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">attributed</span><span class="p">(</span><span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:8Texstyle12ControlStatea">ControlState</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">normal</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSAttributedString</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>state</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The state for passed substyle. Default is normal.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>If there is no attributes for the state it returns nil. If the attributed string is cached it returns cached string.</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8Texstyle4TextC12boundingRect4with7options7context3forSo6CGRectVSo6CGSizeV_So22NSStringDrawingOptionsVSo0kL7ContextCSgSo14UIControlStateVtF"></a>
-                    <a name="//apple_ref/swift/Method/boundingRect(with:options:context:for:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC12boundingRect4with7options7context3forSo6CGRectVSo6CGSizeV_So22NSStringDrawingOptionsVSo0kL7ContextCSgSo14UIControlStateVtF">boundingRect(with:options:context:for:)</a>
+                    <a name="/s:8Texstyle4TextC12boundingRect4with7options7contextSo6CGRectVSo6CGSizeV_So22NSStringDrawingOptionsVSo0jK7ContextCSgtF"></a>
+                    <a name="//apple_ref/swift/Method/boundingRect(with:options:context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Texstyle4TextC12boundingRect4with7options7contextSo6CGRectVSo6CGSizeV_So22NSStringDrawingOptionsVSo0jK7ContextCSgtF">boundingRect(with:options:context:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -703,8 +558,7 @@ and applies the substyle to it.</p>
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">boundingRect</span><span class="p">(</span><span class="n">with</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span>
                          <span class="nv">options</span><span class="p">:</span> <span class="kt">NSStringDrawingOptions</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="n">usesLineFragmentOrigin</span><span class="p">,</span> <span class="o">.</span><span class="n">usesFontLeading</span><span class="p">],</span>
-                         <span class="nv">context</span><span class="p">:</span> <span class="kt">NSStringDrawingContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-                         <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:8Texstyle12ControlStatea">ControlState</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">normal</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGRect</span></code></pre>
+                         <span class="nv">context</span><span class="p">:</span> <span class="kt">NSStringDrawingContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGRect</span></code></pre>
 
                         </div>
                       </div>
@@ -747,18 +601,6 @@ and applies the substyle to it.</p>
                                   <p>A context object with information about how to adjust the font tracking and scaling information.
 On return, the specified object contains information about the actual values used to render the string.
 This parameter is nil by default.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>state</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The control state for attributes.</p>
                                 </div>
                               </td>
                             </tr>
@@ -853,33 +695,6 @@ This parameter is nil by default.</p>
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8Texstyle4TextC1poiyA2C_ACtFZ"></a>
-                    <a name="//apple_ref/swift/Method/+(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC1poiyA2C_ACtFZ">+(_:_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="o">+</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">Text</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">Text</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Text</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -924,7 +739,7 @@ This parameter is nil by default.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://rosberry.com" target="_blank" rel="external">Rosberry</a>. All rights reserved. (Last updated: 2020-02-25)</p>
+          <p>&copy; 2020 <a class="link" href="https://rosberry.com" target="_blank" rel="external">Rosberry</a>. All rights reserved. (Last updated: 2020-03-16)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
