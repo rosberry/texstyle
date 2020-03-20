@@ -118,16 +118,25 @@ Check [TexstyleExample](xcode://clone?repo=https%3A%2F%2Fgithub.com%2Frosberry%2
 
 ## Installation
 
-#### Carthage
-Create a `Cartfile` that lists the framework and run `carthage update`. Follow the [instructions](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) to add the framework to your project.
+### CocoaPods
 
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Alamofire into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+pod 'Texstyle', '~> 0.0'
 ```
-github "rosberry/Texstyle"
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Alamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "Rosberry/Texstyle" ~> 5.0
 ```
 
-#### Manually
+## Documentation
 
-Drag `Sources` folder from [last release](https://github.com/rosberry/Texstyle/releases) into your project.
+Read the [docs](https://rosberry.github.io/texstyle). Generated with [jazzy](https://github.com/realm/jazzy). Hosted by [GitHub Pages](https://pages.github.com).
 
 ## About
 
