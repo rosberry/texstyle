@@ -5,12 +5,12 @@
 import UIKit
 
 #if swift(>=4.2)
-typealias AttributedStringKey = NSAttributedString.Key
+public typealias AttributedStringKey = NSAttributedString.Key
 #else
 typealias AttributedStringKey = NSAttributedStringKey
 #endif
 
-typealias TextStyleAttributes = [AttributedStringKey: Any]
+public typealias TextStyleAttributes = [AttributedStringKey: Any]
 
 /// Generates attributes according to stored parameters.
 open class TextStyle {
@@ -201,7 +201,7 @@ open class TextStyle {
     private var cachedAttributes: TextStyleAttributes?
 
     /// The attributes according to stored parameters. Returns cached attributes if possible.
-    var attributes: TextStyleAttributes {
+    public var attributes: TextStyleAttributes {
         if let cachedAttributes = cachedAttributes {
             return cachedAttributes
         }
