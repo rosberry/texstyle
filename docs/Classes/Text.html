@@ -8,14 +8,22 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/swift/Class/Text" class="dashAnchor"></a>
     <a title="Text Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Texstyle Docs</a> (68% documented)</p>
+        <p><a href="../index.html">Texstyle 0.5 Docs</a> (68% documented)</p>
         <p class="header-right"><a href="https://github.com/rosberry/texstyle"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -106,6 +114,7 @@
             <h1>Text</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">Text</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/BaseText.html">BaseText</a></span></code></pre>
 <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Text</span><span class="p">:</span> <span class="kt">Equatable</span></code></pre>
 
@@ -203,7 +212,7 @@
                     <code>
                     <a name="/s:8Texstyle4TextC5value5styleACSS_AA0B5StyleCtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(value:style:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC5value5styleACSS_AA0B5StyleCtcfc">init(value:style:)</a>
+                    <a class="token" href="#/s:8Texstyle4TextC5value5styleACSS_AA0B5StyleCtcfc">init(value:<wbr>style:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -261,7 +270,7 @@
                     <code>
                     <a name="/s:8Texstyle4TextC5value5styleACSgSSSg_AA0B5StyleCtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(value:style:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC5value5styleACSgSSSg_AA0B5StyleCtcfc">init(value:style:)</a>
+                    <a class="token" href="#/s:8Texstyle4TextC5value5styleACSgSSSg_AA0B5StyleCtcfc">init(value:<wbr>style:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -319,7 +328,7 @@
                     <code>
                     <a name="/s:8Texstyle4TextC6concatyA2CF"></a>
                     <a name="//apple_ref/swift/Method/concat(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC6concatyA2CF">concat(_:)</a>
+                    <a class="token" href="#/s:8Texstyle4TextC6concatyA2CF">concat(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -365,7 +374,7 @@
                     <code>
                     <a name="/s:8Texstyle4TextC3add_2atyAA0B5StyleC_SnySS5IndexVGtF"></a>
                     <a name="//apple_ref/swift/Method/add(_:at:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC3add_2atyAA0B5StyleC_SnySS5IndexVGtF">add(_:at:)</a>
+                    <a class="token" href="#/s:8Texstyle4TextC3add_2atyAA0B5StyleC_SnySS5IndexVGtF">add(_:<wbr>at:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -423,7 +432,7 @@
                     <code>
                     <a name="/s:8Texstyle4TextC3add_2atyAA0B5StyleC_So8_NSRangeVtF"></a>
                     <a name="//apple_ref/swift/Method/add(_:at:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC3add_2atyAA0B5StyleC_So8_NSRangeVtF">add(_:at:)</a>
+                    <a class="token" href="#/s:8Texstyle4TextC3add_2atyAA0B5StyleC_So8_NSRangeVtF">add(_:<wbr>at:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -481,7 +490,7 @@
                     <code>
                     <a name="/s:8Texstyle4TextC3add_3foryAA0B5StyleC_SStF"></a>
                     <a name="//apple_ref/swift/Method/add(_:for:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC3add_3foryAA0B5StyleC_SStF">add(_:for:)</a>
+                    <a class="token" href="#/s:8Texstyle4TextC3add_3foryAA0B5StyleC_SStF">add(_:<wbr>for:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -541,7 +550,7 @@ and applies the substyle to it.</p>
                     <code>
                     <a name="/s:8Texstyle4TextC12boundingRect4with7options7contextSo6CGRectVSo6CGSizeV_So22NSStringDrawingOptionsVSo0jK7ContextCSgtF"></a>
                     <a name="//apple_ref/swift/Method/boundingRect(with:options:context:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC12boundingRect4with7options7contextSo6CGRectVSo6CGSizeV_So22NSStringDrawingOptionsVSo0jK7ContextCSgtF">boundingRect(with:options:context:)</a>
+                    <a class="token" href="#/s:8Texstyle4TextC12boundingRect4with7options7contextSo6CGRectVSo6CGSizeV_So22NSStringDrawingOptionsVSo0jK7ContextCSgtF">boundingRect(with:<wbr>options:<wbr>context:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -646,7 +655,7 @@ This parameter is nil by default.</p>
                     <code>
                     <a name="/s:8Texstyle4TextC1poiyA2C_SStFZ"></a>
                     <a name="//apple_ref/swift/Method/+(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC1poiyA2C_SStFZ">+(_:_:)</a>
+                    <a class="token" href="#/s:8Texstyle4TextC1poiyA2C_SStFZ">+(_:<wbr>_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -673,7 +682,7 @@ This parameter is nil by default.</p>
                     <code>
                     <a name="/s:8Texstyle4TextC1poiyACSS_ACtFZ"></a>
                     <a name="//apple_ref/swift/Method/+(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Texstyle4TextC1poiyACSS_ACtFZ">+(_:_:)</a>
+                    <a class="token" href="#/s:8Texstyle4TextC1poiyACSS_ACtFZ">+(_:<wbr>_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -713,7 +722,7 @@ This parameter is nil by default.</p>
                     <code>
                     <a name="/s:SQ2eeoiySbx_xtFZ"></a>
                     <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:SQ2eeoiySbx_xtFZ">==(_:_:)</a>
+                    <a class="token" href="#/s:SQ2eeoiySbx_xtFZ">==(_:<wbr>_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -739,8 +748,8 @@ This parameter is nil by default.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://rosberry.com" target="_blank" rel="external">Rosberry</a>. All rights reserved. (Last updated: 2020-03-20)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://rosberry.com" target="_blank" rel="external">Rosberry</a>. All rights reserved. (Last updated: 2020-07-21)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
