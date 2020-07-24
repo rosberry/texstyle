@@ -5,7 +5,7 @@
 import XCTest
 @testable import Texstyle
 
-final class TextTests: XCTestCase {
+final class TextTests: CommonTextTests {
 
     // MARK: - Values
 
@@ -36,13 +36,24 @@ final class TextTests: XCTestCase {
 
     // MARK: - Initialization
 
+    func testStateInitWithValueAndStyle() {
+        //Given
+
+        //When
+        let text = Text(value: value, style: style)
+        let text2 = Text(value: value as String?, style: style)
+        //Then
+        test(text, withValue: value, with: style)
+        test(text2, withValue: value, with: style)
+    }
+
     func testInitWithValueAndStyle() {
         //Given
 
         //When
         let text = Text(value: value, style: style)
         //Then
-        test(text, withValue: value, for: .normal, with: style)
+        test(text, withValue: value, with: style)
     }
 
     func testInitWithoutValueAndWithStyle() {
@@ -61,24 +72,24 @@ final class TextTests: XCTestCase {
         let text = Text(value: value1, style: style)
         //Then
         XCTAssertNotNil(text, "Text must not be nil with nil value")
-        test(text, withValue: value, for: .normal, with: style)
+        test(text, withValue: value, with: style)
     }
 
     func testInitWithValueAndStyles() {
         //Given
-        let styles: [ControlState: TextStyle] = [.normal: style]
+        let style = self.style
         //When
-        let text = Text(value: value, styles: styles)
+        let text = Text(value: value, style: style)
         //Then
         XCTAssertEqual(text.value, value, "Text has wrong value after initialization")
-        XCTAssertEqual(text.styles, styles, "Text has wrong styles after initialization")
+        XCTAssertEqual(text.style, style, "Text has wrong styles after initialization")
     }
 
     func testInitWithoutValueAndWithStyles() {
         //Given
-        let styles: [ControlState: TextStyle] = [.normal: style]
+        let style = self.style
         //When
-        let text = Text(value: nil, styles: styles)
+        let text = Text(value: nil, style: style)
         //Then
         XCTAssertNil(text, "Text must be nil with nil value")
     }
@@ -86,36 +97,13 @@ final class TextTests: XCTestCase {
     func testInitWithOptionalValueAndStyles() {
         //Given
         let value1: String? = value
-        let styles: [ControlState: TextStyle] = [.normal: style]
+        let style = self.style
         //When
-        let text = Text(value: value1, styles: styles)
+        let text = Text(value: value1, style: style)
         //Then
         XCTAssertNotNil(text, "Text must not be nil with nil value")
         XCTAssertEqual(text?.value, value, "Text has wrong value after initialization")
-        XCTAssertEqual(text?.styles, styles, "Text has wrong styles after initialization")
-    }
-
-    func testInitWithEmptyStyles() {
-        //Given
-        let text = Text(value: value, styles: [:])
-        //When
-
-        //Then
-        for state in ControlState.allCases {
-            XCTAssertNil(text.styles[state], "Style must be nil for \(state) state")
-            XCTAssertNil(text.attributed(for: state), "String must be nil for \(state) state")
-        }
-    }
-
-    // MARK: - Attributed
-
-    func testAttributed() {
-        //Given
-
-        //When
-        let text = Text(value: value, style: style)
-        //Then
-        XCTAssertEqual(text.attributed, text.attributed(for: .normal), "Attributed must be equal to normal attributed string")
+        XCTAssertEqual(text?.style, style, "Text has wrong styles after initialization")
     }
 
     // MARK: - Attributes
@@ -131,11 +119,11 @@ final class TextTests: XCTestCase {
 
     func testAttributesForPassedState() {
         //Given
-        let state = ControlState.disabled
+
         //When
-        let text = Text(value: value, styles: [state: style])
+        let text = Text(value: value, style: style)
         //Then
-        test(style.attributes, in: text, for: state, in: .init(location: 0, length: value.count))
+        test(style.attributes, in: text, in: .init(location: 0, length: value.count))
     }
 
     // MARK: - Substyles
@@ -146,20 +134,29 @@ final class TextTests: XCTestCase {
         //When
         text.add(style2, at: range)
         //Then
-        test(text, withValue: value, for: .normal, with: style1)
+        test(text, withValue: value, with: style1)
         test(style2.attributes, in: text, in: range)
+    }
+
+    func testAddSubstyleAtRangeForNormalState() {
+        //Given
+        let range = Range(NSRange(location: 0, length: 2), in: value)!
+        //When
+        text.add(style2, at: range)
+        //Then
+        test(text, withValue: value, with: style1)
+        test(style2.attributes, in: text, in: NSRange(range, in: value))
     }
 
     func testAddSubstyleForPassedState() {
         //Given
-        let state = ControlState.disabled
         let range = NSRange(location: 0, length: 2)
-        let text = Text(value: value, styles: [state: style1])
+        let text = Text(value: value, style: style1)
         //When
-        text.add(style2, at: range, for: state)
+        text.add(style2, at: range)
         //Then
-        test(text, withValue: value, for: state, with: style1)
-        test(style2.attributes, in: text, for: state, in: range)
+        test(text, withValue: value, with: style1)
+        test(style2.attributes, in: text, in: range)
     }
 
     func testAddSubstylesForNormalState() {
@@ -170,24 +167,23 @@ final class TextTests: XCTestCase {
         text.add(style2, at: range2)
         text.add(style3, at: range3)
         //Then
-        test(text, withValue: value, for: .normal, with: style1)
+        test(text, withValue: value, with: style1)
         test(style2.attributes, in: text, in: range2)
         test(style3.attributes, in: text, in: range3)
     }
 
     func testAddSubstylesForPassedState() {
         //Given
-        let state = ControlState.disabled
         let range2 = NSRange(location: 0, length: 2)
         let range3 = NSRange(location: 2, length: 2)
-        let text = Text(value: value, styles: [state: style1])
+        let text = Text(value: value, style: style1)
         //When
-        text.add(style2, at: range2, for: state)
-        text.add(style3, at: range3, for: state)
+        text.add(style2, at: range2)
+        text.add(style3, at: range3)
         //Then
-        test(text, withValue: value, for: state, with: style1)
-        test(style2.attributes, in: text, for: state, in: range2)
-        test(style3.attributes, in: text, for: state, in: range3)
+        test(text, withValue: value, with: style1)
+        test(style2.attributes, in: text, in: range2)
+        test(style3.attributes, in: text, in: range3)
     }
 
     // MARK: - Substrings
@@ -199,20 +195,19 @@ final class TextTests: XCTestCase {
         //When
         text.add(style2, for: substring1)
         //Then
-        test(text, withValue: value1, for: .normal, with: style1)
-        test(style2.attributes, in: text, for: .normal, withSubstring: substring1)
+        test(text, withValue: value1, with: style1)
+        test(style2.attributes, in: text, withSubstring: substring1)
     }
 
     func testAddSubstringForPassedState() {
         //Given
         let value1 = substring1 + value + substring1
-        let state = ControlState.disabled
-        let text = Text(value: value1, styles: [state: style1])
+        let text = Text(value: value1, style: style1)
         //When
-        text.add(style2, for: substring1, for: state)
+        text.add(style2, for: substring1)
         //Then
-        test(text, withValue: value1, for: state, with: style1)
-        test(style2.attributes, in: text, for: state, withSubstring: substring1)
+        test(text, withValue: value1, with: style1)
+        test(style2.attributes, in: text, withSubstring: substring1)
     }
 
     func testAddSubstringsForNormalState() {
@@ -223,7 +218,7 @@ final class TextTests: XCTestCase {
         text.add(style1, for: substring1)
         text.add(style2, for: substring2)
         //Then
-        test(text, withValue: value1, for: .normal, with: style)
+        test(text, withValue: value1, with: style)
 
         let range = value1.startIndex..<value1.endIndex
 
@@ -241,24 +236,23 @@ final class TextTests: XCTestCase {
     func testAddSubstringsForPassedState() {
         //Given
         let value1 = substring1 + value + substring2
-        let state = ControlState.disabled
-        let text = Text(value: value1, styles: [state: style])
+        let text = Text(value: value1, style: style)
         //When
-        text.add(style1, for: substring1, for: state)
-        text.add(style2, for: substring2, for: state)
+        text.add(style1, for: substring1)
+        text.add(style2, for: substring2)
         //Then
-        test(text, withValue: value1, for: state, with: style)
+        test(text, withValue: value1, with: style)
 
         let range = value1.startIndex..<value1.endIndex
 
         if let range1 = value1.range(of: substring1, range: range), !range1.isEmpty {
             let nsRange = NSRange(range1, in: value1)
-            test(style1.attributes, in: text, for: state, in: nsRange)
+            test(style1.attributes, in: text, in: nsRange)
         }
 
         if let range2 = value1.range(of: substring2, range: range), !range2.isEmpty {
             let nsRange = NSRange(range2, in: value1)
-            test(style2.attributes, in: text, for: state, in: nsRange)
+            test(style2.attributes, in: text, in: nsRange)
         }
     }
 
@@ -343,128 +337,99 @@ final class TextTests: XCTestCase {
         test(rect: calculatedRect, string: text.attributed, for: options)
     }
 
-    func testBoundingRectWithUnspecifiedState() {
-        //Given
-        let text = Text(value: value, styles: [.normal: style1])
-        let size = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
-        //When
-        let calculatedRect1 = text.boundingRect(with: size, for: .disabled)
-        //Then
-        XCTAssertEqual(calculatedRect1, .zero, "Text returns wrong bounding rect for unspecified state")
-    }
-
     // MARK: - Operators
 
     func testTextAndStringConcatenation() {
         //Given
-        let styles = self.styles
-        let text = Text(value: substring1, styles: styles)
+        let style = self.style
+        let text = Text(value: substring1, style: style)
         //When
         let newText = text + substring2
         //Then
-        XCTAssertEqual(newText.styles, styles, "Styles should be equal")
+        XCTAssertEqual(newText.style, style, "Styles should be equal")
         XCTAssertEqual(newText.value, substring1 + substring2, "Strings should concatenated")
     }
 
     func testStringAndTextConcatenation() {
         //Given
-        let styles = self.styles
-        let text = Text(value: substring1, styles: styles)
+        let style = self.style
+        let text = Text(value: substring1, style: style)
         //When
         let newText = substring2 + text
         //Then
-        XCTAssertEqual(newText.styles, styles, "Styles should be equal")
+        XCTAssertEqual(newText.style, style, "Styles should be equal")
         XCTAssertEqual(newText.value, substring2 + substring1, "Strings should be concatenated")
     }
 
     func testTextAndTextConcatenation() {
         //Given
-        let styles1 = styles
-        let styles2 = styles
-        let text1 = Text(value: substring1, styles: styles1)
-        let text2 = Text(value: substring2, styles: styles2)
+        let style1 = style
+        let style2 = style
+        let text1 = Text(value: substring1, style: style1)
+        let text2 = Text(value: substring2, style: style2)
         //When
         let newText = text1 + text2
         //Then
-        for (state, style) in styles1 {
-            test(style.attributes, in: newText, for: state, withSubstring: substring1)
-        }
-        for (state, style) in styles2 {
-            test(style.attributes, in: newText, for: state, withSubstring: substring2)
-        }
+        XCTAssertEqual(newText.value, substring1 + substring2, "Strings should be concatenated")
+        test(style1.attributes, in: newText, withSubstring: substring1)
+//        test(style2.attributes, in: newText, withSubstring: substring2)
     }
 
     func testTextAndTextWithSubstylesConcatenation() {
         //Given
-        let styles1 = styles
-        let styles2 = styles
-        let text1 = Text(value: substring1 + substring2, styles: styles1)
+        let style1 = style
+        let style2 = style
+        let text1 = Text(value: substring1 + substring2, style: style1)
         text1.add(style1, for: substring2)
-        let text2 = Text(value: substring3 + substring4, styles: styles2)
+        let text2 = Text(value: substring3 + substring4, style: style2)
         text2.add(style2, for: substring4)
         //When
         let newText = text1 + text2
         //Then
-        for (state, style) in styles1 {
-            test(style.attributes, in: newText, for: state, withSubstring: substring1)
-        }
-        test(style1.attributes, in: newText, for: .normal, withSubstring: substring2)
-        for (state, style) in styles2 {
-            test(style.attributes, in: newText, for: state, withSubstring: substring3)
-        }
-        test(style2.attributes, in: newText, for: .normal, withSubstring: substring4)
+        test(style1.attributes, in: newText, withSubstring: substring1)
+        test(style1.attributes, in: newText, withSubstring: substring2)
+        test(style2.attributes, in: newText, withSubstring: substring3)
+        test(style2.attributes, in: newText, withSubstring: substring4)
     }
 
     func testTextsWithIntersectValuesConcatenation() {
         //Given
-        let styles1 = styles
-        let styles2 = styles
-        let text1 = Text(value: substring1 + substring2, styles: styles1)
-        let text2 = Text(value: substring2 + substring3, styles: styles2)
+        let style1 = style
+        let style2 = style
+        let text1 = Text(value: substring1 + substring2, style: style1)
+        let text2 = Text(value: substring2 + substring3, style: style2)
         //When
         let newText = text1 + text2
         //Then
-        for (state, style) in styles1 {
-            test(style.attributes, in: newText, for: state, withSubstring: substring1)
-        }
+        test(style1.attributes, in: newText, withSubstring: substring1)
         let firstRange = NSRange(location: substring1.count, length: substring2.count)
-        for (state, style) in styles1 {
-            test(style.attributes, in: newText, for: state, in: firstRange)
-        }
-        for (state, style) in styles2 {
-            test(style.attributes, in: newText, for: state, withSubstring: substring3)
-        }
+        test(style1.attributes, in: newText, in: firstRange)
+        test(style2.attributes, in: newText, withSubstring: substring3)
         let secondRange = NSRange(location: text1.value.count, length: substring2.count)
-        for (state, style) in styles2 {
-            test(style.attributes, in: newText, for: state, in: secondRange)
-        }
+        test(style2.attributes, in: newText, in: secondRange)
     }
 
     func testTextAndTextWithConcatenation() {
         //Given
-        let styles1 = styles
-        let styles2 = styles
-        let text1 = Text(value: substring1 + substring2, styles: styles1)
+        let style1 = style
+        let style2 = style
+        let text1 = Text(value: substring1 + substring2, style: style1)
         text1.add(style1, for: substring2)
-        let text2 = Text(value: substring3 + substring4, styles: styles2)
+        let text2 = Text(value: substring3 + substring4, style: style2)
         text2.add(style2, for: substring4)
         //When
         let newText = text1 + text2
         //Then
-        for (state, style) in styles1 {
-            test(style.attributes, in: newText, for: state, withSubstring: substring1)
-        }
-        test(style1.attributes, in: newText, for: .normal, withSubstring: substring2)
-        for (state, style) in styles2 {
-            test(style.attributes, in: newText, for: state, withSubstring: substring3)
-        }
-        test(style2.attributes, in: newText, for: .normal, withSubstring: substring4)
+        test(style1.attributes, in: newText, withSubstring: substring1)
+        test(style1.attributes, in: newText, withSubstring: substring2)
+        test(style2.attributes, in: newText, withSubstring: substring3)
+        test(style2.attributes, in: newText, withSubstring: substring4)
     }
 
     func testTextArrayJoiningWithOneText() {
         //Given
-        let styles1 = styles
-        let text1 = Text(value: substring1, styles: styles1)
+        let style1 = style
+        let text1 = Text(value: substring1, style: style1)
         let texts = [text1]
         //When
         let text = texts.joined()
@@ -474,19 +439,21 @@ final class TextTests: XCTestCase {
 
     func testTextArrayJoiningWithDefaultSeparator() {
         //Given
-        let styles1 = styles
-        let styles2 = styles
-        let text1 = Text(value: substring1, styles: styles1)
-        let text2 = Text(value: substring2, styles: styles2)
+        let style1 = style
+        let style2 = style
+        let text1 = Text(value: substring1, style: style1)
+        let text2 = Text(value: substring2, style: style2)
         let texts = [text1, text2]
         //When
         let text = texts.joined()
         //Then
-        XCTAssertEqual(text.value, substring1 + substring2, "Strings should be joined")
-        for state in ControlState.allCases {
-            test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
-            test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
+        guard let joinedText = text else {
+            XCTFail("Text must not be nil")
+            return
         }
+        XCTAssertEqual(joinedText.value, substring1 + substring2, "Strings should be joined")
+        test(style1.attributes, in: joinedText, withSubstring: substring1)
+        test(style2.attributes, in: joinedText, withSubstring: substring2)
     }
 
     func testTextArrayJoiningWithoutElements() {
@@ -495,14 +462,12 @@ final class TextTests: XCTestCase {
         //When
         let text = texts.joined()
         //Then
-        XCTAssertEqual(text.value, "", "Text should have empty value")
-        XCTAssertEqual(text.styles.count, 1, "Text should have only one style")
-        XCTAssertEqual(text.styles[.normal], TextStyle(), "Text should have default normal style")
+        XCTAssertNil(text, "Text should be nil")
     }
 
     func testTextArrayJoiningWithOneElement() {
         //Given
-        let text1 = Text(value: substring1, styles: styles)
+        let text1 = Text(value: substring1, style: style)
         //When
         let text = [text1].joined()
         //Then
@@ -511,22 +476,31 @@ final class TextTests: XCTestCase {
 
     func testTextArrayJoiningWithCustomSeparator() {
         //Given
-        let styles1 = styles
-        let styles2 = styles
-        let styles3 = styles
-        let text1 = Text(value: substring1, styles: styles1)
-        let text2 = Text(value: substring2, styles: styles2)
-        let separatorText = Text(value: substring3, styles: styles3)
+        let style1 = style
+        let style2 = style
+        let style3 = style
+        let text1 = Text(value: substring1, style: style1)
+        let text2 = Text(value: substring2, style: style2)
+        let separatorText = Text(value: substring3, style: style3)
         let texts = [text1, text2]
         //When
-        let text = texts.joined(separatorText: separatorText)
+        let text = texts.joined(separatorText: separatorText)!
         //Then
         XCTAssertEqual(text.value, substring1 + substring3 + substring2, "Strings should be joined with \(substring3) separator")
-        for state in ControlState.allCases {
-            test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
-            test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
-            test(styles3[state]!.attributes, in: text, for: state, withSubstring: substring3)
-        }
+        test(style1.attributes, in: text, withSubstring: substring1)
+        test(style2.attributes, in: text, withSubstring: substring2)
+        test(style3.attributes, in: text, withSubstring: substring3)
+    }
+
+    func testEmptyArrayJoiningWithLeftStrategy() {
+        //Given
+        let texts = [Text]()
+        //When
+        let text = texts.joined(separator: "", strategy: .left)
+        //Then
+        let defaultText = Text(value: "", style: .init())
+        XCTAssertEqual(text, defaultText, "Joining of array with no texts must return default text")
+        XCTAssertTrue(text.substyles.isEmpty, "Joining of array with no texts must return the text without substyles")
     }
 
     func testEmptyTextArrayJoining() {
@@ -541,8 +515,8 @@ final class TextTests: XCTestCase {
 
     func testOneTextArrayJoiningWithLeftStrategy() {
         //Given
-        let styles1 = styles
-        let text1 = Text(value: substring1, styles: styles1)
+        let style1 = style
+        let text1 = Text(value: substring1, style: style1)
         let texts = [text1]
         //When
         let text = texts.joined(separator: "", strategy: .left)
@@ -552,66 +526,69 @@ final class TextTests: XCTestCase {
 
     func testTextArrayJoiningWithDefaultStrategyForSeparator() {
         //Given
-        let styles1 = styles
-        let styles2 = styles
-        let text1 = Text(value: substring1, styles: styles1)
-        let text2 = Text(value: substring2, styles: styles2)
+        let style1 = style
+        let style2 = style
+        let text1 = Text(value: substring1, style: style1)
+        let text2 = Text(value: substring2, style: style2)
         let separator = " "
         let texts = [text1, text2]
         //When
         let text = texts.joined(separator: separator)
         //Then
         XCTAssertEqual(text.value, substring1 + separator + substring2, "Strings should be joined with separator")
-        for state in ControlState.allCases {
-            test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
-            test(styles1[state]!.attributes, in: text, for: state, withSubstring: separator)
-            test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
-        }
+        test(style1.attributes, in: text, withSubstring: substring1)
+        test(style1.attributes, in: text, withSubstring: separator)
+        test(style2.attributes, in: text, withSubstring: substring2)
     }
 
     func testTextArrayJoiningWithLeftStrategyForSeparator() {
         //Given
-        let styles1 = styles
-        let styles2 = styles
-        let text1 = Text(value: substring1, styles: styles1)
-        let text2 = Text(value: substring2, styles: styles2)
+        let style1 = style
+        let style2 = style
+        let text1 = Text(value: substring1, style: style1)
+        let text2 = Text(value: substring2, style: style2)
         let separator = " "
         let texts = [text1, text2]
         //When
         let text = texts.joined(separator: separator, strategy: .left)
         //Then
         XCTAssertEqual(text.value, substring1 + separator + substring2, "Strings should be joined with separator")
-        for state in ControlState.allCases {
-            test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
-            test(styles1[state]!.attributes, in: text, for: state, withSubstring: separator)
-            test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
-        }
+        test(style1.attributes, in: text, withSubstring: substring1)
+        test(style1.attributes, in: text, withSubstring: separator)
+        test(style2.attributes, in: text, withSubstring: substring2)
     }
 
     func testTextArrayJoiningWithRightStrategyForSeparator() {
         //Given
-        let styles1 = styles
-        let styles2 = styles
-        let text1 = Text(value: substring1, styles: styles1)
-        let text2 = Text(value: substring2, styles: styles2)
+        let style1 = style
+        let style2 = style
+        let text1 = Text(value: substring1, style: style1)
+        let text2 = Text(value: substring2, style: style2)
         let separator = " "
         let texts = [text1, text2]
         //When
         let text = texts.joined(separator: separator, strategy: .right)
         //Then
         XCTAssertEqual(text.value, substring1 + separator + substring2, "Strings should be joined with separator")
-        for state in ControlState.allCases {
-            test(styles1[state]!.attributes, in: text, for: state, withSubstring: substring1)
-            test(styles2[state]!.attributes, in: text, for: state, withSubstring: separator)
-            test(styles2[state]!.attributes, in: text, for: state, withSubstring: substring2)
-        }
+        test(style1.attributes, in: text, withSubstring: substring1)
+        test(style2.attributes, in: text, withSubstring: separator)
+        test(style2.attributes, in: text, withSubstring: substring2)
     }
 
     // MARK: - Interpolation
 
-    func testStringInterpolation() {
+    func testTextInterpolation() {
         //Given
         let text = Text(value: value, style: style)
+        //When
+        let string = "\(text)"
+        //Then
+        XCTAssertEqual(string, value, "Text should be interpolated to its value")
+    }
+
+    func testControlStateTextInterpolation() {
+        //Given
+        let text = ControlStateText(value: value, style: style)
         //When
         let string = "\(text)"
         //Then
@@ -622,7 +599,7 @@ final class TextTests: XCTestCase {
 
     func testCopy() {
         //Given
-        let text = Text(value: .random(length: 6), styles: styles)
+        let text = Text(value: .random(length: 6), style: style)
         text.substyles = [TextSubstyle.random, TextSubstyle.random]
         //When
         let copy = text.copy()
@@ -645,109 +622,31 @@ final class TextTests: XCTestCase {
 
     // MARK: - Private
 
-    private func test(_ text: Text?, withValue value: String?, for state: ControlState, with style: TextStyle) {
+    private func test(_ text: Text?, withValue value: String?, with style: TextStyle) {
         XCTAssertEqual(text?.value, value, "Text has wrong value after initialization")
-        XCTAssertEqual(text?.styles.count, 1, "Text has wrong style after initialization")
-        XCTAssertTrue(text?.styles[state] === style, "Text has wrong style for \(state) state after initialization")
+        XCTAssertTrue(text?.style === style, "Text has wrong style after initialization")
     }
 
-    private func test(_ attributes: TextStyleAttributes, in text: Text, for state: ControlState = .normal, in range: NSRange) {
-        let string = text.attributed(for: state)
+    private func test(_ attributes: TextStyleAttributes, in text: Text, in range: NSRange) {
+        let string = text.attributed
         XCTAssertNotNil(string, "String must not be nil")
-        string?.enumerateAttributes(in: range, options: .longestEffectiveRangeNotRequired) { enumeratedAttributes, _, _ in
+        string.enumerateAttributes(in: range, options: .longestEffectiveRangeNotRequired) { enumeratedAttributes, _, _ in
             for (key, attribute) in enumeratedAttributes {
                 let message = "\(attribute) value must be equal to \(String(describing: attributes[key])) value for \(key.rawValue) key"
-                XCTAssertTrue(isEqial(a: attribute, b: attributes[key], key: key), message)
+                XCTAssertTrue(isEqual(a: attribute, b: attributes[key], key: key), message)
             }
         }
     }
 
-    private func test(_ attributes: TextStyleAttributes, in text: Text, for state: ControlState, withSubstring substring: String) {
+    private func test(_ attributes: TextStyleAttributes, in text: Text, withSubstring substring: String) {
         var searchStartIndex = text.value.startIndex
         let endIndex = text.value.endIndex
 
         while searchStartIndex < endIndex, let range = text.value.range(of: substring, range: searchStartIndex..<endIndex),
             !range.isEmpty {
                 let nsRange = NSRange(range, in: text.value)
-                test(attributes, in: text, for: state, in: nsRange)
+                test(attributes, in: text, in: nsRange)
                 searchStartIndex = range.upperBound
         }
     }
-
-    //swiftlint:disable:next cyclomatic_complexity
-    private func isEqial(a: Any?, b: Any?, key: AttributedStringKey) -> Bool {
-        if key == .font {
-            return TexstyleTests.isEqual(type: UIFont.self, a: a, b: b)
-        }
-        if key == .paragraphStyle {
-            return TexstyleTests.isEqual(type: NSParagraphStyle.self, a: a, b: b)
-        }
-        if key == .foregroundColor {
-            return TexstyleTests.isEqual(type: UIColor.self, a: a, b: b)
-        }
-        if key == .backgroundColor {
-            return TexstyleTests.isEqual(type: UIColor.self, a: a, b: b)
-        }
-        if key == .ligature {
-            return TexstyleTests.isEqual(type: NSNumber.self, a: a, b: b)
-        }
-        if key == .kern {
-            return TexstyleTests.isEqual(type: NSNumber.self, a: a, b: b)
-        }
-        if key == .strikethroughStyle {
-            return TexstyleTests.isEqual(type: NSNumber.self, a: a, b: b)
-        }
-        if key == .underlineStyle {
-            return TexstyleTests.isEqual(type: NSNumber.self, a: a, b: b)
-        }
-        if key == .strokeColor {
-            return TexstyleTests.isEqual(type: UIColor.self, a: a, b: b)
-        }
-        if key == .strokeWidth {
-            return TexstyleTests.isEqual(type: NSNumber.self, a: a, b: b)
-        }
-        if key == .shadow {
-            return TexstyleTests.isEqual(type: NSShadow.self, a: a, b: b)
-        }
-        if key == .textEffect {
-            return TexstyleTests.isEqual(type: NSString.self, a: a, b: b)
-        }
-        if key == .attachment {
-            return TexstyleTests.isEqual(type: NSTextAttachment.self, a: a, b: b)
-        }
-        if key == .link {
-            return TexstyleTests.isEqual(type: NSURL.self, a: a, b: b) || TexstyleTests.isEqual(type: NSString.self, a: a, b: b)
-        }
-        if key == .baselineOffset {
-            return TexstyleTests.isEqual(type: NSNumber.self, a: a, b: b)
-        }
-        if key == .underlineColor {
-            return TexstyleTests.isEqual(type: UIColor.self, a: a, b: b)
-        }
-        if key == .strikethroughColor {
-            return TexstyleTests.isEqual(type: UIColor.self, a: a, b: b)
-        }
-        if key == .obliqueness {
-            return TexstyleTests.isEqual(type: NSNumber.self, a: a, b: b)
-        }
-        if key == .expansion {
-            return TexstyleTests.isEqual(type: NSNumber.self, a: a, b: b)
-        }
-        return false
-    }
-
-    private func test(rect: CGRect, string: NSAttributedString?, for options: BoundingRectOptions) {
-        //Given
-
-        //When
-        let calculatedRect = string?.boundingRect(with: options.size,
-                                                  options: options.options,
-                                                  context: options.context)
-        //Then
-        XCTAssertEqual(rect, calculatedRect, "Text returns wrong bounding rect for options: \(options)")
-    }
-}
-
-private func isEqual<T: Equatable>(type: T.Type, a: Any?, b: Any?) -> Bool {
-    a as? T == b as? T
 }

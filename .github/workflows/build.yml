@@ -1,6 +1,6 @@
 on:
   push:
-    branches:    
+    branches:
       - master
 name: Build
 jobs:
@@ -13,9 +13,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      - name: Build
+      - name: Build and Text
         run: |
           cd Texstyle
-          xcodebuild clean build -project Texstyle.xcodeproj -scheme Texstyle -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-        env: 
+          xcodebuild clean build test -project Texstyle.xcodeproj -scheme Texstyle -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+        env:
          destination: ${{ matrix.destination }}
+      - name: Update Code Coverage
+        run: |
+          bash <(curl -s https://codecov.io/bash) -J 'Texstyle'
+      - name: Update docs
+        run: |
+          gem install jazzy
+          jazzy
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Update docs" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

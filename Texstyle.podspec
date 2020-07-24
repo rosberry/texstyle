@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "Texstyle"
-  spec.version      = "0.4"
+  spec.version      = "0.5"
   spec.summary      = "Format iOS attributed strings easily"
 
   spec.homepage     = "https://github.com/rosberry/texstyle"

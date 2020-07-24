@@ -1,0 +1,264 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/Array+Text.swift",
+      "line": 10,
+      "symbol": "SeparatorStrategy.left",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/Array+Text.swift",
+      "line": 11,
+      "symbol": "SeparatorStrategy.right",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/BaseText.swift",
+      "line": 5,
+      "symbol": "BaseText",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/BaseText.swift",
+      "line": 5,
+      "symbol": "BaseText",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/BaseText.swift",
+      "line": 7,
+      "symbol": "BaseText.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/BaseText.swift",
+      "line": 9,
+      "symbol": "BaseText.concat(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ControlState.swift",
+      "line": 8,
+      "symbol": "ControlState",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ControlState.swift",
+      "line": 15,
+      "symbol": "ControlState",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ControlStateText.swift",
+      "line": 10,
+      "symbol": "ControlStateText.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ControlStateText.swift",
+      "line": 11,
+      "symbol": "ControlStateText.styles",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ControlStateText.swift",
+      "line": 188,
+      "symbol": "ControlStateText.copy()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/LineAttributes.swift",
+      "line": 7,
+      "symbol": "LineAttributes",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/LineAttributes.swift",
+      "line": 30,
+      "symbol": "LineAttributes.copy()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/LineAttributes.swift",
+      "line": 40,
+      "symbol": "LineAttributes",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 7,
+      "symbol": "ShadowStyle",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 9,
+      "symbol": "ShadowStyle.offset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 10,
+      "symbol": "ShadowStyle.radius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 11,
+      "symbol": "ShadowStyle.color",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 13,
+      "symbol": "ShadowStyle.shadow",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 21,
+      "symbol": "ShadowStyle.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 23,
+      "symbol": "ShadowStyle.copy()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/ShadowStyle.swift",
+      "line": 34,
+      "symbol": "ShadowStyle",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/String+Text.swift",
+      "line": 7,
+      "symbol": "String.text(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/String+Text.swift",
+      "line": 11,
+      "symbol": "String.text(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/StringInterpolation+Text.swift",
+      "line": 7,
+      "symbol": "String.StringInterpolation.appendInterpolation(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/StringInterpolation+Text.swift",
+      "line": 11,
+      "symbol": "String.StringInterpolation.appendInterpolation(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/Text+Operators.swift",
+      "line": 7,
+      "symbol": "BaseText.+(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/Text+Operators.swift",
+      "line": 14,
+      "symbol": "Text.+(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/Text+Operators.swift",
+      "line": 18,
+      "symbol": "Text.+(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/Text+Operators.swift",
+      "line": 25,
+      "symbol": "ControlStateText.+(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/Text+Operators.swift",
+      "line": 29,
+      "symbol": "ControlStateText.+(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/Text.swift",
+      "line": 10,
+      "symbol": "Text.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/Text.swift",
+      "line": 11,
+      "symbol": "Text.style",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/Text.swift",
+      "line": 133,
+      "symbol": "Text.copy()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/TextStyle.swift",
+      "line": 118,
+      "symbol": "TextStyle.underlineLine",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/TextStyle.swift",
+      "line": 282,
+      "symbol": "TextStyle.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/texstyle/texstyle/Texstyle/Texstyle/TextStyle.swift",
+      "line": 285,
+      "symbol": "TextStyle.copy()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/runners/2.165.2/work/texstyle/texstyle"
+}

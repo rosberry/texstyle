@@ -1,0 +1,4 @@
+author: Rosberry
+author_url: https://rosberry.com
+github_url: https://github.com/rosberry/texstyle
+xcodebuild_arguments: [-workspace, 'Texstyle.xcworkspace', -scheme, 'Texstyle']
