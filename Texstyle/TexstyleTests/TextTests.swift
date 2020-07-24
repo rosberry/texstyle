@@ -503,6 +503,16 @@ final class TextTests: CommonTextTests {
         XCTAssertTrue(text.substyles.isEmpty, "Joining of array with no texts must return the text without substyles")
     }
 
+    func testEmptyTextArrayJoining() {
+        //Given
+        let texts = [Text]()
+        //When
+        let text = texts.joined(separator: "") //swiftlint:disable:this joined_default_parameter
+        //Then
+        let expectedText = Text(value: "", style: .init())
+        XCTAssertTrue(text == expectedText, "Joining of array without texts must return an empty text")
+    }
+
     func testOneTextArrayJoiningWithLeftStrategy() {
         //Given
         let style1 = style
