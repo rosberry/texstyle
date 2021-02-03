@@ -122,6 +122,27 @@ TextStyle and Text classes have internal cache to prevent extra calculation. Tex
 
 ## Installation
 
+### Depo
+
+[Depo](https://github.com/rosberry/depo) is a universal dependency manager that combines Carthage, SPM and CocoaPods and provides common user interface to all of them.
+
+To install `Texstyle` via Carthage using Depo you need to add this to your `Depofile`:
+```yaml
+carts:
+  - kind: github
+    identifier: rosberry/Texstyle
+```
+
+<details>
+  <summary>To install Texstyle via CocoaPods</summary>
+  Add this to your Depofile:
+
+  ```yaml
+  pods:
+    - name: Texstyle
+  ```
+</details>
+
 ### CocoaPods
 
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Alamofire into your Xcode project using CocoaPods, specify it in your `Podfile`:
