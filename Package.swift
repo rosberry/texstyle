@@ -12,6 +12,6 @@ let package = Package(
             targets: ["Texstyle"]),
     ],
     targets: [
-        .target(name: "Texstyle")
+        .target(name: "Texstyle", path: "Texstyle")
     ]
 )
