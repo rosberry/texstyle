@@ -7,6 +7,10 @@ import XCTest
 
 final class TextStyleTests: XCTestCase {
 
+    static func isEqual<T: Equatable>(type: T.Type, a: Any?, b: Any?) -> Bool {
+        a as? T == b as? T
+    }
+
     func testEquality() {
         //Given
         let style = TextStyle.random
