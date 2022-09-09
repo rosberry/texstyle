@@ -3,6 +3,7 @@
 //
 
 @testable import Texstyle
+import UIKit
 
 extension TextStyle {
 
