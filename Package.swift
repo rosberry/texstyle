@@ -12,6 +12,9 @@ let package = Package(
             targets: ["Texstyle"]),
     ],
     targets: [
-        .target(name: "Texstyle", path: "Texstyle")
+        .target(name: "Texstyle", path: "Texstyle"),
+        .testTarget(
+            name: "TexstyleTest",
+            dependencies: ["Texstyle"]),
     ]
 )
