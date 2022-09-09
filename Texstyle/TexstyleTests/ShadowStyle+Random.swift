@@ -3,6 +3,7 @@
 //
 
 @testable import Texstyle
+import CoreGraphics
 
 extension ShadowStyle {
 

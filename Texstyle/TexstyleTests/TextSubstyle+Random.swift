@@ -3,6 +3,7 @@
 //
 
 @testable import Texstyle
+import Foundation
 
 extension TextSubstyle {
 
